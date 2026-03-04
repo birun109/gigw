@@ -1,0 +1,187 @@
+<!-- =========================================================
+SUCCESS DEMO – GIGW 3.0 Clause 5.1.23
+Category: Information & Services (IS)
+Consistent UI Template Across Web Initiatives
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Transport | Unified Digital Portal</title>
+
+<style>
+
+/* ================= COMMON TEMPLATE STYLES ================= */
+
+:root{
+    --primary:#0b3d91;
+    --secondary:#123a74;
+    --accent:#ffc107;
+    --light:#f4f7fb;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:var(--light);
+    color:#222;
+}
+
+header{
+    background:white;
+    color:blue;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header img{height:55px;}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+nav{
+    background:var(--secondary);
+    padding:12px 40px;
+}
+
+nav a{
+    color:white;
+    margin-right:20px;
+    text-decoration:none;
+}
+
+.hero{
+    background:white;
+    padding:40px;
+}
+
+.container{
+    padding:40px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.06);
+}
+
+.badge{
+    background:var(--accent);
+    padding:6px 12px;
+    border-radius:4px;
+    font-weight:bold;
+}
+
+.status-success{
+    background:#e9f7ef;
+    border-left:6px solid #28a745;
+    padding:15px;
+    margin-top:30px;
+}
+
+footer{
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    header, nav, .container, .hero{
+        padding:20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="brand">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="State Emblem of India">
+<div>
+<h1>Ministry of Transport</h1>
+<p>Government of India</p>
+</div>
+</div>
+<div class="badge">Unified Visual Identity</div>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<main>
+
+<section class="hero">
+<h2>National Transport Services Portal</h2>
+<p>
+All websites and applications under the Ministry follow the same
+information architecture, navigation scheme and visual branding.
+</p>
+</section>
+
+<section class="container">
+
+<div class="card">
+<h3>Consistent Information Architecture</h3>
+<p>
+Common header, navigation menu, footer, typography and branding
+are implemented across all ministry platforms.
+</p>
+</div>
+
+<div class="card">
+<h3>Reusable UI Components</h3>
+<ul>
+<li>Common header & logo placement</li>
+<li>Standard navigation terminology</li>
+<li>Consistent color palette</li>
+<li>Uniform footer structure</li>
+</ul>
+</div>
+
+<div class="status-success">
+✓ Unified branding & visual identity.<br>
+✓ Consistent navigation structure.<br>
+✓ Reusable templates for all apps.<br>
+✓ Reduced learning curve for users.<br>
+✓ Compliant with GIGW 3.0 Clause 5.1.23 (IS).
+</div>
+
+<section style="margin-top:30px;">
+<h3>Evaluator Verification Checklist</h3>
+<ul>
+<li>✓ Same header & logo across platforms</li>
+<li>✓ Consistent terminology</li>
+<li>✓ Uniform color scheme</li>
+<li>✓ Shared navigation structure</li>
+</ul>
+</section>
+
+</section>
+
+</main>
+
+<footer>
+© 2025 Ministry of Transport | Government of India<br>
+GIGW 3.0 Compliant – Clause 5.1.23 – Information & Services (IS)
+</footer>
+
+</body>
+</html>

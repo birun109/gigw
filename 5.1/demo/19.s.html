@@ -1,0 +1,166 @@
+<!-- =========================================================
+SUCCESS DEMO – GIGW 3.0 Clause 5.1.19
+Category: Information & Services (IS)
+Accessible Data Table with Proper Markup
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Rural Development | Scheme Statistics</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+header{
+    background:#fbfbfc;
+    color:rgb(19, 6, 53);
+    padding:15px 40px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+header img{height:55px;}
+nav{
+    background:#123a74;
+    padding:12px 40px;
+}
+nav a{
+    color:white;
+    margin-right:20px;
+    text-decoration:none;
+}
+.hero{
+    background:white;
+    padding:40px;
+}
+.container{
+    padding:40px;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+th, td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:left;
+}
+th{
+    background:#e9f1fb;
+}
+caption{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.status-success{
+    background:#e9f7ef;
+    border-left:6px solid #28a745;
+    padding:15px;
+    margin-top:30px;
+}
+footer{
+    background:#0b3d91;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="State Emblem of India">
+<div>
+<h1>Ministry of Rural Development</h1>
+<p>Government of India</p>
+</div>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Schemes</a>
+<a href="#">Contact</a>
+</nav>
+
+<main>
+
+<section class="hero">
+<h2>Rural Employment Scheme – State Wise Statistics</h2>
+<p>
+The following table presents state-wise beneficiary data.
+Proper table markup ensures accessibility for assistive technologies.
+</p>
+</section>
+
+<section class="container">
+
+<!-- ✓ Proper table markup implemented -->
+<table>
+<caption>Beneficiary Statistics (2024-2025)</caption>
+
+<thead>
+<tr>
+<th scope="col">State</th>
+<th scope="col">Registered Beneficiaries</th>
+<th scope="col">Funds Allocated (₹ Crore)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<th scope="row">Uttar Pradesh</th>
+<td>12,50,000</td>
+<td>3,200</td>
+</tr>
+<tr>
+<th scope="row">Madhya Pradesh</th>
+<td>9,80,000</td>
+<td>2,750</td>
+</tr>
+<tr>
+<th scope="row">Rajasthan</th>
+<td>8,40,000</td>
+<td>2,100</td>
+</tr>
+</tbody>
+
+</table>
+
+<div class="status-success">
+✓ Table used only for tabular data (not layout).<br>
+✓ &lt;thead&gt;, &lt;tbody&gt;, &lt;caption&gt; used correctly.<br>
+✓ Proper &lt;th&gt; with scope attributes provided.<br>
+✓ Screen reader friendly structure.<br>
+✓ Compliant with GIGW 3.0 Clause 5.1.19 (IS).
+</div>
+
+<section style="margin-top:30px;">
+<h3>Evaluator Verification Checklist</h3>
+<ul>
+<li>✓ Table has caption</li>
+<li>✓ Column and row headers defined</li>
+<li>✓ Scope attributes used correctly</li>
+<li>✓ Table not used for layout</li>
+</ul>
+</section>
+
+</section>
+
+</main>
+
+<footer>
+GIGW 3.0 Compliant – Clause 5.1.19 – Information & Services (IS)
+</footer>
+
+</body>
+</html>

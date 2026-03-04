@@ -1,0 +1,109 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.12
+Category: Information & Services (IS)
+Missing prominent link and incorrect link behavior.
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Civil Services</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+header{
+    background:#7a0000;
+    color:white;
+    padding:15px 50px;
+}
+nav{
+    background:#990000;
+    padding:12px 50px;
+}
+nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+.container{
+    padding:50px;
+}
+.card{
+    background:white;
+    padding:25px;
+    border-radius:6px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.06);
+}
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    margin-top:20px;
+    border-left:4px solid red;
+}
+footer{
+    background:#7a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h2>Ministry of Civil Services</h2>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main class="container">
+
+<div class="card">
+    <h2>Welcome</h2>
+    <p>
+        For more information, visit 
+        <a href="https://www.india.gov.in">india.gov.in</a>.
+    </p>
+    <!-- ❌ Not prominent -->
+    <!-- ❌ Does not open in new window -->
+</div>
+
+<div class="fail-box">
+    National Portal link is not prominently displayed.<br>
+    Link does not open in new window.<br>
+    Missing secure linking attributes.<br>
+    Violates Clause 5.1.12 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</main>
+
+<footer>
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

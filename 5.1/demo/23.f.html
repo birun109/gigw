@@ -1,0 +1,109 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.23
+Category: Information & Services (IS)
+Inconsistent UI & Branding Across Web Initiatives
+========================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transport Services Portal</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Comic Sans MS; /* ❌ Inconsistent typography */
+}
+
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+
+header{
+    background:#ff5722; /* ❌ Different color scheme */
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+nav{
+    background:#4caf50; /* ❌ Different navigation style */
+    padding:20px;
+}
+
+nav a{
+    color:black;
+    margin-right:20px;
+    text-decoration:none;
+}
+
+.container{
+    padding:40px;
+}
+
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    border-left:4px solid red;
+    margin-top:20px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+<h1>Transport Portal</h1>
+<!-- ❌ Missing government emblem -->
+</header>
+
+<nav>
+<a href="#">Dashboard</a> <!-- ❌ Inconsistent terminology -->
+<a href="#">Info</a>
+<a href="#">Apply</a>
+</nav>
+
+<div class="container">
+
+<h2>Welcome</h2>
+
+<p>
+This portal uses a completely different layout,
+color scheme and terminology compared to other
+websites of the Ministry.
+</p>
+
+<div class="fail-box">
+No consistent branding across platforms.<br>
+Different color scheme & typography.<br>
+Navigation terminology inconsistent.<br>
+Missing emblem and standard footer.<br>
+Violates Clause 5.1.23 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</div>
+
+<footer>
+Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

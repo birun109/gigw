@@ -1,0 +1,101 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.21
+Category: Information & Services (IS)
+Unauthorized Domain Usage
+========================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ministry of Health Portal | mohfw-india.com</title> <!-- ❌ Unauthorized domain -->
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+}
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+header{
+    background:#7a0000;
+    color:white;
+    padding:20px;
+}
+nav{
+    background:#990000;
+    padding:15px;
+}
+nav a{
+    color:white;
+    margin-right:20px;
+    text-decoration:none;
+}
+.container{
+    padding:40px;
+}
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    border-left:4px solid red;
+    margin-top:20px;
+}
+footer{
+    background:#7a0000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+<h1>Ministry of Health & Family Welfare</h1>
+<p>Official Portal</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="container">
+
+<h2>Welcome to Our Portal</h2>
+
+<p>
+This website is hosted under the domain <strong>mohfw-india.com</strong>.
+</p>
+
+<!-- ❌ Violates domain requirement -->
+
+<div class="fail-box">
+Website is not hosted under gov.in or nic.in domain.<br>
+Unauthorized commercial domain used (.com).<br>
+Violates Clause 5.1.21 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</div>
+
+<footer>
+© 2025 Ministry Portal | mohfw-india.com<br>
+Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

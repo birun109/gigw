@@ -1,0 +1,120 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.8
+Category: Content Quality (CQ)
+Expired content still displayed publicly.
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Infrastructure Development | Announcements</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#ffffff;
+}
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+header{
+    background:#7a0000;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+}
+nav{
+    background:#990000;
+    padding:12px 50px;
+}
+nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+.container{
+    padding:50px;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:6px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.06);
+}
+.fail-panel{
+    background:#ffebee;
+    padding:15px;
+    margin-top:20px;
+    border-left:4px solid red;
+}
+footer{
+    background:#7a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h2>Ministry of Infrastructure Development</h2>
+    <div>
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Tenders</a>
+    <a href="#">Recruitment</a>
+    <a href="#">Press Releases</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main class="container">
+
+<h2>Announcements</h2>
+
+<div class="card">
+    <strong>National Highway Tender – Phase IV</strong><br>
+    Expiry Date: 2026-06-30
+</div>
+
+<div class="card">
+    <strong>Junior Engineer Recruitment 2024</strong><br>
+    Expiry Date: 2024-02-01
+    <!-- ❌ Expired but still publicly visible -->
+</div>
+
+<div class="fail-panel">
+    Expired notices are still displayed publicly.<br>
+    No archival mechanism implemented.<br>
+    Violates Clause 5.1.8 (Content Quality).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</main>
+
+<footer>
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

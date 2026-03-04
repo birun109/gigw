@@ -1,0 +1,124 @@
+<!-- =========================================================
+GIGW 3.0 Clause 5.1.7 – FAILURE DEMO (With Visual Indicators)
+Category: Information & Services (IS)
+Intentionally non-compliant.
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Public Administration – Notices</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#fff;
+}
+.warning{
+    background:#ffcccc;
+    color:#990000;
+    text-align:center;
+    padding:12px;
+    font-weight:bold;
+}
+header{
+    background:#7a0000;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+}
+nav{
+    background:#990000;
+    padding:12px 40px;
+}
+nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+.notice-card{
+    background:#fff5f5;
+    margin:30px 40px;
+    padding:20px;
+    border-left:6px solid red;
+    border-radius:6px;
+}
+.fail-panel{
+    background:#ffe6e6;
+    margin:40px;
+    padding:20px;
+    border-radius:6px;
+}
+footer{
+    background:#7a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+    ❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h2>Ministry of Public Administration</h2>
+    <div>
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+
+<section class="notice-card">
+    <h3>📌 Recruitment Notice</h3>
+    <h3><span class="icon">📌</span>National Digital Services Recruitment </h3>
+    <span class="badge valid">📅</span>
+    <div class="meta">
+        <strong>Purpose/Procedure:</strong><br>
+        Recruitment for IT Officers. Apply online via official recruitment portal.
+        Upload required documents and complete digital verification.
+    </div>
+    <!-- ❌ No language -->
+    <!-- ❌ No validity -->
+    <!-- ❌ No purpose -->
+</section>
+
+<section class="notice-card">
+    <h3>📌 Scheme 2026</h3>
+    <!-- ❌ Missing required metadata -->
+</section>
+
+<section class="fail-panel">
+    ❌ Complete title missing<br>
+    ❌ Language not declared<br>
+    ❌ Purpose/procedure absent<br>
+    ❌ Validity not specified<br>
+    ❌ Violates Clause 5.1.7 (IS)
+</section>
+
+<p style="margin:40px;"><strong>For training and demonstration purposes only.</strong></p>
+
+</main>
+
+<footer>
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

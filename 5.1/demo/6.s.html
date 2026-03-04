@@ -1,0 +1,175 @@
+<!-- =========================================================
+GIGW 3.0 Clause 5.1.6 – SUCCESS DEMO
+Category: Information & Services (IS)
+Fully compliant with Developer Action requirements.
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Citizen Services – Downloads</title>
+
+<style>
+body {
+    margin:0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+header {
+    background:#fdfdfd;
+    color:rgb(4, 2, 53);
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo {
+    display:flex;
+    align-items:center;
+}
+.logo img {
+    height:55px;
+    margin-right:15px;
+}
+nav {
+    background:#123a74;
+    padding:12px 40px;
+}
+nav a {
+    color:white;
+    text-decoration:none;
+    margin-right:25px;
+    font-weight:500;
+}
+.search-box input {
+    padding:6px;
+}
+.search-box button {
+    padding:6px;
+    background:#ffc107;
+    border:none;
+    cursor:pointer;
+}
+.hero {
+    background:white;
+    padding:40px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+.download-card {
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:6px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.05);
+}
+.status-success {
+    background:#e9f7ef;
+    border-left:6px solid #28a745;
+    padding:15px;
+    border-radius:4px;
+}
+footer {
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+small { color:#555; }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem">
+        <div>
+            <h2 style="margin:0;">Ministry of Citizen Services</h2>
+            <small>Government of India</small>
+        </div>
+    </div>
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search documents..." aria-label="Search">
+        <button onclick="searchDemo()">Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+    <h1>Public Download Centre</h1>
+    <p>Access official forms, guidelines and policy documents with complete file details for informed download decisions.</p>
+</section>
+
+<main style="padding:40px;">
+
+    <!-- DOWNLOAD ITEM 1 -->
+    <section class="download-card">
+        <h3>Citizen Service Application Form 2026</h3>
+        <p><strong>File Format:</strong> PDF</p>
+        <p><strong>File Size:</strong> 450 KB</p>
+        <p><strong>Usage Instructions:</strong> Download the file. Open using any PDF reader software such as Adobe Reader. Print and fill manually or fill digitally before submission.</p>
+        <p><strong>Accessibility Note:</strong> Screen-reader compatible PDF.</p>
+        <a href="#" download>Download File</a>
+    </section>
+
+    <!-- DOWNLOAD ITEM 2 -->
+    <section class="download-card">
+        <h3>Rural Development Scheme Guidelines 2026</h3>
+        <p><strong>File Format:</strong> DOCX</p>
+        <p><strong>File Size:</strong> 820 KB</p>
+        <p><strong>Usage Instructions:</strong> Open using MS Word or compatible software such as LibreOffice. Ensure macros are disabled for security.</p>
+        <p><strong>Security Check:</strong> File scanned and verified before upload.</p>
+        <a href="#" download>Download File</a>
+    </section>
+
+    <section class="status-success">
+        ✓ All downloadable materials provide self-explanatory title, file format, file size and usage instructions.<br>
+        ✓ Supports accessibility and informed decision making.<br>
+        ✓ Fully compliant with GIGW 3.0 Clause 5.1.6 (IS).
+    </section>
+
+    <section style="margin-top:30px;">
+        <h3>Compliance Summary</h3>
+        <ul>
+            <li>✓ Self-explanatory document titles</li>
+            <li>✓ File format clearly mentioned</li>
+            <li>✓ File size displayed</li>
+            <li>✓ Download & usage instructions provided</li>
+            <li>✓ Virus/malware verification mentioned</li>
+        </ul>
+
+        <h3>Evaluator Verification Checklist</h3>
+        <ul>
+            <li>✓ Check each downloadable file for title clarity</li>
+            <li>✓ Verify format and size visibility</li>
+            <li>✓ Confirm usage instructions exist</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    GIGW 3.0 Compliant – Clause 5.1.6 – Information & Services (IS)
+</footer>
+
+<script>
+function searchDemo(){
+    let q=document.getElementById("search").value.trim();
+    if(q.length>0){
+        alert("Searching for: "+q.replace(/</g,"&lt;"));
+    }
+}
+</script>
+
+</body>
+</html>

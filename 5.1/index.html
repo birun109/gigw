@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Content Quality Audit Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* --- BASE STYLES --- */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background: #0b5d4c;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* --- DASHBOARD SUMMARY CARDS --- */
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card-stat {
+            flex: 1;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .green {
+            color: #2e7d32;
+        }
+
+        .red {
+            color: #c62828;
+        }
+
+        /* --- CHART AREA --- */
+        .wcag-dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .wcag-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 280px;
+        }
+
+        /* --- CLAUSE GRID --- */
+        .section-title {
+            margin-top: 40px;
+            font-weight: bold;
+            color: #0b5d4c;
+            font-size: 1.2em;
+        }
+
+        .clause-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .clause {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #c62828;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .clause:hover {
+            transform: scale(1.02);
+        }
+
+        .compliant {
+            border-left-color: #2e7d32 !important;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* --- MODAL STYLES --- */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            width: 800px;
+            max-width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 25px;
+            border-radius: 10px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            color: #c62828;
+            line-height: 1;
+        }
+
+        /* --- DETAILED CLAUSE CONTENT (Inside Modal) --- */
+        .section-box {
+            background: #e9eef5;
+            padding: 20px;
+            border-left: 6px solid #1f3c88;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .section-box p {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .section-box ul {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card-detail {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .success-card {
+            border-top: 6px solid #2e7d32;
+        }
+
+        .failure-card {
+            border-top: 6px solid #c62828;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+
+        .success-card .badge {
+            background: #2e7d32;
+        }
+
+        .failure-card .badge {
+            background: #c62828;
+        }
+
+        .logo-box {
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed #ccc;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .success-card img {
+            width: 120px;
+            height: auto;
+        }
+
+        .failure-card img {
+            width: 200px;
+            height: 40px;
+            filter: grayscale(80%);
+        }
+
+        .card-detail ul {
+            padding-left: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .card-detail h3 {
+            margin-top: 0;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        code {
+            background: #222;
+            color: #00ff9d;
+            padding: 10px;
+            display: block;
+            border-radius: 6px;
+            font-size: 13px;
+            overflow-x: auto;
+            margin-top: 15px;
+            white-space: pre-wrap;
+        }
+
+        /* --- ADDED SPECIFICALLY FOR NEW CLAUSE 5.1.2 --- */
+        .card {
+            flex: 1;
+            min-width: 320px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .success {
+            border-top: 6px solid #28a745;
+        }
+
+        .failure {
+            border-top: 6px solid #dc3545;
+        }
+
+        .success .badge {
+            background: #28a745;
+        }
+
+        .failure .badge {
+            background: #dc3545;
+        }
+
+        .preview-box {
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .preview-box header,
+        .preview-box footer {
+            padding: 10px;
+            background: #1f3c88;
+            color: white;
+            font-size: 14px;
+        }
+
+        .preview-box .content {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        GIGW 3.0 Content Quality Audit Dashboard
+    </div>
+    <p>
+        <a href="../index.html">GIGW Overview</a>
+    </p>
+    <div class="summary">
+        <div class="card-stat">Total Clauses<h2>25</h2>
+        </div>
+        <div class="card-stat">Compliant<h2 class="green" id="passed">0</h2>
+        </div>
+        <div class="card-stat">Pending<h2 class="red" id="pending">25</h2>
+        </div>
+        <div class="card-stat">Conformity %<h2 id="percent">0%</h2>
+        </div>
+    </div>
+    <div style="margin-top:20px; text-align:right;">
+        <button onclick="exportPDF()"
+            style="padding:10px 15px; background:#0b5d4c; color:white; border:none; border-radius:6px; cursor:pointer;">
+            Export Full Audit Report (PDF)
+        </button>
+    </div>
+    <div class="wcag-dashboard">
+        <div class="wcag-box">
+            <h3>Content Quality Compliance Dimensions</h3>
+            <div class="chart-wrapper">
+                <canvas id="qualityChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">
+        Section 5.1: Content Quality Clauses
+    </div>
+
+    <div class="clause-container" id="clauses"></div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">✖</span>
+            <h2 id="modalTitle" style="color:#1f3c88; margin-top:0;"></h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        const clauseList = [
+            "Association to Government",
+            "Ownership Information",
+            "Source Mention",
+            "Copyright Permissions",
+            "Last Updated Date",
+            "Downloadable File Info",
+            "Required Scheme Details",
+            "Archival of Expired Content",
+            "About Us Page",
+            "Contact Us Page",
+            "Feedback Mechanism",
+            "Link to National Portal",
+            "Multi-Browser Testing",
+            "Help Section",
+            "Responsive Design",
+            "Readable Without CSS",
+            "Proper Metadata",
+            "Minimum Homepage Content",
+            "Proper Table Markup",
+            "Printable on A4",
+            "Use of gov.in / nic.in Domain",
+            "API Integration",
+            "Consistent UI",
+            "Social Media Integration",
+            "Error-Free Language"
+        ];
+
+        // Complete combined data for all 25 Clauses
+        const detailedContent = {
+            0: `
+    <div class="section-box">
+        <p><strong>Statement:</strong> Association to government is demonstrated by the use of emblem/logo in proper ratio and colour, prominently displayed on the homepage of the website or homescreen of the app.</p>
+        <p><strong>Benefit:</strong> Reassures visitors that the government website/app is authentic and trustworthy. Moreover, the government organisation’s brand identity is reinforced.</p>
+        <p><strong>Government organisation action:</strong> Government organisations must select proper visual identity elements like emblems or logos to highlight government ownership of the website/app. The State emblem of India must be displayed on the homepages of the websites and homescreens of the apps of Central Government Ministries/Departments.</p>
+        <p><strong>Developer Action:</strong> Visual Identity elements (logos and emblem) must prominently stand out on the page, in a proper ratio and colour. Developers must ensure that all logo images are accompanied by proper alternate text so that the screen reader users may be informed of the same.</p>
+        <p><strong>Evaluator Action:</strong> The evaluator shall manually test the website/app for verifying conformity with this.</p>
+    </div>
+    <div class="cards">
+        <div class="card-detail success-card"><span class="badge">SUCCESS EXAMPLE</span> 
+                <a href ="demo/1.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+            <div class="logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="State Emblem of India"></div>
+            <h3>Technical Check:</h3><ul><li>Ratio: Natural 1:1 scaling</li><li>Color: Official colour used</li><li>A11y: Proper descriptive alt text provided</li></ul>
+            <code>&lt;img src="emblem.svg" alt="State Emblem of India" class="header-logo"&gt;</code>
+        </div>
+        <div class="card-detail failure-card"><span class="badge">FAILURE EXAMPLE</span>
+            <a href ="demo/1.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+            <div class="logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="logo" style="width:200px; height:40px; filter: grayscale(80%);"></div>
+            <h3>Technical Check:</h3><ul><li>Distorted scaling (Stretched width & height)</li><li>Missing or non-descriptive alt text</li></ul>
+            <code>&lt;img src="emblem.jpg" alt="logo" style="width:200px; height:40px;"&gt;</code>
+        </div>
+    </div>
+    `,
+            1: `
+    <div class="section-box">
+        <h2>Clause 5.1.2 – Homepage Structure</h2>
+        <p><strong>Statement:</strong> Ownership information is displayed on the homepage/homescreen and on all important entry pages/screens of the website/app and each subsequent page/screen is a standalone entity in terms of ownership, navigation and context of content.</p>
+        <p><strong>Benefit:</strong> Helps to build trust in visitors and reinforces the government organisation’s branding. Search engines use ownership information to verify legitimacy and improve ranking.</p>
+        <p><strong>Government Organisation Action:</strong> Provide complete ownership information for publishing on the website.</p>
+        <p><strong>Developer Action:</strong> Ensure display of ownership information in header or footer on homepage and all important entry pages.</p>
+        <p><strong>Evaluator Action:</strong> Manually test website/app to verify conformity.</p>
+    </div>
+
+    <div class="cards">
+        <div class="card success">
+            <span class="badge">SUCCESS EXAMPLE</span>
+            <a href ="demo/2.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+            <div class="preview-box">
+                <header>
+                    Government of India | Ministry of Electronics & IT
+                </header>
+                <div class="content">
+                    <h3>Welcome to Official Portal</h3>
+                    <p>This is the official website of the Ministry.</p>
+                </div>
+                <footer>
+                    © 2026 Ministry of Electronics & IT | Government of India
+                </footer>
+            </div>
+            <h3>Technical Check:</h3>
+            <ul>
+                <li><strong>Ownership:</strong> Clearly visible in header/footer</li>
+                <li><strong>Consistency:</strong> Present on all pages</li>
+                <li><strong>Navigation:</strong> Structured layout</li>
+                <li><strong>Context:</strong> Page independently understandable</li>
+            </ul>
+            <code>
+&lt;header&gt;
+Government of India | Ministry of Electronics & IT
+&lt;/header&gt;
+
+&lt;footer&gt;
+© 2026 Ministry of Electronics & IT | Government of India
+&lt;/footer&gt;
+            </code>
+        </div>
+
+        <div class="card failure">
+            <span class="badge">FAILURE EXAMPLE</span>
+            <a href ="demo/2.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+            <div class="preview-box">
+                <div class="content">
+                    <h3>Welcome</h3>
+                    <p>No ownership information displayed.</p>
+                </div>
+            </div>
+            <h3>Technical Issues:</h3>
+            <ul>
+                <li><strong>No Ownership Info:</strong> Missing in header/footer</li>
+                <li><strong>No Branding:</strong> Visitors unsure of authority</li>
+                <li><strong>SEO Impact:</strong> Reduced search trust</li>
+                <li><strong>Standalone Failure:</strong> Page lacks context</li>
+            </ul>
+            <code>
+&lt;div&gt;
+Welcome to our website
+&lt;/div&gt;
+            </code>
+        </div>
+    </div>
+    `,
+            2: `
+<div class="section-box">
+<h2>Clause 5.1.3 – Source Mention</h2>
+<p><strong>Statement:</strong> Source of all reproduced documents not owned by the department is mentioned.</p>
+<p><strong>Benefit:</strong> Builds credibility and discourages plagiarism.</p>
+<p><strong>Government Organisation Action:</strong> Cite complete title, owner organisation, and publication year.</p>
+<p><strong>Developer Action:</strong> Provide CMS fields to capture source organisation and year.</p>
+<p><strong>Evaluator Action:</strong> Manual verification of citation presence.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/3.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p><strong>Annual Report 2023</strong><br>
+Source: Ministry of Finance, Government of India (2023)</p>
+</div>
+<h3>Technical Check:</h3>
+<ul>
+<li>Complete title mentioned</li>
+<li>Owner organisation cited</li>
+<li>Publication year displayed</li>
+</ul>
+<code>
+Source: Ministry of Finance, Government of India (2023)
+</code>
+</div>
+
+<div class="card failure">
+    <a href ="demo/3.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<span class="badge">FAILURE EXAMPLE</span>
+<div class="preview-box">
+<p><strong>Annual Report 2023</strong><br>
+(No source mentioned)</p>
+</div>
+<h3>Technical Issues:</h3>
+<ul>
+<li>Missing owner organisation</li>
+<li>No publication year</li>
+<li>Violates IP norms</li>
+</ul>
+<code>
+&lt;p&gt;Annual Report 2023&lt;/p&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            3: `
+<div class="section-box">
+<h2>Clause 5.1.4 – Copyright Permissions</h2>
+<p><strong>Statement:</strong> Due permissions obtained for publishing copyrighted content.</p>
+<p><strong>Benefit:</strong> Protects from legal issues and respects IP rights.</p>
+<p><strong>Government Organisation Action:</strong> Obtain written permission before publishing.</p>
+<p><strong>Developer Action:</strong> None.</p>
+<p><strong>Evaluator Action:</strong> Backend audit of copyright policy.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/4.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>© 2024 XYZ Organisation. Used with permission.</p>
+</div>
+<ul>
+<li>Copyright notice present</li>
+<li>Permission documented</li>
+</ul>
+<code>
+© 2024 XYZ Organisation. Used with permission.
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/4.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Third party copyrighted image used without credit.</p>
+</div>
+<ul>
+<li>No permission record</li>
+<li>No copyright statement</li>
+</ul>
+<code>
+&lt;img src="thirdparty.jpg"&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            4: `
+<div class="section-box">
+<h2>Clause 5.1.5 – Last Updated Date</h2>
+<p><strong>Statement:</strong> Homepage displays last updated/reviewed date.</p>
+<p><strong>Benefit:</strong> Improves trust and SEO ranking.</p>
+<p><strong>Government Organisation Action:</strong> Regularly update content.</p>
+<p><strong>Developer Action:</strong> Display posted/reviewed date clearly.</p>
+<p><strong>Evaluator Action:</strong> Manual verification.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/5.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Last Updated: 02 March 2026</p>
+</div>
+<ul>
+<li>Date clearly visible</li>
+<li>Updated regularly</li>
+</ul>
+<code>
+&lt;p&gt;Last Updated: 02 March 2026&lt;/p&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/5.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>No update date shown.</p>
+</div>
+<ul>
+<li>No review date</li>
+<li>Outdated information risk</li>
+</ul>
+<code>
+&lt;p&gt;Welcome to our portal&lt;/p&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            5: `
+<div class="section-box">
+<h2>Clause 5.1.6 – Downloadable File Information</h2>
+<p><strong>Statement:</strong> Title, size, format and usage instructions provided.</p>
+<p><strong>Benefit:</strong> Improves accessibility and transparency.</p>
+<p><strong>Government Organisation Action:</strong> Provide accurate file details.</p>
+<p><strong>Developer Action:</strong> Enable CMS fields for title, format, size.</p>
+<p><strong>Evaluator Action:</strong> Manual verification.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/6.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Budget Report 2024 (PDF, 2.4 MB)<br>Click to download</p>
+</div>
+<ul>
+<li>Self explanatory title</li>
+<li>File format mentioned</li>
+<li>File size mentioned</li>
+</ul>
+<code>
+Budget Report 2024 (PDF, 2.4 MB)
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/6.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Download File</p>
+</div>
+<ul>
+<li>No format mentioned</li>
+<li>No file size info</li>
+</ul>
+<code>
+&lt;a href="file.pdf"&gt;Download&lt;/a&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            6: `
+<div class="section-box">
+<h2>Clause 5.1.7 – Scheme/Circular Attributes</h2>
+<p><strong>Statement:</strong> Title, language, purpose, validity clearly listed.</p>
+<p><strong>Benefit:</strong> Improves search accuracy and usability.</p>
+<p><strong>Government Organisation Action:</strong> Provide required attributes.</p>
+<p><strong>Developer Action:</strong> Enable CMS fields & archival mechanism.</p>
+<p><strong>Evaluator Action:</strong> Manual verification.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/7.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p><strong>Scholarship Scheme 2026</strong><br>
+Language: English<br>
+Validity: 31 Dec 2026<br>
+Purpose: Financial aid</p>
+</div>
+<ul>
+<li>Complete title</li>
+<li>Language specified</li>
+<li>Validity mentioned</li>
+<li>Purpose explained</li>
+</ul>
+<code>
+Title: Scholarship Scheme 2026
+Validity: 31 Dec 2026
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/7.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>New Scheme Available</p>
+</div>
+<ul>
+<li>No title clarity</li>
+<li>No validity date</li>
+<li>No purpose defined</li>
+</ul>
+<code>
+&lt;p&gt;New Scheme Available&lt;/p&gt;
+</code>
+</div>
+
+</div>
+`,
+            7: `
+<div class="section-box">
+<h2>Clause 5.1.8 – Archival of Outdated Content</h2>
+<p><strong>Statement:</strong> Outdated announcements, tenders, recruitment notices and press releases are removed or archived.</p>
+<p><strong>Benefit:</strong> Prevents visitors from accessing expired or irrelevant content.</p>
+<p><strong>Government Organisation Action:</strong> Provide expiry dates for time-sensitive content.</p>
+<p><strong>Developer Action:</strong> Implement automatic removal or archival mechanism.</p>
+<p><strong>Evaluator Action:</strong> Manual verification of archival system.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/8.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Tender 2025 – Archived (Expired on 31 Dec 2025)</p>
+</div>
+<ul>
+<li>Expiry date defined</li>
+<li>Content auto-moved to archive</li>
+<li>No outdated content on homepage</li>
+</ul>
+<code>
+Expiry Date: 31-12-2025
+Status: Archived
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/8.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Tender 2022 – Still Active</p>
+</div>
+<ul>
+<li>No expiry date</li>
+<li>Outdated content visible</li>
+<li>No archival policy implemented</li>
+</ul>
+<code>
+&lt;p&gt;Tender 2022&lt;/p&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            8: `
+<div class="section-box">
+<h2>Clause 5.1.9 – About Us Section</h2>
+<p><strong>Statement:</strong> Complete organisational information is available in the ‘About Us’ section.</p>
+<p><strong>Benefit:</strong> Helps citizens understand the organisation’s functions and structure.</p>
+<p><strong>Government Organisation Action:</strong> Provide updated organisational description.</p>
+<p><strong>Developer Action:</strong> Ensure About Us page exists and is accessible.</p>
+<p><strong>Evaluator Action:</strong> Manual verification and backend audit.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/9.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<h3>About Ministry</h3>
+<p>Responsible for policy implementation and citizen services.</p>
+</div>
+<ul>
+<li>Mission & vision included</li>
+<li>Organisational structure described</li>
+<li>Updated content</li>
+</ul>
+<code>
+&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/9.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>No About section found.</p>
+</div>
+<ul>
+<li>Missing organisational info</li>
+<li>No background details</li>
+</ul>
+<code>
+&lt;!-- No About Page --&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            9: `
+<div class="section-box">
+<h2>Clause 5.1.10 – Contact Us Page</h2>
+<p><strong>Statement:</strong> Website/app has a Contact Us page with complete details of important functionaries.</p>
+<p><strong>Benefit:</strong> Enables citizens to contact officials for queries and clarifications.</p>
+<p><strong>Government Organisation Action:</strong> Provide phone, email, address and timings.</p>
+<p><strong>Developer Action:</strong> CMS provision to publish contact details.</p>
+<p><strong>Evaluator Action:</strong> Manual verification.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/10.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Email: info@gov.in<br>
+Phone: +91-1234567890<br>
+Address: New Delhi</p>
+</div>
+<ul>
+<li>Phone & email provided</li>
+<li>Office address mentioned</li>
+<li>Linked from homepage</li>
+</ul>
+<code>
+&lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/10.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Contact info unavailable.</p>
+</div>
+<ul>
+<li>No contact link</li>
+<li>No official email</li>
+</ul>
+<code>
+&lt;p&gt;Coming Soon&lt;/p&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            10: `
+<div class="section-box">
+<h2>Clause 5.1.11 – Feedback Mechanism</h2>
+<p><strong>Statement:</strong> Feedback collected through online forms with response mechanism.</p>
+<p><strong>Benefit:</strong> Enables two-way communication and improvement insights.</p>
+<p><strong>Government Organisation Action:</strong> Process feedback regularly.</p>
+<p><strong>Developer Action:</strong> Provide structured feedback form.</p>
+<p><strong>Evaluator Action:</strong> Manual and backend audit.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/11.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<form>
+<input type="text" placeholder="Your Feedback">
+<button>Submit</button>
+</form>
+</div>
+<ul>
+<li>Online feedback form present</li>
+<li>Response acknowledgement system</li>
+</ul>
+<code>
+&lt;form&gt;
+&lt;input type="text"&gt;
+&lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/11.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Email us for feedback.</p>
+</div>
+<ul>
+<li>No structured form</li>
+<li>No tracking mechanism</li>
+</ul>
+<code>
+&lt;p&gt;Send email for feedback&lt;/p&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            11: `
+<div class="section-box">
+<h2>Clause 5.1.12 – Link to National Portal</h2>
+<p><strong>Statement:</strong> Prominent link to National Portal (india.gov.in) opening in new window.</p>
+<p><strong>Benefit:</strong> Provides single-window access to government services.</p>
+<p><strong>Government Organisation Action:</strong> Provide visible link on homepage.</p>
+<p><strong>Developer Action:</strong> Ensure link opens in new browser tab.</p>
+<p><strong>Evaluator Action:</strong> Manual verification.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/12.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<a href="https://india.gov.in" target="_blank">National Portal of India</a>
+</div>
+<ul>
+<li>Prominent placement</li>
+<li>Opens in new window</li>
+</ul>
+<code>
+&lt;a href="https://india.gov.in" target="_blank"&gt;National Portal&lt;/a&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/12.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<a href="#">National Portal</a>
+</div>
+<ul>
+<li>Not opening in new tab</li>
+<li>Not clearly visible</li>
+</ul>
+<code>
+&lt;a href="#"&gt;National Portal&lt;/a&gt;
+</code>
+</div>
+
+</div>
+`,
+            12: `
+<div class="section-box">
+<h2>Clause 5.1.13 – Multi-Browser & Regional Font Testing</h2>
+<p><strong>Statement:</strong> Website tested on multiple browsers and Hindi/Regional fonts tested for layout consistency.</p>
+<p><strong>Benefit:</strong> Ensures accessibility across devices, browsers and languages.</p>
+<p><strong>Government Organisation Action:</strong> None.</p>
+<p><strong>Developer Action:</strong> Use Unicode fonts and test across browsers, OS, resolutions.</p>
+<p><strong>Evaluator Action:</strong> Manual cross-browser testing.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/13.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Tested on Chrome, Firefox, Edge<br>Hindi text renders properly.</p>
+</div>
+<ul>
+<li>Unicode fonts used</li>
+<li>No layout break</li>
+<li>Tested across browsers</li>
+</ul>
+<code>
+&lt;meta charset="UTF-8"&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/13.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Hindi text appears distorted.</p>
+</div>
+<ul>
+<li>Non-Unicode font used</li>
+<li>Layout breaks on browser change</li>
+</ul>
+<code>
+&lt;font face="legacy-font"&gt;Hindi Text&lt;/font&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            13: `
+<div class="section-box">
+<h2>Clause 5.1.14 – Help Section</h2>
+<p><strong>Statement:</strong> Website has a Help section linked from all pages.</p>
+<p><strong>Benefit:</strong> Improves usability and navigation clarity.</p>
+<p><strong>Government Organisation Action:</strong> None.</p>
+<p><strong>Developer Action:</strong> Provide accessible help link on all pages.</p>
+<p><strong>Evaluator Action:</strong> Manual verification.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/14.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<a href="help.html">Help</a>
+</div>
+<ul>
+<li>Help link visible</li>
+<li>Consistent placement</li>
+<li>Explains navigation & policies</li>
+</ul>
+<code>
+&lt;a href="help.html"&gt;Help&lt;/a&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/14.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>No Help link found.</p>
+</div>
+<ul>
+<li>No navigation guidance</li>
+<li>Users confused</li>
+</ul>
+<code>
+&lt;!-- No Help Section --&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            14: `
+<div class="section-box">
+<h2>Clause 5.1.15 – Responsive Design & CSS Usage</h2>
+<p><strong>Statement:</strong> Website uses CSS for layout and supports responsive design.</p>
+<p><strong>Benefit:</strong> Ensures consistent UI across devices.</p>
+<p><strong>Government Organisation Action:</strong> None.</p>
+<p><strong>Developer Action:</strong> Use CSS and responsive frameworks.</p>
+<p><strong>Evaluator Action:</strong> Test using browser tools.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/15.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Layout adjusts automatically on mobile view.</p>
+</div>
+<ul>
+<li>CSS used for layout</li>
+<li>Responsive grid implemented</li>
+<li>Mobile-friendly design</li>
+</ul>
+<code>
+@media (max-width: 768px) {
+  .container { flex-direction: column; }
+}
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/15.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Layout breaks on mobile.</p>
+</div>
+<ul>
+<li>Fixed-width layout</li>
+<li>No media queries</li>
+</ul>
+<code>
+&lt;table width="100%"&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            15: `
+<div class="section-box">
+<h2>Clause 5.1.16 – Readable Without CSS</h2>
+<p><strong>Statement:</strong> Website remains readable when stylesheets are disabled.</p>
+<p><strong>Benefit:</strong> Ensures accessibility and fallback readability.</p>
+<p><strong>Government Organisation Action:</strong> None.</p>
+<p><strong>Developer Action:</strong> Maintain semantic HTML structure.</p>
+<p><strong>Evaluator Action:</strong> Disable CSS and test readability.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/16.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Content readable even without styling.</p>
+</div>
+<ul>
+<li>Semantic HTML used</li>
+<li>Logical heading structure</li>
+</ul>
+<code>
+&lt;h1&gt;Title&lt;/h1&gt;
+&lt;p&gt;Content&lt;/p&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/16.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Content overlaps when CSS disabled.</p>
+</div>
+<ul>
+<li>Layout-dependent HTML</li>
+<li>Content unreadable</li>
+</ul>
+<code>
+&lt;div style="position:absolute"&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            16: `
+<div class="section-box">
+<h2>Clause 5.1.17 – Proper Metadata & Language Attribute</h2>
+<p><strong>Statement:</strong> Proper page title, language attribute and metadata included.</p>
+<p><strong>Benefit:</strong> Improves accessibility and SEO ranking.</p>
+<p><strong>Government Organisation Action:</strong> Provide accurate metadata.</p>
+<p><strong>Developer Action:</strong> Include title, description, keywords and lang attribute.</p>
+<p><strong>Evaluator Action:</strong> Verify using browser tools.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/17.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Page title and metadata properly defined.</p>
+</div>
+<ul>
+<li>Title tag present</li>
+<li>Meta description included</li>
+<li>Language attribute defined</li>
+</ul>
+<code>
+&lt;html lang="en"&gt;
+&lt;title&gt;Ministry Portal&lt;/title&gt;
+&lt;meta name="description" content="Official website"&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/17.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>No metadata defined.</p>
+</div>
+<ul>
+<li>No title tag</li>
+<li>No language attribute</li>
+<li>Poor SEO visibility</li>
+</ul>
+<code>
+&lt;html&gt;
+</code>
+</div>
+
+</div>
+`,
+            17: `
+<div class="section-box">
+<h2>Clause 5.1.18 – Minimum Homepage & Page Content</h2>
+<p><strong>Statement:</strong> Minimum prescribed content is present on homepage and subsequent pages.</p>
+<p><strong>Benefit:</strong> Ensures visitors can access key information from any entry page.</p>
+<p><strong>Government Organisation Action:</strong> Provide required minimum content elements.</p>
+<p><strong>Developer Action:</strong> Ensure required links and identifiers are present on all pages.</p>
+<p><strong>Evaluator Action:</strong> Manual verification of required content presence.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/18.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>✔ Organisation Name<br>
+✔ State Emblem<br>
+✔ Contact Us Link<br>
+✔ Feedback Link<br>
+✔ National Portal Link</p>
+</div>
+<ul>
+<li>Homepage includes required elements</li>
+<li>Subpages include title & ownership</li>
+<li>Contact link present</li>
+</ul>
+<code>
+&lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;
+&lt;a href="feedback.html"&gt;Feedback&lt;/a&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/18.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Basic page without ownership or navigation links.</p>
+</div>
+<ul>
+<li>No homepage link</li>
+<li>No ownership info</li>
+<li>No contact link</li>
+</ul>
+<code>
+&lt;h2&gt;Service Page&lt;/h2&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            18: `
+<div class="section-box">
+<h2>Clause 5.1.19 – Proper Table Markup</h2>
+<p><strong>Statement:</strong> Data tables use proper markup and tags.</p>
+<p><strong>Benefit:</strong> Improves accessibility for assistive technology users.</p>
+<p><strong>Government Organisation Action:</strong> None.</p>
+<p><strong>Developer Action:</strong> Use proper &lt;th&gt;, &lt;thead&gt;, &lt;tbody&gt; tags and avoid layout tables.</p>
+<p><strong>Evaluator Action:</strong> Test using accessibility tools.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/19.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<table border="1">
+<thead>
+<tr><th>Year</th><th>Budget</th></tr>
+</thead>
+<tbody>
+<tr><td>2025</td><td>₹100 Cr</td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Header cells defined</li>
+<li>Semantic table structure used</li>
+<li>Accessible to screen readers</li>
+</ul>
+<code>
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;&lt;th&gt;Year&lt;/th&gt;&lt;th&gt;Budget&lt;/th&gt;&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/19.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<table border="1">
+<tr><td>2025</td><td>₹100 Cr</td></tr>
+</table>
+</div>
+<ul>
+<li>No header tags</li>
+<li>Used for layout instead of data</li>
+</ul>
+<code>
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            19: `
+<div class="section-box">
+<h2>Clause 5.1.20 – Printable on A4 Paper</h2>
+<p><strong>Statement:</strong> Web page prints correctly on A4 size paper.</p>
+<p><strong>Benefit:</strong> Enhances accessibility for users preferring printed copies.</p>
+<p><strong>Government Organisation Action:</strong> None.</p>
+<p><strong>Developer Action:</strong> Ensure print styles and readable fonts for A4.</p>
+<p><strong>Evaluator Action:</strong> Manual print preview testing.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/20.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Print preview shows properly aligned text on A4.</p>
+</div>
+<ul>
+<li>No content cutoff</li>
+<li>Proper margins</li>
+<li>Readable font size</li>
+</ul>
+<code>
+@media print {
+  body { font-size: 12pt; }
+}
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/20.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>Content cut off during print.</p>
+</div>
+<ul>
+<li>No print CSS</li>
+<li>Improper margins</li>
+</ul>
+<code>
+&lt;!-- No print styling defined --&gt;
+</code>
+</div>
+
+</div>
+`,
+
+            20: `
+<div class="section-box">
+<h2>Clause 5.1.21 – gov.in / nic.in Domain Usage</h2>
+<p><strong>Statement:</strong> Website uses gov.in or nic.in domain (or edu/res/ac as applicable).</p>
+<p><strong>Benefit:</strong> Reinforces authenticity and public trust.</p>
+<p><strong>Government Organisation Action:</strong> Register official domain as per .IN policy.</p>
+<p><strong>Developer Action:</strong> None.</p>
+<p><strong>Evaluator Action:</strong> Verify official domain usage.</p>
+</div>
+
+<div class="cards">
+
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/21.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>https://ministry.gov.in</p>
+</div>
+<ul>
+<li>Official gov.in domain</li>
+<li>Authentic government identity</li>
+</ul>
+<code>
+https://department.gov.in
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/21.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+<p>https://ministry-government.com</p>
+</div>
+<ul>
+<li>Unofficial domain</li>
+<li>Reduced trust & authenticity</li>
+</ul>
+<code>
+https://example-government.com
+</code>
+</div>
+
+</div>
+`,
+            21: `
+<div class="section-box">
+<h2>Clause 5.1.22 – API Integration with Government Platforms</h2>
+<p><strong>Statement:</strong> API integration enabled with key government platforms (India Portal, DigiLocker, Aadhaar, SSO, MyGov, Data Platform, MyScheme).</p>
+<p><strong>Benefit:</strong> Ensures seamless data exchange, standardisation and security.</p>
+<p><strong>Government Organisation Action:</strong> Identify required platforms and provide APIs.</p>
+<p><strong>Developer Action:</strong> Implement secure API integration as per best practices.</p>
+<p><strong>Evaluator Action:</strong> Manual verification of integration.</p>
+</div>
+
+<div class="cards">
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/22.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+✔ DigiLocker Integration<br>
+✔ Single Sign-On Enabled<br>
+✔ Aadhaar Authentication
+</div>
+<ul>
+<li>Secure API communication</li>
+<li>No duplication of data</li>
+<li>Real-time synchronization</li>
+</ul>
+<code>
+fetch("https://api.digilocker.gov.in/data")
+.then(res => res.json())
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/22.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+No integration with official platforms.
+</div>
+<ul>
+<li>Manual data duplication</li>
+<li>No authentication integration</li>
+<li>Security risk</li>
+</ul>
+<code>
+// No API integration implemented
+</code>
+</div>
+</div>
+`,
+
+            22: `
+<div class="section-box">
+<h2>Clause 5.1.23 – Consistent User Experience & Visual Identity</h2>
+<p><strong>Statement:</strong> Consistent user experience and visual identity across all websites/apps.</p>
+<p><strong>Benefit:</strong> Reduces learning curve and reinforces authenticity.</p>
+<p><strong>Government Organisation Action:</strong> Maintain consistent branding and navigation.</p>
+<p><strong>Developer Action:</strong> Use reusable templates and consistent IA.</p>
+<p><strong>Evaluator Action:</strong> Manual consistency verification.</p>
+</div>
+
+<div class="cards">
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/23.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+Same header, logo and navigation across portals.
+</div>
+<ul>
+<li>Consistent branding</li>
+<li>Common navigation structure</li>
+<li>Unified templates used</li>
+</ul>
+<code>
+&lt;header class="gov-template"&gt;...&lt;/header&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/23.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+Different layouts and logos across portals.
+</div>
+<ul>
+<li>Inconsistent navigation</li>
+<li>Branding mismatch</li>
+<li>Confusing UI</li>
+</ul>
+<code>
+// Different layouts per page
+</code>
+</div>
+</div>
+`,
+
+            23: `
+<div class="section-box">
+<h2>Clause 5.1.24 – Social Media Integration</h2>
+<p><strong>Statement:</strong> Website integrates with popular social media platforms.</p>
+<p><strong>Benefit:</strong> Enables two-way communication and broader outreach.</p>
+<p><strong>Government Organisation Action:</strong> Identify content suitable for social media.</p>
+<p><strong>Developer Action:</strong> Enable push & pull integration with social platforms.</p>
+<p><strong>Evaluator Action:</strong> Manual verification of integration.</p>
+</div>
+
+<div class="cards">
+<div class="card success">
+<span class="badge">SUCCESS EXAMPLE</span>
+<a href ="demo/24.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+Follow us on Twitter | Facebook | YouTube
+</div>
+<ul>
+<li>Official social links provided</li>
+<li>Two-way content integration</li>
+<li>Secure social sharing</li>
+</ul>
+<code>
+&lt;a href="https://twitter.com/official"&gt;Twitter&lt;/a&gt;
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE EXAMPLE</span>
+<a href ="demo/24.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+No social media presence.
+</div>
+<ul>
+<li>No integration provided</li>
+<li>No engagement channel</li>
+</ul>
+<code>
+// No social links
+</code>
+</div>
+</div>
+`,
+
+            24: `
+<div class="section-box">
+<h2>Clause 5.1.25 – Error-Free Language</h2>
+<p><strong>Statement:</strong> Content is free from spelling and grammatical errors.</p>
+<p><strong>Benefit:</strong> Builds trust and ensures effective communication.</p>
+<p><strong>Government Organisation Action:</strong> Review content before publishing.</p>
+<p><strong>Developer Action:</strong> Provide CMS tools for grammar checking.</p>
+<p><strong>Evaluator Action:</strong> Test using grammar checking tools.</p>
+</div>
+
+<div class="cards">
+<div class="card success">
+<span class="badge">SUCCESS Example</span>
+<a href ="demo/25.s.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+Welcome to the Official Government Portal.
+</div>
+<ul>
+<li>No spelling errors</li>
+<li>Proper grammar</li>
+<li>Professional tone</li>
+</ul>
+<code>
+Content reviewed before publishing.
+</code>
+</div>
+
+<div class="card failure">
+<span class="badge">FAILURE Example</span>
+<a href ="demo/25.f.html" target="_blank" class="demo-link">
+    ▶ View Failure Demo
+</a>
+<div class="preview-box">
+Welcom to the Goverment Portel.
+</div>
+<ul>
+<li>Spelling mistakes</li>
+<li>Grammar issues</li>
+<li>Reduces credibility</li>
+</ul>
+<code>
+Welcom to Goverment Portal
+</code>
+</div>
+</div>
+`
+
+        };
+
+        let savedClauses = JSON.parse(localStorage.getItem("gigw3_compliantClauses")) || [];
+        let passedCount = savedClauses.length;
+
+        const dimensionMapping = {
+            "Identity Compliance": [0, 20],
+            "Ownership & Transparency": [1, 8, 9],
+            "Legal & Copyright": [2, 3],
+            "Content Freshness": [4, 7],
+            "Content Completeness": [5, 6, 17],
+            "Technical Content Quality": [12, 14, 15, 16, 18, 19],
+            "User Interaction": [10, 11, 13, 21, 22, 23],
+            "Language Quality": [24]
+        };
+
+        let qualityChart = new Chart(document.getElementById("qualityChart"), {
+            type: 'bar',
+            data: {
+                labels: Object.keys(dimensionMapping),
+                datasets: [{
+                    label: 'Compliance (%)',
+                    data: new Array(Object.keys(dimensionMapping).length).fill(0),
+                    backgroundColor: '#0f766e'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true, max: 100 } }
+            }
+        });
+
+        const container = document.getElementById("clauses");
+
+        clauseList.forEach((text, index) => {
+            const div = document.createElement("div");
+            div.className = "clause";
+
+            div.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h4 style="margin:0;">5.1.${index + 1} - ${text}</h4>
+            <input type="checkbox">
+        </div>
+    `;
+
+            div.addEventListener("click", function (e) {
+                if (e.target.type !== "checkbox") {
+                    openModal(index);
+                }
+            });
+
+            const checkbox = div.querySelector("input");
+
+            if (savedClauses.includes(index)) {
+                checkbox.checked = true;
+                div.classList.add("compliant");
+            }
+
+            checkbox.addEventListener("change", function () {
+                if (this.checked) {
+                    if (!savedClauses.includes(index)) savedClauses.push(index);
+                    div.classList.add("compliant");
+                } else {
+                    savedClauses = savedClauses.filter(i => i !== index);
+                    div.classList.remove("compliant");
+                }
+
+                passedCount = savedClauses.length;
+                localStorage.setItem("gigw3_compliantClauses", JSON.stringify(savedClauses));
+                updateSummary();
+            });
+
+            container.appendChild(div);
+        });
+
+        function openModal(index) {
+            document.getElementById("modalTitle").innerText = "Clause 5.1." + (index + 1) + ": " + clauseList[index];
+
+            const modalBody = document.getElementById("modalBody");
+            if (detailedContent[index]) {
+                modalBody.innerHTML = detailedContent[index];
+            } else {
+                modalBody.innerHTML = "<p><em>Detailed guidelines for this clause are being updated.</em></p>";
+            }
+
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById("modal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        function updateSummary() {
+            document.getElementById("passed").innerText = passedCount;
+            document.getElementById("pending").innerText = 25 - passedCount;
+            document.getElementById("percent").innerText = ((passedCount / 25) * 100).toFixed(1) + "%";
+
+            let results = [];
+            Object.values(dimensionMapping).forEach(indices => {
+                let compliantCount = indices.filter(i => savedClauses.includes(i)).length;
+                results.push((compliantCount / indices.length) * 100 || 0);
+            });
+
+            qualityChart.data.datasets[0].data = results;
+            qualityChart.update();
+        }
+        function exportPDF() {
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF("p", "mm", "a4");
+
+            let pageWidth = doc.internal.pageSize.getWidth();
+            let y = 15;
+
+            doc.setFontSize(16);
+            doc.text("GIGW 3.0 Content Quality Audit Report", pageWidth / 2, y, { align: "center" });
+
+            y += 8;
+            doc.setFontSize(10);
+            doc.text("Generated on: " + new Date().toLocaleString(), 14, y);
+
+            y += 10;
+
+            clauseList.forEach((clause, index) => {
+
+                if (y > 270) {
+                    doc.addPage();
+                    y = 15;
+                }
+
+                doc.setFontSize(11);
+                doc.text("Clause 5.1." + (index + 1) + " - " + clause, 14, y);
+
+                y += 6;
+
+                let status = savedClauses.includes(index) ? "Status: Compliant" : "Status: Pending";
+                doc.text(status, 14, y);
+
+                y += 6;
+
+                if (detailedContent[index]) {
+
+                    let tempDiv = document.createElement("div");
+                    tempDiv.innerHTML = detailedContent[index];
+
+                    let textContent = tempDiv.innerText;
+
+                    let splitText = doc.splitTextToSize(textContent, 180);
+
+                    splitText.forEach(line => {
+
+                        if (y > 280) {
+                            doc.addPage();
+                            y = 15;
+                        }
+
+                        doc.text(line, 14, y);
+                        y += 5;
+                    });
+                }
+
+                y += 8;
+            });
+
+            doc.save("GIGW_3_Full_Audit_Report.pdf");
+        }
+        updateSummary();
+    </script>
+</body>
+
+</html>

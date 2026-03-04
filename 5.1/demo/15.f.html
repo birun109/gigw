@@ -1,0 +1,65 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 15.1.15
+Category: Information & Services (IS)
+Inline styling + Fixed layout + No responsive design
+========================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ministry of Digital Infrastructure</title>
+<!-- ❌ No viewport meta tag -->
+</head>
+
+<body style="margin:0; font-family:Arial;">
+
+<div style="background:#7a0000; color:white; padding:20px;">
+    <h2>Ministry of Digital Infrastructure</h2>
+</div>
+
+<div style="background:#990000; padding:20px;">
+    <a href="#" style="color:white; margin-right:20px;">Home</a>
+    <a href="#" style="color:white; margin-right:20px;">About</a>
+    <a href="#" style="color:white; margin-right:20px;">Services</a>
+    <a href="#" style="color:white;">Contact</a>
+</div>
+
+<div style="padding:50px; width:1200px;"> <!-- ❌ Fixed width -->
+    <h1>Digital Services Portal</h1>
+    <p>
+        This portal does not use proper CSS layout control.
+        It uses inline styles and fixed width design.
+    </p>
+
+    <div style="display:inline-block; width:350px; background:#eee; padding:20px;">
+        Section 1
+    </div>
+
+    <div style="display:inline-block; width:350px; background:#eee; padding:20px;">
+        Section 2
+    </div>
+
+    <div style="display:inline-block; width:350px; background:#eee; padding:20px;">
+        Section 3
+    </div>
+
+    <!-- ❌ No media queries -->
+    <!-- ❌ Layout breaks on smaller screens -->
+</div>
+
+<div style="background:#ffebee; padding:20px; border-left:5px solid red;">
+    NON-COMPLIANT WITH GIGW 3.0<br>
+    Inline styling used instead of structured CSS.<br>
+    Fixed-width layout breaks on smaller screens.<br>
+    No responsive design implemented.<br>
+    Violates Clause 15.1.15 (IS).
+</div>
+
+<p style="padding:40px;"><strong>For training and demonstration purposes only.</strong></p>
+
+<div style="background:#7a0000; color:white; padding:20px; text-align:center;">
+    Demonstration Website – Not GIGW Compliant
+</div>
+
+</body>
+</html>

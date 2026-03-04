@@ -1,0 +1,116 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.9
+Category: Information & Services (IS)
+Incomplete About Us section, no update mechanism.
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Digital Governance</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+header{
+    background:#7a0000;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+}
+nav{
+    background:#990000;
+    padding:12px 50px;
+}
+nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+.container{
+    padding:50px;
+}
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:6px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.06);
+}
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    margin-top:20px;
+    border-left:4px solid red;
+}
+footer{
+    background:#7a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h2>Ministry of Digital Governance</h2>
+    <div>
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main class="container">
+
+<div class="card">
+    <h2>About</h2>
+    <p>
+        This ministry works on digital initiatives.
+    </p>
+    <!-- ❌ No mandate details -->
+    <!-- ❌ No structure information -->
+    <!-- ❌ No contact details -->
+    <!-- ❌ No update mechanism -->
+</div>
+
+<div class="fail-box">
+    About Us section incomplete.<br>
+    No mechanism for content review or update.<br>
+    Violates Clause 5.1.9 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</main>
+
+<footer>
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

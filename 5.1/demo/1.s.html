@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIGW 3.0 Clause 5.1.1 - Success Demo</title>
+
+<style>
+body { margin:0; font-family: Arial, sans-serif; background:#f4f6f9; }
+header { background:#f5f6f8; color:white; padding:10px 20px; display:flex; align-items:center; }
+.logo-container img { height:80px; width:auto; } /* Proper ratio maintained */
+.logo-text { margin-left:15px; color: #002060;}
+nav { background:#002060; padding:10px 20px; }
+nav a { color:white; margin-right:20px; text-decoration:none; }
+.search-box { float:right; }
+.hero { background:white; padding:30px; border-bottom:4px solid #0b3d91; }
+.container { padding:20px; }
+.card { padding:15px; margin:15px 0; border-radius:6px; }
+.success { background:#e6f4ea; border-left:6px solid #2e7d32; }
+.check { color:#2e7d32; font-weight:bold; }
+footer { background:#0b3d91; color:white; text-align:center; padding:15px; margin-top:30px; }
+.comparison { background:#ffffff; padding:15px; border:1px solid #ccc; }
+button { padding:6px 10px; }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER WITH PROPER EMBLEM USAGE -->
+<header role="banner">
+<div class="logo-container">
+<!-- Proper ratio + official color maintained -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+     alt="State Emblem of India - Government of India"
+     aria-label="Official State Emblem of India">
+</div>
+<div class="logo-text">
+<h1>Government of India Portal</h1>
+</div>
+</header>
+
+<nav role="navigation">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search..." aria-label="Search site">
+<button onclick="searchSite()">Search</button>
+</div>
+</nav>
+
+<section class="hero">
+<h2>Clause 5.1.1 – Government Identity Through Emblem/Logo</h2>
+<p><strong>Clause Category:</strong> Content Quality (CQ)</p>
+<p>This page demonstrates FULL compliance with emblem/logo usage requirements.</p>
+</section>
+
+<main class="container">
+
+<h3>Compliance Implementation</h3>
+
+<div class="card success">
+<span class="check">✓ Emblem prominently displayed on homepage</span><br>
+Placed in header with clear visibility.
+</div>
+
+<div class="card success">
+<span class="check">✓ Proper ratio and official colour maintained</span><br>
+No distortion, stretching, or recolouring.
+</div>
+
+<div class="card success">
+<span class="check">✓ Accessible alternative text provided</span><br>
+Screen readers can identify emblem.
+</div>
+
+<div class="card success">
+<span class="check">✓ Complies with State Emblem of India Act, 2005</span><br>
+Used only for official demonstration purpose.
+</div>
+
+<h3>Compliance Summary</h3>
+<div class="card success">
+<span class="check">✓ Clause 5.1.1 Fully Satisfied</span><br>
+Government identity clearly reinforced and authentic.
+</div>
+
+<h3>Evaluator Verification Checklist</h3>
+<ul>
+<li>✓ Emblem visible without scrolling</li>
+<li>✓ Proper aspect ratio maintained</li>
+<li>✓ Official colour preserved</li>
+<li>✓ Alt text available</li>
+<li>✓ No improper usage detected</li>
+</ul>
+
+<div class="comparison">
+<h3>Compliance Comparison Box</h3>
+<p><strong>Success Demo:</strong> Emblem clearly visible, accessible, legally compliant.</p>
+</div>
+
+</main>
+
+<footer>
+GIGW 3.0 Compliant – Clause 5.1.1 – CQ
+</footer>
+
+<script>
+function searchSite(){
+let query=document.getElementById("search").value;
+alert("Search triggered for: "+query);
+}
+</script>
+
+</body>
+</html>

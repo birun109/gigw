@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIGW 3.0 Clause 5.1.2 - Success Demo</title>
+
+<style>
+body { margin:0; font-family: Arial, sans-serif; background:#f4f6f9; }
+header { background:#f7f8f9; color:rgb(18, 13, 72); padding:15px; display:flex; align-items:center; }
+header img { height:70px; margin-right:15px; }
+nav { background:#002060; padding:10px 20px; }
+nav a { color:white; margin-right:20px; text-decoration:none; }
+.search-box { float:right; }
+.hero { background:white; padding:30px; border-bottom:4px solid #0b3d91; }
+.container { padding:20px; }
+.card { padding:15px; margin:15px 0; border-radius:6px; }
+.success { background:#e6f4ea; border-left:6px solid #2e7d32; }
+.check { color:#2e7d32; font-weight:bold; }
+footer { background:#0b3d91; color:white; text-align:center; padding:15px; margin-top:30px; }
+.comparison { background:#fff; border:1px solid #ccc; padding:15px; }
+.ownership-box { background:#ffffff; border:1px solid #ccc; padding:15px; margin-bottom:20px; }
+</style>
+</head>
+
+<body>
+
+<header role="banner">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+alt="State Emblem of India - Government of India">
+<h1>Ministry of Digital Governance</h1>
+</header>
+
+<nav role="navigation">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+<div class="search-box">
+<input type="text" id="search" placeholder="Search..." aria-label="Search">
+<button onclick="searchSite()">Search</button>
+</div>
+</nav>
+
+<section class="hero">
+<h2>Clause 5.1.2 – Ownership Information Display</h2>
+<p><strong>Clause Category:</strong> Content Quality (CQ)</p>
+<p>This page demonstrates FULL compliance with ownership and standalone page requirements.</p>
+</section>
+
+<main class="container">
+
+<!-- Ownership prominently displayed -->
+<div class="ownership-box">
+<strong>Ownership Information:</strong><br>
+This website is owned, maintained, and managed by the Ministry of Digital Governance, Government of India.
+</div>
+
+<h3>Compliance Implementation</h3>
+
+<div class="card success">
+<span class="check">✓ Ownership displayed prominently on homepage</span>
+</div>
+
+<div class="card success">
+<span class="check">✓ Ownership repeated in footer and key sections</span>
+</div>
+
+<div class="card success">
+<span class="check">✓ Each page designed as standalone entity</span><br>
+Navigation, ownership and contextual content clearly visible.
+</div>
+
+<div class="card success">
+<span class="check">✓ Clear navigation and content context provided</span>
+</div>
+
+<h3>Standalone Page Simulation</h3>
+<p>This section simulates an internal service page.</p>
+
+<div class="ownership-box">
+<strong>Ownership Information:</strong><br>
+Ministry of Digital Governance – Government of India
+</div>
+
+<p>Service Content: Digital Certificate Application Portal</p>
+
+<h3>Compliance Summary</h3>
+<div class="card success">
+<span class="check">✓ Clause 5.1.2 Fully Satisfied</span>
+</div>
+
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>✓ Ownership visible without scrolling</li>
+<li>✓ Ownership present on all key sections</li>
+<li>✓ Clear navigation structure</li>
+<li>✓ Standalone page context maintained</li>
+</ul>
+
+<div class="comparison">
+<h3>Compliance Comparison Box</h3>
+<p><strong>Success Demo:</strong> Ownership clearly visible across pages and sections.</p>
+</div>
+
+</main>
+
+<footer>
+Owned & Managed by Ministry of Digital Governance, Government of India<br>
+GIGW 3.0 Compliant – Clause 5.1.2 – CQ
+</footer>
+
+<script>
+function searchSite(){
+let query=document.getElementById("search").value;
+alert("Search triggered for: "+query);
+}
+</script>
+
+</body>
+</html>

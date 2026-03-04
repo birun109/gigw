@@ -1,0 +1,99 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.17
+Category: Information & Services (IS)
+Missing Proper Metadata & Language Attribute
+========================================================= -->
+
+<!DOCTYPE html>
+<html> <!-- ❌ No language attribute -->
+<head>
+
+<!-- ❌ Missing charset declaration -->
+<!-- ❌ Missing meta description -->
+<!-- ❌ Missing meta keywords -->
+
+<title>Home</title> <!-- ❌ Generic, non-descriptive title -->
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+}
+header{
+    background:#7a0000;
+    color:white;
+    padding:20px;
+}
+nav{
+    background:#990000;
+    padding:15px;
+}
+nav a{
+    color:white;
+    margin-right:20px;
+    text-decoration:none;
+}
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    border-left:4px solid red;
+    margin-top:20px;
+}
+footer{
+    background:#7a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="warning">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h1>Ministry Website</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main style="padding:40px;">
+
+<h2>Welcome</h2>
+<p>
+    This website does not include proper metadata or language declaration.
+</p>
+
+<div class="fail-box">
+    Missing descriptive page title.<br>
+    Missing language attribute.<br>
+    No meta description or keywords.<br>
+    Violates Clause 5.1.17 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</main>
+
+<footer>
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

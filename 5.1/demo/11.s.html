@@ -1,0 +1,214 @@
+<!-- =========================================================
+SUCCESS DEMO – GIGW 3.0 Clause 5.1.11
+Category: Information & Services (IS)
+Structured Feedback Form + Acknowledgement Mechanism
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Citizen Affairs | Feedback</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+header{
+    background:#fefeff;
+    color:rgb(8, 15, 53);
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    display:flex;
+    align-items:center;
+}
+.logo img{
+    height:55px;
+    margin-right:15px;
+}
+nav{
+    background:#123a74;
+    padding:12px 50px;
+}
+nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+nav a.active{
+    text-decoration:underline;
+}
+.search input{ padding:6px; }
+.search button{
+    padding:6px;
+    background:#ffc107;
+    border:none;
+}
+.hero{
+    background:white;
+    padding:40px 50px;
+}
+.container{
+    padding:40px 50px;
+}
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.06);
+}
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    margin-bottom:15px;
+    border-radius:4px;
+    border:1px solid #ccc;
+}
+button.submit-btn{
+    background:#0b3d91;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    cursor:pointer;
+}
+.status-success{
+    background:#e9f7ef;
+    border-left:6px solid #28a745;
+    padding:15px;
+    margin-top:30px;
+}
+footer{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+small{color:#555;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem of India">
+        <div>
+            <h2 style="margin:0;">Ministry of Citizen Affairs</h2>
+            <small>Government of India</small>
+        </div>
+    </div>
+    <div class="search">
+        <input type="text" id="search" placeholder="Search...">
+        <button onclick="searchDemo()">Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#" class="active">Feedback</a>
+</nav>
+
+<section class="hero">
+    <h1>Citizen Feedback & Queries</h1>
+    <p>Your feedback helps us improve services and enhance digital governance.</p>
+</section>
+
+<main class="container">
+
+<div class="card">
+    <h2>Online Feedback Form</h2>
+
+    <form id="feedbackForm" aria-label="Feedback Form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+
+        <label for="category">Category</label>
+        <select id="category">
+            <option>Suggestion</option>
+            <option>Complaint</option>
+            <option>Query</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+
+    <div id="acknowledgement" style="margin-top:15px;"></div>
+</div>
+
+<div class="card">
+    <h2>Response Mechanism</h2>
+    <p>
+        All feedback is logged in the CMS and routed to the concerned division.
+        A response will be sent within 3 working days.
+        Tracking ID is generated for each submission.
+    </p>
+</div>
+
+<div class="status-success">
+    ✓ Structured feedback form available.<br>
+    ✓ Mandatory fields implemented.<br>
+    ✓ Automated acknowledgement & tracking ID generated.<br>
+    ✓ Mechanism in place for timely response.<br>
+    ✓ Compliant with GIGW 3.0 Clause 5.1.11 (IS).
+</div>
+
+<section style="margin-top:30px;">
+    <h3>Evaluator Verification Checklist</h3>
+    <ul>
+        <li>✓ Online feedback form available</li>
+        <li>✓ Structured data collection</li>
+        <li>✓ Acknowledgement mechanism visible</li>
+        <li>✓ Response policy mentioned</li>
+    </ul>
+</section>
+
+</main>
+
+<footer>
+    GIGW 3.0 Compliant – Clause 5.1.11 – Information & Services (IS)
+</footer>
+
+<script>
+function searchDemo(){
+    let q=document.getElementById("search").value.trim();
+    if(q.length>0){
+        alert("Search initiated for: "+q.replace(/</g,""));
+    }
+}
+
+document.getElementById("feedbackForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const trackingID = "FB-" + Math.floor(Math.random()*1000000);
+
+    document.getElementById("acknowledgement").innerHTML =
+        "<div style='background:#e9f7ef;padding:10px;border-radius:4px;'>" +
+        "Thank you for your feedback. Your Tracking ID is <strong>" + trackingID +
+        "</strong>. We will respond within 3 working days." +
+        "</div>";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>

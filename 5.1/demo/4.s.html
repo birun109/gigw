@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIGW 3.0 Clause 5.1.4 - Success Demo</title>
+
+<style>
+body { margin:0; font-family: Arial, sans-serif; background:#f4f6f9; }
+header { background:#ffffff; color:rgb(17, 5, 69); padding:15px; display:flex; align-items:center; }
+header img { height:70px; margin-right:15px; }
+nav { background:#002060; padding:10px 20px; }
+nav a { color:white; margin-right:20px; text-decoration:none; }
+.search-box { float:right; }
+.hero { background:white; padding:30px; border-bottom:4px solid #0b3d91; }
+.container { padding:20px; }
+.card { padding:15px; margin:15px 0; border-radius:6px; }
+.success { background:#e6f4ea; border-left:6px solid #2e7d32; }
+.check { color:#2e7d32; font-weight:bold; }
+footer { background:#0b3d91; color:white; text-align:center; padding:15px; margin-top:30px; }
+.comparison { background:#fff; border:1px solid #ccc; padding:15px; }
+.document-box { background:#ffffff; border:1px solid #ccc; padding:15px; margin-bottom:20px; }
+.permission { font-size:14px; margin-top:10px; color:#444; }
+button { padding:6px 10px; }
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+alt="State Emblem of India - Government of India">
+<h1>Ministry of Information Services</h1>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+<div class="search-box">
+<input type="text" id="search" placeholder="Search..." aria-label="Search">
+<button onclick="searchSite()">Search</button>
+</div>
+</nav>
+
+<section class="hero">
+<h2>Clause 5.1.4 – Copyright Permission Compliance</h2>
+<p><strong>Clause Category:</strong> Information & Services (IS) / Content Quality (CQ)</p>
+<p>This page demonstrates FULL compliance with copyright permission requirements.</p>
+</section>
+
+<main class="container">
+
+<h3>Third-Party Protected Content (With Permission)</h3>
+
+<div class="document-box">
+<p><strong>Excerpt:</strong> Selected statistical data reproduced for public awareness purposes.</p>
+
+<div class="permission">
+<strong>Permission Details:</strong><br>
+Copyright Owner: National Data Authority<br>
+Permission Reference No.: NDA/2024/Permission/1782<br>
+Date of Approval: 12 March 2024<br>
+Usage Scope: Non-commercial government publication with attribution.
+</div>
+</div>
+
+<h3>Compliance Implementation</h3>
+
+<div class="card success">
+<span class="check">✓ Written permission obtained prior to publication</span>
+</div>
+
+<div class="card success">
+<span class="check">✓ Permission reference number documented</span>
+</div>
+
+<div class="card success">
+<span class="check">✓ Usage scope clearly defined</span>
+</div>
+
+<div class="card success">
+<span class="check">✓ Copyright policy published in footer</span>
+</div>
+
+<h3>Compliance Summary</h3>
+<div class="card success">
+<span class="check">✓ Clause 5.1.4 Fully Satisfied</span>
+</div>
+
+<h3>Evaluator Checklist (Backend Audit)</h3>
+<ul>
+<li>✓ Permission document available in records</li>
+<li>✓ Copyright policy implemented</li>
+<li>✓ Approval date recorded</li>
+<li>✓ Legal compliance verified</li>
+</ul>
+
+<div class="comparison">
+<h3>Compliance Comparison Box</h3>
+<p><strong>Success Demo:</strong> Copyrighted content published only after documented permission.</p>
+</div>
+
+</main>
+
+<footer>
+Copyright Policy | Owned & Managed by Ministry of Information Services<br>
+GIGW 3.0 Compliant – Clause 5.1.4 – IS/CQ
+</footer>
+
+<script>
+function searchSite(){
+let query=document.getElementById("search").value;
+alert("Search triggered for: "+query);
+}
+</script>
+
+</body>
+</html>

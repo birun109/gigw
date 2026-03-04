@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIGW 3.0 Clause 5.1.1 - Failure Demo</title>
+
+<style>
+body { margin:0; font-family: Arial; background:#ffffff; }
+header { background:#333; color:white; padding:10px 20px; }
+nav { background:#555; padding:10px 20px; }
+nav a { color:white; margin-right:20px; text-decoration:none; }
+.warning { background:#b71c1c; color:white; padding:15px; text-align:center; font-weight:bold; }
+.container { padding:20px; }
+.fail { background:#fdecea; border-left:6px solid #c62828; padding:15px; margin:15px 0; }
+.cross { color:#c62828; font-weight:bold; }
+footer { background:#333; color:white; text-align:center; padding:15px; margin-top:30px; }
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Government Portal (Demo)</h1>
+<!-- Improper logo usage: distorted, recolored, small, no alt -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+     style="width:40px;height:120px;filter:hue-rotate(200deg);">
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="warning">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<main class="container">
+
+<h2>Clause 5.1.1 – Government Identity Through Emblem/Logo</h2>
+<p><strong>Clause Category:</strong> Content Quality (CQ)</p>
+
+<div class="fail">
+<span class="cross">❌ Emblem distorted and stretched</span><br>
+Aspect ratio altered.
+</div>
+
+<div class="fail">
+<span class="cross">❌ Official colour modified</span><br>
+Hue filter applied.
+</div>
+
+<div class="fail">
+<span class="cross">❌ No alt text provided</span><br>
+Fails accessibility compliance.
+</div>
+
+<div class="fail">
+<span class="cross">❌ Not prominently displayed</span><br>
+Small size and poor visibility.
+</div>
+
+<h3>Evaluator Checklist (Missing Requirements)</h3>
+<ul>
+<li>❌ Prominent placement</li>
+<li>❌ Correct ratio</li>
+<li>❌ Official colour</li>
+<li>❌ Accessibility compliance</li>
+<li>❌ Legal compliance verification</li>
+</ul>
+
+<p><strong>This page is intentionally created for training and evaluation demonstration purposes only.</strong></p>
+
+<div style="background:#fff;border:1px solid #ccc;padding:15px;">
+<h3>Compliance Comparison Box</h3>
+<p><strong>Failure Demo:</strong> Distorted logo, no accessibility, improper usage.</p>
+</div>
+
+</main>
+
+<footer>
+Training Demo Page – Not Compliant
+</footer>
+
+</body>
+</html>

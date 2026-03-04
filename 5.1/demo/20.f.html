@@ -1,0 +1,113 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.20
+Category: Information & Services (IS)
+No A4 Print Optimization
+========================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ministry of Urban Development</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#ffffff;
+}
+
+header{
+    background:#7a0000;
+    color:white;
+    padding:20px;
+}
+
+nav{
+    background:#990000;
+    padding:20px;
+}
+
+nav a{
+    color:white;
+    margin-right:20px;
+}
+
+.container{
+    width:1400px; /* ❌ Fixed width causing print cut-off */
+    padding:50px;
+}
+
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    border-left:4px solid red;
+    margin-top:20px;
+}
+
+footer{
+    background:#7a0000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="warning">
+NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+<h1>Ministry of Urban Development</h1>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="container">
+
+<h2>Annual Report</h2>
+
+<p>
+This page does not contain any print-specific styling.
+Content width exceeds A4 page size and may be cut off when printed.
+</p>
+
+<!-- ❌ No @media print -->
+<!-- ❌ No A4 size configuration -->
+<!-- ❌ No margin control -->
+<!-- ❌ Navigation visible in print -->
+<!-- ❌ Font not optimized -->
+
+<div class="fail-box">
+No A4 print optimization implemented.<br>
+Content width exceeds printable area.<br>
+Navigation & UI elements clutter print layout.<br>
+Violates Clause 5.1.20 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</div>
+
+<footer>
+Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

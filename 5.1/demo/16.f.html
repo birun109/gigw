@@ -1,0 +1,92 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.16
+Category: Information & Services (IS)
+Content dependent on CSS for visibility.
+========================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ministry of Public Information</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+}
+
+header{
+    background:#7a0000;
+    color:white;
+    padding:20px;
+}
+
+/* ❌ Content hidden unless CSS active */
+.hidden-content{
+    display:none;
+}
+
+/* CSS used to reveal content */
+.show-content{
+    display:block;
+    padding:40px;
+}
+
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    border-left:4px solid red;
+    margin-top:20px;
+}
+</style>
+
+<script>
+function reveal(){
+    document.getElementById("mainContent").className="show-content";
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="warning">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h1>Ministry of Public Information</h1>
+</header>
+
+<button onclick="reveal()">Load Content</button>
+
+<!-- ❌ Content hidden by default -->
+<div id="mainContent" class="hidden-content">
+    <h2>Citizen Information Portal</h2>
+    <p>
+        Important content is hidden unless CSS/JS loads properly.
+    </p>
+</div>
+
+<div class="fail-box">
+    Content hidden without CSS.<br>
+    Layout dependent on style sheets for visibility.<br>
+    Violates Clause 5.1.16 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+<footer style="background:#7a0000; color:white; text-align:center; padding:20px;">
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

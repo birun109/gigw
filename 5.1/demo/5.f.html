@@ -1,0 +1,125 @@
+<!-- =========================================================
+GIGW 3.0 Clause 5.1.5 – Professional Non-Compliant Demo
+Clause Category: Content Quality (CQ)
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Public Information Portal</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+header {
+    background: #7a0000;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    background: #990000;
+    padding: 12px 40px;
+}
+
+nav a {
+    color: white;
+    margin-right: 25px;
+    text-decoration: none;
+}
+
+.warning-banner {
+    background: #ffcccc;
+    color: #990000;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.hero {
+    background: #f9f9f9;
+    padding: 40px;
+}
+
+.fail-card {
+    background: #ffe6e6;
+    border-left: 5px solid red;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+footer {
+    background: #7a0000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning-banner">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <h2 style="margin:0;">National Public Information Portal</h2>
+        <div style="font-size:14px;">Ministry of Administrative Affairs</div>
+    </div>
+
+    <div>
+        <input type="text" placeholder="Search services...">
+        <button>Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Citizen Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to the Official Portal</h1>
+    <p>
+        This portal provides verified information for citizens.
+    </p>
+
+    <!-- INTENTIONAL VIOLATION: NO LAST UPDATED DATE SHOWN -->
+
+    <div class="fail-card">
+        ❌ The homepage does not display the last reviewed or updated date.  
+        ❌ Users cannot verify content freshness.  
+        ❌ Does not meet Clause 5.1.5 (Content Quality).
+    </div>
+</section>
+
+<section style="padding:40px;">
+    <h2>Content Management</h2>
+    <p>
+        Content is published by respective departments. 
+        However, review information is not displayed publicly.
+    </p>
+</section>
+
+<footer>
+    Demonstration Website – For Training Purposes Only
+</footer>
+
+</body>
+</html>

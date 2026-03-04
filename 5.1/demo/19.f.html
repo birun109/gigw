@@ -1,0 +1,89 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.1.19
+Category: Information & Services (IS)
+Improper Table Markup + Table Used for Layout
+========================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ministry of Rural Development</title>
+
+<style>
+body{margin:0;font-family:Arial;}
+.warning{
+background:#c62828;
+color:white;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+table{
+width:100%;
+border-collapse:collapse;
+}
+td{
+border:1px solid #ccc;
+padding:10px;
+}
+.fail-box{
+background:#ffebee;
+padding:15px;
+border-left:4px solid red;
+margin-top:20px;
+}
+footer{
+background:#7a0000;
+color:white;
+padding:20px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<h1>Ministry of Rural Development</h1>
+
+<!-- ❌ Table incorrectly used for layout -->
+<table>
+<tr>
+<td><strong>State</strong></td>
+<td><strong>Beneficiaries</strong></td>
+<td><strong>Funds</strong></td>
+</tr>
+<tr>
+<td>Uttar Pradesh</td>
+<td>12,50,000</td>
+<td>3,200</td>
+</tr>
+<tr>
+<td>Madhya Pradesh</td>
+<td>9,80,000</td>
+<td>2,750</td>
+</tr>
+</table>
+
+<!-- ❌ Missing thead, tbody, caption, scope attributes -->
+<!-- ❌ No header-cell associations -->
+
+<div class="fail-box">
+Table missing caption.<br>
+No &lt;thead&gt; or &lt;tbody&gt;.<br>
+No &lt;th&gt; scope attributes.<br>
+Improper semantic structure.<br>
+Violates Clause 5.1.19 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+<footer>
+Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

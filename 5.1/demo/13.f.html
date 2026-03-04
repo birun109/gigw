@@ -1,0 +1,100 @@
+<!-- =========================================================
+FAILURE DEMO – GIGW 3.0 Clause 5.13
+Category: Information & Services (IS)
+Non-Unicode Hindi + No responsive testing
+========================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ministry of Inclusive Governance</title>
+
+<style>
+body{
+    margin:0;
+    font-family: "Times New Roman"; /* Not optimized for Hindi Unicode */
+}
+header{
+    background:#7a0000;
+    color:white;
+    padding:20px;
+}
+nav{
+    background:#990000;
+    padding:15px;
+}
+nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+.container{
+    padding:50px;
+}
+.warning{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+.fail-box{
+    background:#ffebee;
+    padding:15px;
+    border-left:4px solid red;
+    margin-top:20px;
+}
+footer{
+    background:#7a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
+<!-- ❌ Missing proper UTF-8 declaration -->
+</head>
+
+<body>
+
+<div class="warning">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h2>Ministry of Inclusive Governance</h2>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="container">
+
+<h2>Hindi Content</h2>
+
+<!-- ❌ Simulated corrupted Hindi (non-Unicode rendering issue) -->
+<p>
+    à¤¯à¤¹ à¤µà¥‡à¤¬à¤¸à¤¾à¤‡à¤Ÿ à¤¹à¤¿à¤‚à¤¦à¥€ à¤•à¥‹ à¤¸à¤¹à¥€ à¤¤à¤°à¤¹ à¤¸à¥‡ à¤ªà¥à¤°à¤¦à¤°à¥à¤¶à¤¿à¤¤ à¤¨à¤¹à¥€à¤‚ à¤•à¤°à¤¤à¥€।
+</p>
+
+<div class="fail-box">
+    Hindi font not using proper Unicode encoding.<br>
+    Layout not responsive.<br>
+    Not tested on multiple browsers.<br>
+    Violates Clause 5.13 (IS).
+</div>
+
+<p><strong>For training and demonstration purposes only.</strong></p>
+
+</div>
+
+<footer>
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

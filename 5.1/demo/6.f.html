@@ -1,0 +1,123 @@
+<!-- =========================================================
+GIGW 3.0 Clause 5.1.6 – FAILURE DEMO
+Category: Information & Services (IS)
+Intentionally violates Developer Action requirements.
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Citizen Services – Downloads</title>
+
+<style>
+body {
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#fff;
+}
+.warning {
+    background:#ffcccc;
+    color:#990000;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+header {
+    background:#7a0000;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+}
+nav {
+    background:#990000;
+    padding:12px 40px;
+}
+nav a {
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+.download-card {
+    background:#fff5f5;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid red;
+}
+footer {
+    background:#7a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="warning">
+    NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <h2>Ministry of Citizen Services</h2>
+    <div>
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main style="padding:40px;">
+    <h1>Downloads</h1>
+
+    <!-- INTENTIONAL VIOLATIONS -->
+    <div class="download-card">
+        <h3>Application Form</h3>
+        <!-- ❌ No file size -->
+        <!-- ❌ No file format -->
+        <!-- ❌ No usage instructions -->
+        <a href="#">Download</a>
+    </div>
+
+    <div class="download-card">
+        <h3>Guidelines</h3>
+        <!-- ❌ Missing details -->
+        <a href="#">Download</a>
+    </div>
+
+    <div class="download-card">
+        ❌ File size not mentioned.<br>
+        ❌ File format not specified.<br>
+        ❌ No usage instructions provided.<br>
+        ❌ Titles are not self-explanatory.<br>
+        ❌ Violates Clause 5.1.6 (IS).
+    </div>
+
+    <h3>Evaluator Checklist (Expected Failures)</h3>
+    <ul>
+        <li>❌ Missing file size information</li>
+        <li>❌ Missing file format</li>
+        <li>❌ Missing download instructions</li>
+        <li>❌ No accessibility clarity</li>
+    </ul>
+
+    <p><strong>For training and demonstration purposes only.</strong></p>
+
+</main>
+
+<footer>
+    Demonstration Website – Not GIGW Compliant
+</footer>
+
+</body>
+</html>

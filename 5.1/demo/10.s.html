@@ -1,0 +1,206 @@
+<!-- =========================================================
+SUCCESS DEMO – GIGW 3.0 Clause 5.1.10
+Category: Information & Services (IS)
+Complete Contact Us page with full directory & CMS provision.
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Public Welfare | Contact Us</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+header{
+    background:#fdfdfd;
+    color:rgb(6, 5, 103);
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    display:flex;
+    align-items:center;
+}
+.logo img{
+    height:55px;
+    margin-right:15px;
+}
+nav{
+    background:#123a74;
+    padding:12px 50px;
+}
+nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+}
+nav a.active{
+    text-decoration:underline;
+}
+.search input{ padding:6px; }
+.search button{
+    padding:6px;
+    background:#ffc107;
+    border:none;
+}
+.hero{
+    background:white;
+    padding:40px 50px;
+}
+.container{
+    padding:40px 50px;
+}
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.06);
+}
+.directory{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap:20px;
+}
+.contact-box{
+    background:#eef3fb;
+    padding:15px;
+    border-radius:6px;
+}
+.status-success{
+    background:#e9f7ef;
+    border-left:6px solid #28a745;
+    padding:15px;
+    margin-top:30px;
+}
+footer{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+small{color:#555;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem of India">
+        <div>
+            <h2 style="margin:0;">Ministry of Public Welfare</h2>
+            <small>Government of India</small>
+        </div>
+    </div>
+    <div class="search">
+        <input type="text" id="search" placeholder="Search...">
+        <button onclick="searchDemo()">Search</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#" class="active">Contact</a>
+</nav>
+
+<section class="hero">
+    <h1>Contact Us</h1>
+    <p>Reach out to our citizen-facing functionaries for assistance, clarification and grievance redressal.</p>
+</section>
+
+<main class="container">
+
+<div class="card">
+    <h2>Official Address</h2>
+    <p>
+        Ministry of Public Welfare<br>
+        CGO Complex, Lodhi Road,<br>
+        New Delhi – 110003, India
+    </p>
+</div>
+
+<div class="card">
+    <h2>Directory of Important Functionaries</h2>
+    <div class="directory">
+
+        <div class="contact-box">
+            <strong>Secretary</strong><br>
+            Phone: +91-11-23456789<br>
+            Fax: +91-11-23456780<br>
+            Email: secretary@mpw.gov.in<br>
+            Public Meeting Hours: Mon–Fri (10 AM – 1 PM)
+        </div>
+
+        <div class="contact-box">
+            <strong>Joint Secretary (Citizen Services)</strong><br>
+            Phone: +91-11-34567890<br>
+            Email: js.citizen@mpw.gov.in<br>
+            Public Meeting Hours: Tue–Thu (2 PM – 4 PM)
+        </div>
+
+        <div class="contact-box">
+            <strong>Grievance Redressal Officer</strong><br>
+            Phone: +91-11-45678901<br>
+            Email: grievance@mpw.gov.in<br>
+            Public Meeting Hours: Mon–Fri (11 AM – 3 PM)
+        </div>
+
+    </div>
+</div>
+
+<div class="card">
+    <h2>CMS Publishing Mechanism</h2>
+    <p>
+        The CMS allows authorized administrators to update contact details, 
+        publish new functionaries and maintain revision logs.
+    </p>
+</div>
+
+<div class="status-success">
+    ✓ Dedicated Contact Us page available.<br>
+    ✓ Complete directory with phone, fax, email & timings.<br>
+    ✓ Linked from navigation and homepage.<br>
+    ✓ CMS mechanism available for updates.<br>
+    ✓ Compliant with GIGW 3.0 Clause 5.1.10 (IS).
+</div>
+
+<section style="margin-top:30px;">
+    <h3>Evaluator Verification Checklist</h3>
+    <ul>
+        <li>✓ Contact page accessible from homepage</li>
+        <li>✓ Directory of key functionaries present</li>
+        <li>✓ Contact details complete</li>
+        <li>✓ CMS provision for updates available</li>
+    </ul>
+</section>
+
+</main>
+
+<footer>
+    GIGW 3.0 Compliant – Clause 5.1.10 – Information & Services (IS)
+</footer>
+
+<script>
+function searchDemo(){
+    let q=document.getElementById("search").value.trim();
+    if(q.length>0){
+        alert("Search initiated for: "+q.replace(/</g,""));
+    }
+}
+</script>
+
+</body>
+</html>

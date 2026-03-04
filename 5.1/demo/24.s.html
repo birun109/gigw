@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Clause 5.1.24 - Success Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: white;
+            color:blue;
+            padding: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        nav {
+            background: #002060;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .search-box {
+            float: right;
+        }
+
+        .hero {
+            padding: 30px;
+            background: white;
+            border-bottom: 3px solid #0b3d91;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success {
+            background: #e6f4ea;
+            border-left: 6px solid #2e7d32;
+        }
+
+        .check {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #0b3d91;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .social-feed {
+            background: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Government Header -->
+    <header>
+        <h1>🇮🇳 Government Department Portal</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search..." aria-label="Search">
+            <button onclick="searchFunction()">Search</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Clause 5.1.24 – Social Media Integration</h2>
+        <p><strong>Clause Category:</strong> Content Quality (CQ)</p>
+        <p>This website demonstrates FULL COMPLIANCE with GIGW 3.0 requirements.</p>
+    </section>
+
+    <div class="container">
+
+        <h3>Compliance Implementation</h3>
+
+        <div class="card success">
+            <span class="check">✓ Two-way Social Media Integration Enabled</span><br>
+            Users can share official updates directly to social platforms.
+        </div>
+
+        <div class="card success">
+            <span class="check">✓ Social Media Feed Embedded</span><br>
+            Live updates from official social media integrated into website.
+        </div>
+
+        <div class="card success">
+            <span class="check">✓ Content Written in Social-Friendly Format</span><br>
+            Short, structured, suitable for digital sharing.
+        </div>
+
+        <!-- Share Content -->
+        <h3>Push Content to Social Media</h3>
+        <p>Click below to share latest government update:</p>
+
+        <button onclick="shareContent()">Share on Twitter/X</button>
+        <button onclick="shareContent()">Share on Facebook</button>
+
+        <!-- Social Feed Integration -->
+        <h3>Integrated Social Media Feed</h3>
+        <div class="social-feed">
+            <p><strong>Official Twitter Feed:</strong></p>
+            <p>📢 Government Update: New citizen services launched today.</p>
+            <p>📢 Disaster Alert Advisory issued.</p>
+        </div>
+
+        <!-- Compliance Summary -->
+        <h3>Compliance Summary</h3>
+        <div class="card success">
+            <span class="check">✓ Clause 5.1.24 Fully Satisfied</span><br>
+            Developer ensured push & pull integration with social platforms.
+        </div>
+
+        <!-- Evaluator Checklist -->
+        <h3>Evaluator Verification Checklist</h3>
+        <ul>
+            <li>✓ Social media share buttons available</li>
+            <li>✓ Social media feed integrated</li>
+            <li>✓ Content formatted for social use</li>
+            <li>✓ Two-way interaction visible</li>
+        </ul>
+
+    </div>
+
+    <footer>
+        GIGW 3.0 Compliant – Clause 5.1.24 – CQ
+    </footer>
+
+    <script>
+        // Search Demo
+        function searchFunction() {
+            let query = document.getElementById("search").value;
+            alert("Search triggered for: " + query);
+        }
+
+        // Social Share Demo (secure encoding)
+        function shareContent() {
+            let text = encodeURIComponent("Official Government Update from Portal");
+            window.open("https://twitter.com/intent/tweet?text=" + text, "_blank", "noopener");
+        }
+    </script>
+
+</body>
+
+</html>

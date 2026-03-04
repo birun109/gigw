@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GIGW 3.0 Training Overview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #eef2f7, #f9fbfd);
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #002b5c, #004080);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff9800;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .training-note {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            color: #002b5c;
+            border-left: 5px solid #004080;
+            padding-left: 10px;
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .external::after {
+            content: " ↗";
+            font-size: 13px;
+            color: #888;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #002b5c;
+            color: white;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f6fb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            background: #002b5c;
+            color: white;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            table,
+            th,
+            td {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <script>
+        function confirmExternalLink(event, url) {
+            event.preventDefault();
+            const proceed = confirm("You are being redirected to an external website.\n\nClick OK to continue.");
+            if (proceed) {
+                window.open(url, "_blank", "noopener");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="badge">Training / Demo</div>
+        <h1>GIGW 3.0 Overview</h1>
+
+        <div class="training-note">
+            ⚠ This webpage is created purely for training and educational demonstration purposes
+            to understand the structure, implementation, and compliance requirements of GIGW 3.0.
+            It is not an official Government of India website.
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section>
+            <h2>1. What is GIGW 3.0?</h2>
+            <p>
+                Guidelines for Indian Government Websites (GIGW) 3.0 is a framework issued by the
+                Ministry of Electronics and Information Technology (MeitY), Government of India.
+                It standardizes government websites to ensure accessibility, usability, security,
+                interoperability, and citizen-centric digital service delivery.
+            </p>
+        </section>
+
+        <section>
+            <h2>2. Reference Standards, Laws & Guidelines</h2>
+            <ul>
+                <li>
+                    <a href="#" class="external"
+                        onclick="confirmExternalLink(event,'https://guidelines.india.gov.in/')">
+                        GIGW 3.0 Guidelines
+                    </a>
+                    – Source: MeitY, Government of India
+                </li>
+
+                <li>
+                    <a href="#" class="external"
+                        onclick="confirmExternalLink(event,'https://www.w3.org/TR/WCAG21/')">
+                        WCAG 2.1 – Web Content Accessibility Guidelines
+                    </a>
+                    – Source: W3C
+                </li>
+
+                <li>
+                    <a href="#" class="external"
+                        onclick="confirmExternalLink(event,'https://www.meity.gov.in/static/uploads/2024/03/IT-Act-Rules_2000_0.pdf')">
+                        Information Technology Act, 2000
+                    </a>
+                    – Source: MeitY, Government of India
+                </li>
+
+                <li>
+                    <a href="#" class="external"
+                        onclick="confirmExternalLink(event,'https://depwd.gov.in/en/acts/')">
+                        Rights of Persons with Disabilities Act, 2016
+                    </a>
+                    – Source: Department of Empowerment of Persons with Disabilities
+                </li>
+
+                <li>
+                    <a href="#" class="external"
+                        onclick="confirmExternalLink(event,'https://www.cert-in.org.in/s2cMainServlet?pageid=GUIDLNVIEW01')">
+                        CERT-In Cyber Security Guidelines
+                    </a>
+                    – Source: Indian Computer Emergency Response Team
+                </li>
+
+                <li>
+                    <a href="#" class="external"
+                        onclick="confirmExternalLink(event,'https://www.iso.org/standards.html')">
+                        ISO/IEC Web Standards
+                    </a>
+                    – Source: International Organization for Standardization
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. GIGW 3.0 Demo Sections (Training Modules)</h2>
+
+            <table>
+                <tr>
+                    <th>Section</th>
+                    <th>Description</th>
+                    <th>Demo Link</th>
+                </tr>
+                <tr>
+                    <td><strong>5.1 Quality Guidelines</strong></td>
+                    <td>Content quality, metadata, multilingual support, usability, and consistency standards.</td>
+                    <td><a href="5.1/index.html">Open 5.1</a></td>
+                </tr>
+                <tr>
+                    <td><strong>5.2 Accessibility Guidelines</strong></td>
+                    <td>WCAG 2.1 based accessibility principles ensuring inclusive and barrier-free access.</td>
+                    <td><a href="5.2/index.html">Open 5.2 </a></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>4. Why GIGW 3.0 is Required in Government Sector</h2>
+            <ul>
+                <li>Ensures uniformity across government websites</li>
+                <li>Provides inclusive digital access to all citizens</li>
+                <li>Enhances transparency and accountability</li>
+                <li>Improves cybersecurity posture</li>
+                <li>Supports Digital India vision</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Risks if Not Followed</h2>
+            <ul>
+                <li>Legal non-compliance under IT Act and RPwD Act</li>
+                <li>Accessibility complaints and litigation</li>
+                <li>Cybersecurity breaches and data compromise</li>
+                <li>Loss of citizen trust</li>
+                <li>Audit failure during compliance review</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. How to Implement GIGW 3.0</h2>
+            <ol>
+                <li>Understand GIGW clauses and compliance requirements</li>
+                <li>Conduct gap analysis and accessibility audit</li>
+                <li>Implement WCAG 2.1 accessibility features</li>
+                <li>Ensure adherence to open standards and security policies</li>
+                <li>Publish compliance statement</li>
+                <li>Perform periodic audits and monitoring</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>7. Key Terms Used in GIGW</h2>
+            <ul>
+                <li><strong>Accessibility:</strong> Designing digital content usable by persons with disabilities</li>
+                <li><strong>Compliance:</strong> Meeting mandatory guidelines</li>
+                <li><strong>Audit:</strong> Systematic evaluation of conformity</li>
+                <li><strong>Responsive Design:</strong> Adapting website layout across devices</li>
+                <li><strong>Interoperability:</strong> Systems working seamlessly together</li>
+                <li><strong>Metadata:</strong> Structured information describing content</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        Training Demonstration Page – GIGW 3.0 Overview | Not an Official Government Website
+    </footer>
+
+</body>
+
+</html>

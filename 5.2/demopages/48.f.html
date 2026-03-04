@@ -1,0 +1,111 @@
+<!--
+FAILURE DEMO
+Clause 5.2.48 – WCAG 2.1 – 4.1.1 Parsing
+
+VIOLATION:
+- Duplicate IDs
+- Improper nesting
+- Duplicate attributes
+- Missing closing tags
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rural Scheme Portal</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+<strong>Ministry of Rural Development</strong><br>
+Government of India
+
+<nav>
+<a href="#">Home
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<!-- Duplicate ID -->
+<input type="text" id="searchInput" id="searchInput">
+<button onclick="searchPortal()">Search</button>
+
+</header>
+
+<main>
+
+<section class="card">
+<h2>Scheme Overview
+<p>Information about rural development schemes.
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>Duplicate ID used (searchInput).</li>
+<li>Improperly nested &lt;h2&gt; and &lt;p&gt; tags.</li>
+<li>Missing closing &lt;a&gt; tag.</li>
+<li>Duplicate attribute (id repeated).</li>
+<li>Violates WCAG 2.1 – 4.1.1 Parsing.</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+function searchPortal(){
+alert("Search triggered.");
+}
+</script>
+
+</body>
+</html>

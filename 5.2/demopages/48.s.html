@@ -1,0 +1,145 @@
+<!--
+SUCCESS DEMO
+Clause 5.2.48 – WCAG 2.1 – 4.1.1 Parsing
+
+COMPLIANT:
+- Complete start and end tags
+- Proper nesting
+- Unique IDs
+- No duplicate attributes
+- Valid semantic structure
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Rural Development – Scheme Portal</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f2f6fc;
+}
+header{
+    background:#0b3d91;
+    color:#fff;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+nav a{
+    color:#fff;
+    margin:0 12px;
+    text-decoration:none;
+}
+.hero{
+    background:#ffffff;
+    padding:40px;
+    text-align:center;
+}
+main{
+    padding:30px;
+}
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:6px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.status-green{
+    background:#e6f4ea;
+    border-left:6px solid #2e7d32;
+}
+footer{
+    background:#0b3d91;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+input{
+    padding:6px;
+}
+button{
+    padding:6px 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div>
+<strong>Ministry of Rural Development</strong><br>
+Government of India
+</div>
+
+<nav aria-label="Primary Navigation">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<div>
+<label for="searchInput">Search</label>
+<input type="text" id="searchInput">
+<button type="button" onclick="searchPortal()">Search</button>
+</div>
+</header>
+
+<section class="hero">
+<h1>National Rural Employment Scheme Portal</h1>
+</section>
+
+<main>
+
+<section class="card">
+<h2>Scheme Overview</h2>
+<p>
+This portal provides information regarding rural employment schemes
+and beneficiary registration details.
+</p>
+</section>
+
+<section class="card status-green">
+<h3>✓ Compliance Summary</h3>
+<ul>
+<li>All elements have proper start and end tags.</li>
+<li>Proper nesting followed.</li>
+<li>Unique IDs used (searchInput).</li>
+<li>No duplicate attributes.</li>
+<li>Markup validates successfully.</li>
+<li>Conforms to WCAG 2.1 – 4.1.1 Parsing.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>✓ Validate HTML using W3C validator</li>
+<li>✓ No duplicate IDs found</li>
+<li>✓ No improperly nested elements</li>
+<li>✓ Assistive tech parses structure correctly</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Rural Development | Government of India<br>
+GIGW 3.0 Compliant – Clause 5.2.48 – Accessibility: Guidelines and attributes
+</footer>
+
+<script>
+function searchPortal(){
+alert("Search executed.");
+}
+</script>
+
+</body>
+</html>

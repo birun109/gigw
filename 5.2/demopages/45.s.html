@@ -1,0 +1,167 @@
+<!--
+SUCCESS DEMO
+Clause 5.2.45 – WCAG 2.1 – 3.3.2 Labels or Instructions
+
+COMPLIANT:
+- All input fields have visible <label>
+- Instructions provided for required format
+- Radio buttons and checkboxes properly labelled
+- aria-describedby used where necessary
+- No placeholder-only labeling
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Transport – Driving License Application</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f2f6fc;
+}
+header{
+    background:#0b3d91;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:0 12px;
+    text-decoration:none;
+}
+.hero{
+    background:white;
+    padding:40px;
+    text-align:center;
+}
+main{
+    padding:30px;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:6px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.status-green{
+    background:#e6f4ea;
+    border-left:6px solid #2e7d32;
+}
+label{
+    font-weight:600;
+}
+input, select{
+    padding:8px;
+    width:260px;
+}
+.instructions{
+    font-size:13px;
+    color:#555;
+}
+footer{
+    background:#0b3d91;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+button{
+    padding:8px 12px;
+    margin-top:12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <strong>Ministry of Transport</strong><br>
+        Government of India
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Online Driving License Application</h1>
+</section>
+
+<main>
+
+<section class="card">
+<h2>Applicant Details</h2>
+
+<form>
+
+<!-- Proper Label -->
+<label for="fullname">Full Name</label><br>
+<input type="text" id="fullname"><br><br>
+
+<!-- Label + Instruction -->
+<label for="dob">Date of Birth</label><br>
+<input type="text" id="dob" aria-describedby="dobFormat"><br>
+<div id="dobFormat" class="instructions">
+Format: DD/MM/YYYY (Example: 25/12/2000)
+</div>
+<br>
+
+<!-- Radio Group with Labels -->
+<p>License Type:</p>
+
+<input type="radio" id="lmv" name="licenseType">
+<label for="lmv">Light Motor Vehicle</label><br>
+
+<input type="radio" id="hmv" name="licenseType">
+<label for="hmv">Heavy Motor Vehicle</label><br><br>
+
+<!-- Checkbox with Label -->
+<input type="checkbox" id="terms">
+<label for="terms">I agree to the terms and conditions</label><br>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
+</section>
+
+<section class="card status-green">
+<h3>✓ Compliance Summary</h3>
+<ul>
+<li>All inputs have visible labels.</li>
+<li>Instructions provided for specific format.</li>
+<li>Radio buttons and checkboxes labelled clearly.</li>
+<li>No placeholder-only inputs.</li>
+<li>Conforms to WCAG 2.1 – 3.3.2 Labels or Instructions.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Verification Checklist</h3>
+<ul>
+<li>✓ Each field has associated label</li>
+<li>✓ Format instructions available</li>
+<li>✓ Radio buttons labelled individually</li>
+<li>✓ Accessible and predictable form</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Transport | Government of India<br>
+GIGW 3.0 Compliant – Clause 5.2.45 – Accessibility: Guidelines and attributes
+</footer>
+
+</body>
+</html>

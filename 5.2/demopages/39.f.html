@@ -1,0 +1,114 @@
+<!--
+NON-COMPLIANT IMPLEMENTATION
+Clause 5.2.39 – WCAG 2.1 – 3.1.2 Language of Parts
+Language changes NOT programmatically identified.
+-->
+
+<!DOCTYPE html>
+<html lang="en"> <!-- Default language declared, but language parts missing -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Public Communications</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <strong>Ministry of Public Communications</strong><br>
+        Government of India
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Language-Specific Passages</h2>
+
+<p>This portal provides multilingual greetings:</p>
+
+<!-- VIOLATION: Language changes NOT identified using lang attribute -->
+
+<p>भारत सरकार नागरिकों का स्वागत करती है।</p>
+<p>বাংলা ভাষায় নাগরিক পরিষেবা প্রদান করা হয়।</p>
+<p>தமிழ் மொழி இந்தியாவின் பாரம்பரியத்தின் ஒரு முக்கிய பகுதி.</p>
+
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>Language changes not marked using lang attribute.</li>
+<li>Assistive technologies cannot switch pronunciation rules.</li>
+<li>Violates WCAG 2.1 – 3.1.2 Language of Parts.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>❌ Language attributes missing on passages</li>
+<li>❌ Screen reader mispronunciation likely</li>
+<li>❌ Accessibility non-conformance confirmed</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Public Communications<br>
+For training and demonstration purposes only.
+</footer>
+
+</body>
+</html>

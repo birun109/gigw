@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Digital Services</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <strong>Ministry of Digital Services</strong><br>
+        Government of India
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Delete Document</h2>
+
+<!-- VIOLATION: Action triggered on mousedown (down-event) -->
+
+<button onmousedown="deleteFileInstant()">Delete File</button>
+
+<p id="statusMessage"></p>
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>Activation occurs on down-event.</li>
+<li>No undo mechanism.</li>
+<li>No cancellation before completion.</li>
+<li>Violates WCAG 2.1 – 2.5.2 Pointer Cancellation.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>❌ Down-event triggers function</li>
+<li>❌ No abort/undo available</li>
+<li>❌ Accidental activation risk</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Digital Services<br>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+/* NON-COMPLIANT: Executes on pointer down event */
+function deleteFileInstant(){
+    document.getElementById("statusMessage").innerText = "File deleted immediately (no cancellation possible).";
+}
+</script>
+
+</body>
+</html>

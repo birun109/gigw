@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Smart Services</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <strong>Ministry of Smart Services</strong><br>
+        Government of India
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Shake to Refresh Service</h2>
+
+<p>Shake your device to refresh updates.</p>
+
+<!-- VIOLATION: No alternative UI control and no disable option -->
+
+<p id="statusMessage"></p>
+
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>No alternative button provided.</li>
+<li>No option to disable motion actuation.</li>
+<li>Functionality exclusively dependent on motion.</li>
+<li>Violates WCAG 2.1 – 2.5.4 Motion Actuation.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>❌ Motion required for operation</li>
+<li>❌ No disable control</li>
+<li>❌ Accessibility non-conformance confirmed</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Smart Services<br>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+/* NON-COMPLIANT: Motion only, cannot be disabled */
+window.addEventListener("devicemotion", function(event){
+    let acceleration = event.accelerationIncludingGravity;
+    if(acceleration && Math.abs(acceleration.x) > 15){
+        document.getElementById("statusMessage").innerText = "Content refreshed via shake.";
+    }
+});
+</script>
+
+</body>
+</html>

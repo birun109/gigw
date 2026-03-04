@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Digital Services</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#fff5f5;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+.banner{
+    background:#c62828;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #c62828;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+.carousel{
+    display:flex;
+    overflow:hidden;
+}
+.slide{
+    min-width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <strong>Ministry of Digital Services</strong><br>
+        Government of India
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Citizen Awareness Campaign</h2>
+
+<!-- VIOLATION: Only swipe gesture supported, no buttons -->
+
+<div class="carousel" id="carousel">
+    <div class="slide">Slide 1: Accessible Governance</div>
+    <div class="slide">Slide 2: Inclusive Technology</div>
+    <div class="slide">Slide 3: Digital Empowerment</div>
+</div>
+
+<p><strong>Note:</strong> Slides can only be changed using touch swipe gesture. No alternative controls provided.</p>
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>No single pointer alternative provided.</li>
+<li>Gesture-based interaction mandatory.</li>
+<li>No keyboard accessibility.</li>
+<li>Violates WCAG 2.1 – 2.5.1 Pointer Gestures.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>❌ Swipe gesture required</li>
+<li>❌ No clickable alternative</li>
+<li>❌ Accessibility failure confirmed</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Digital Services<br>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+/* Simulated swipe-only logic (Non-compliant intentionally) */
+let startX = 0;
+let currentIndex = 0;
+const slides = document.querySelectorAll(".slide");
+
+document.getElementById("carousel").addEventListener("touchstart", function(e){
+    startX = e.touches[0].clientX;
+});
+
+document.getElementById("carousel").addEventListener("touchend", function(e){
+    let endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50){
+        currentIndex = (currentIndex + 1) % slides.length;
+    }
+    slides.forEach((slide)=>{
+        slide.style.transform = `translateX(-${currentIndex*100}%)`;
+    });
+});
+</script>
+
+</body>
+</html>

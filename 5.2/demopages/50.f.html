@@ -1,0 +1,121 @@
+<!--
+FAILURE DEMO
+Clause 5.2.50 – WCAG 2.1 – 4.1.3 Status Messages
+
+VIOLATION:
+- Status visually displayed only
+- No role="status"
+- No aria-live
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate Portal</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#fff3f3;
+}
+.banner{
+background:#b71c1c;
+color:white;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+header{
+background:#7b0000;
+color:white;
+padding:15px 30px;
+}
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+.card{
+background:white;
+padding:20px;
+margin:20px;
+border-left:6px solid #b71c1c;
+}
+.status-box{
+margin-top:15px;
+padding:10px;
+background:#eef;
+}
+footer{
+background:#7b0000;
+color:white;
+padding:20px;
+text-align:center;
+}
+button{
+padding:8px 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+<strong>Ministry of Home Affairs</strong><br>
+Government of India
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Download Residence Certificate</h2>
+
+<button onclick="downloadCertificate()">Download Certificate</button>
+
+<!-- NOT accessible -->
+<div id="statusMessage" class="status-box"></div>
+
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>No role="status" provided.</li>
+<li>No aria-live region defined.</li>
+<li>Status message not programmatically determinable.</li>
+<li>Screen readers will not announce updates.</li>
+<li>Violates WCAG 2.1 – 4.1.3 Status Messages.</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+function downloadCertificate(){
+let status=document.getElementById("statusMessage");
+status.textContent="Processing request...";
+setTimeout(function(){
+status.textContent="Download completed successfully.";
+},2000);
+}
+</script>
+
+</body>
+</html>

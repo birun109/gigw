@@ -1,0 +1,131 @@
+<!--
+FAILURE DEMO
+Clause 5.2.46 – WCAG 2.1 – 3.3.3 Error Suggestion
+
+VIOLATION:
+- Error detected
+- NO correction suggestion provided
+- Generic message only
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finance Portal – Verification</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+.error{
+    color:red;
+}
+input{
+    padding:8px;
+    width:250px;
+}
+button{
+    padding:8px 12px;
+    margin-top:10px;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+<div>
+<strong>Ministry of Finance</strong><br>
+Government of India
+</div>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Enter Details</h2>
+
+<form onsubmit="return validateForm()">
+
+<label>PAN</label><br>
+<input type="text" id="pan"><br>
+
+<label>DOB</label><br>
+<input type="text" id="dob"><br>
+
+<div id="errorMsg" class="error"></div>
+
+<button type="submit">Verify</button>
+
+</form>
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>Generic error message only.</li>
+<li>No format suggestion provided.</li>
+<li>User does not know how to correct input.</li>
+<li>Violates WCAG 2.1 – 3.3.3 Error Suggestion.</li>
+</ul>
+</section>
+
+<footer>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+function validateForm(){
+let error=document.getElementById("errorMsg");
+error.textContent="Invalid input.";  // No suggestion given
+return false;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!--
+FAILURE DEMO
+Clause 5.2.49 – WCAG 2.1 – 4.1.2 Name, Role, Value
+
+VIOLATION:
+- No role defined
+- No aria-checked
+- No accessible name
+- No state updates exposed
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Environment Alerts</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#fff3f3;
+}
+.banner{
+background:#b71c1c;
+color:white;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+header{
+background:#7b0000;
+color:white;
+padding:15px 30px;
+}
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+.card{
+background:white;
+padding:20px;
+margin:20px;
+border-left:6px solid #b71c1c;
+}
+.toggle{
+width:60px;
+height:30px;
+background:#ccc;
+border-radius:15px;
+position:relative;
+cursor:pointer;
+}
+.toggle.active{
+background:green;
+}
+footer{
+background:#7b0000;
+color:white;
+padding:20px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+<strong>Ministry of Environment</strong><br>
+Government of India
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>SMS Alert Subscription</h2>
+
+<!-- Inaccessible Custom Switch -->
+<div id="alertToggle" class="toggle" onclick="toggleSwitch()"></div>
+
+<p id="statusText">Status: Disabled</p>
+
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>No role defined for custom control.</li>
+<li>No aria-checked state exposed.</li>
+<li>No accessible name.</li>
+<li>No notification of state change.</li>
+<li>Violates WCAG 2.1 – 4.1.2 Name, Role, Value.</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+function toggleSwitch(){
+document.getElementById("alertToggle").classList.toggle("active");
+document.getElementById("statusText").textContent="Status changed";
+}
+</script>
+
+</body>
+</html>

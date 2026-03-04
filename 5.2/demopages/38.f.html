@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Smart Orientation Services</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <strong>Ministry of Smart Orientation Services</strong><br>
+        Government of India
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Tilt Device to Trigger Alert</h2>
+
+<p>Only tilting your device will trigger the alert.</p>
+
+<!-- VIOLATION: No button alternative, no disable option -->
+
+<p id="statusMessage"></p>
+
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>No alternative UI component.</li>
+<li>No option to disable motion activation.</li>
+<li>Function depends entirely on device orientation.</li>
+<li>Violates WCAG 2.1 – 2.5.4 Motion Actuation.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>❌ No non-motion mechanism</li>
+<li>❌ Cannot disable motion detection</li>
+<li>❌ Accessibility failure confirmed</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Smart Orientation Services<br>
+For training and demonstration purposes only.
+</footer>
+
+<script>
+/* NON-COMPLIANT: Motion-only implementation */
+window.addEventListener("deviceorientation", function(event){
+    if(event.gamma && Math.abs(event.gamma) > 30){
+        document.getElementById("statusMessage").innerText = "Alert triggered by tilt.";
+    }
+});
+</script>
+
+</body>
+</html>

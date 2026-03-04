@@ -1,0 +1,121 @@
+<!--
+NON-COMPLIANT IMPLEMENTATION
+Clause 5.2.42 – WCAG 2.1 – 3.2.3 Consistent Navigation
+Navigation items change order unpredictably.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Rural Development</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav ul{
+    list-style:none;
+    display:flex;
+    padding:0;
+}
+nav li{
+    margin:0 10px;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <strong>Ministry of Rural Development</strong><br>
+        Government of India
+    </div>
+
+    <!-- VIOLATION: Navigation order changed -->
+    <nav>
+        <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Schemes</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Village Empowerment Programs</h2>
+<p>
+Navigation order changes between pages, creating inconsistency and confusion.
+</p>
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>Navigation links appear in different order.</li>
+<li>Repeated components not presented consistently.</li>
+<li>Disorientation risk for screen magnifier users.</li>
+<li>Violates WCAG 2.1 – 3.2.3 Consistent Navigation.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>❌ Navigation order inconsistent</li>
+<li>❌ Relative order changed</li>
+<li>❌ Accessibility non-conformance confirmed</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Rural Development<br>
+For training and demonstration purposes only.
+</footer>
+
+</body>
+</html>

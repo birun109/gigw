@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Public Interface</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fff3f3;
+}
+.banner{
+    background:#b71c1c;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+header{
+    background:#7b0000;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-left:6px solid #b71c1c;
+}
+footer{
+    background:#7b0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+❌ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<header>
+    <div>
+        <strong>Ministry of Public Interface</strong><br>
+        Government of India
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Citizen Application Form</h2>
+
+<!-- NON-COMPLIANT: Visible label does NOT match accessible name -->
+
+<label for="nameInput">Full Name</label><br>
+<input type="text" id="nameInput" aria-label="Enter Applicant Identification"><br><br>
+
+<button aria-label="Proceed to Final Step">Submit Application</button>
+
+<!-- Violation: Accessible name does not contain visible text -->
+
+<p>Accessible names do NOT match visible labels.</p>
+
+</section>
+
+<section class="card">
+<h3>❌ Compliance Failures</h3>
+<ul>
+<li>Accessible name differs from visible label text.</li>
+<li>Speech recognition users cannot reliably activate controls.</li>
+<li>Violates WCAG 2.1 – 2.5.3 Label in Name.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>❌ Visible text missing in accessible name</li>
+<li>❌ ARIA label conflicts with UI text</li>
+<li>❌ Screen reader announces mismatched control name</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Public Interface<br>
+For training and demonstration purposes only.
+</footer>
+
+</body>
+</html>

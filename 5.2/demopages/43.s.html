@@ -1,0 +1,162 @@
+<!--
+SUCCESS DEMO
+Clause 5.2.43 – WCAG 2.1 – 3.2.4 Consistent Identification
+
+REAL ACTIONABLE EXAMPLE:
+- Search function appears twice (header + footer)
+- Both labelled EXACTLY "Search"
+- Same accessible name
+- Same button text
+- Same behavior
+
+- Download buttons for PDF appear multiple times
+- Always labelled "Download PDF"
+- Same icon, same accessible name
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Education – Public Resources Portal</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f2f6fc;
+}
+header{
+    background:#0b3d91;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+nav a{
+    color:white;
+    margin:0 12px;
+    text-decoration:none;
+}
+.hero{
+    background:white;
+    padding:40px;
+    text-align:center;
+}
+main{
+    padding:30px;
+}
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:6px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.status-green{
+    background:#e6f4ea;
+    border-left:6px solid #2e7d32;
+}
+button{
+    padding:8px 12px;
+    margin-top:8px;
+}
+footer{
+    background:#0b3d91;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+.search-box input{
+    padding:6px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <strong>Ministry of Education</strong><br>
+        Government of India
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- SEARCH (HEADER) -->
+    <div class="search-box">
+        <label for="searchTop">Search</label>
+        <input type="text" id="searchTop" aria-label="Search">
+        <button onclick="searchFunction('searchTop')" aria-label="Search">Search</button>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>National Education Resource Library</h1>
+</section>
+
+<main>
+
+<section class="card">
+<h2>Policy Document 2024</h2>
+<p>Download official policy document.</p>
+
+<!-- DOWNLOAD BUTTON (CONSISTENT LABEL) -->
+<button aria-label="Download PDF" onclick="downloadFile()">📄 Download PDF</button>
+</section>
+
+<section class="card">
+<h2>Curriculum Guidelines</h2>
+<p>Download curriculum guidelines document.</p>
+
+<!-- SAME LABEL, SAME FUNCTION -->
+<button aria-label="Download PDF" onclick="downloadFile()">📄 Download PDF</button>
+</section>
+
+<section class="card status-green">
+<h3>✓ Compliance Summary</h3>
+<ul>
+<li>Search field labelled “Search” everywhere.</li>
+<li>Download buttons consistently labelled “Download PDF”.</li>
+<li>Same accessible name and behavior across pages.</li>
+<li>Conforms to WCAG 2.1 – 3.2.4 Consistent Identification.</li>
+</ul>
+</section>
+
+</main>
+
+<!-- SEARCH AGAIN (FOOTER) – SAME LABEL -->
+<footer>
+
+<div class="search-box">
+    <label for="searchBottom">Search</label>
+    <input type="text" id="searchBottom" aria-label="Search">
+    <button onclick="searchFunction('searchBottom')" aria-label="Search">Search</button>
+</div>
+
+<br>
+Ministry of Education | Government of India<br>
+GIGW 3.0 Compliant – Clause 5.2.42 – Accessibility: Guidelines and attributes
+
+</footer>
+
+<script>
+function searchFunction(id){
+    let value=document.getElementById(id).value;
+    alert("Search result for: " + value.replace(/[<>]/g,""));
+}
+
+function downloadFile(){
+    alert("PDF download started.");
+}
+</script>
+
+</body>
+</html>

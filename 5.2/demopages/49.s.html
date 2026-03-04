@@ -1,0 +1,177 @@
+<!--
+SUCCESS DEMO
+Clause 5.2.49 – WCAG 2.1 – 4.1.2 Name, Role, Value
+
+COMPLIANT:
+- Custom toggle has role="switch"
+- aria-checked exposes state
+- Accessible name provided
+- State updates programmatically
+- aria-live announces changes
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry of Environment – Alerts Dashboard</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI, Arial, sans-serif;
+background:#f2f6fc;
+}
+header{
+background:#0b3d91;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+nav a{
+color:white;
+margin:0 12px;
+text-decoration:none;
+}
+.hero{
+background:white;
+padding:40px;
+text-align:center;
+}
+main{ padding:30px; }
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:6px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.status-green{
+background:#e6f4ea;
+border-left:6px solid #2e7d32;
+}
+.toggle{
+width:60px;
+height:30px;
+background:#ccc;
+border-radius:15px;
+position:relative;
+cursor:pointer;
+}
+.toggle::after{
+content:"";
+width:26px;
+height:26px;
+background:white;
+position:absolute;
+top:2px;
+left:2px;
+border-radius:50%;
+transition:0.3s;
+}
+.toggle.active{
+background:#2e7d32;
+}
+.toggle.active::after{
+left:32px;
+}
+footer{
+background:#0b3d91;
+color:white;
+padding:20px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div>
+<strong>Ministry of Environment</strong><br>
+Government of India
+</div>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Environmental Alert Notifications</h1>
+</section>
+
+<main>
+
+<section class="card">
+<h2>SMS Alert Subscription</h2>
+
+<!-- Accessible Custom Switch -->
+<div 
+id="alertToggle"
+class="toggle"
+role="switch"
+aria-checked="false"
+aria-label="SMS Alert Subscription"
+tabindex="0"
+onclick="toggleSwitch()"
+onkeydown="if(event.key==='Enter'){toggleSwitch();}">
+</div>
+
+<p id="statusText">Status: Disabled</p>
+
+<!-- Live region for screen reader -->
+<div aria-live="polite" id="liveRegion"></div>
+
+</section>
+
+<section class="card status-green">
+<h3>✓ Compliance Summary</h3>
+<ul>
+<li>Custom component has proper role="switch".</li>
+<li>aria-checked exposes state programmatically.</li>
+<li>Accessible name provided.</li>
+<li>State change announced via aria-live.</li>
+<li>Conforms to WCAG 2.1 – 4.1.2 Name, Role, Value.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Evaluator Checklist</h3>
+<ul>
+<li>✓ Inspect element → role="switch"</li>
+<li>✓ aria-checked updates true/false</li>
+<li>✓ Screen reader announces state change</li>
+<li>✓ Keyboard accessible</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Ministry of Environment | Government of India<br>
+GIGW 3.0 Compliant – Clause 5.2.49 – Accessibility: Guidelines and attributes
+</footer>
+
+<script>
+function toggleSwitch(){
+let toggle=document.getElementById("alertToggle");
+let status=document.getElementById("statusText");
+let live=document.getElementById("liveRegion");
+
+let isChecked=toggle.getAttribute("aria-checked")==="true";
+
+toggle.setAttribute("aria-checked", !isChecked);
+toggle.classList.toggle("active");
+
+status.textContent="Status: " + (!isChecked ? "Enabled" : "Disabled");
+live.textContent="SMS Alert Subscription " + (!isChecked ? "Enabled" : "Disabled");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.3.1: Security Audit and Clearance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #DC143C; /* Unique color for 5.3.1 (Crimson/Security) */
+            border-bottom: 3px solid #DC143C;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .security-guideline {
+            border: 1px solid #DC143C;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #ffeaea;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .key-action {
+            color: #DC143C;
+            font-weight: bold;
+        }
+        .checklist-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.2.50.html"><strong><< Previous</strong> (5.2.50)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="#end"><strong>Next >></strong> (5.3.2)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.3.1: Security Audit and Clearance</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**GIGW Requirement**</td><td>**Security Audit and Clearance Certificate**</td></tr>
+            <tr><td>**Audit Authority**</td><td>NIC / STQC / CERT-In empanelled laboratories</td></tr>
+            <tr><td>**Audit Baseline**</td><td>OWASP Top 10 vulnerabilities (latest version), OWASP ASVS, OWASP MAVS</td></tr>
+            <tr><td>**Goal**</td><td>Ensure confidentiality, integrity, and availability (CIA) of government services before public deployment.</td></tr>
+            <tr><td>**Mandate**</td><td>**Mandatory** clearance certificate before hosting in the production environment.</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>Developer Action: Securing Code and Configuration</h2>
+
+        <div class="security-guideline">
+            <h3 style="color: #DC143C;">Key Code & Configuration Security Checklist</h3>
+            
+            <ul style="list-style-type: disc;">
+                <li class="checklist-item">**Software Updates:** Ensure all CMS, third-party plugins, and underlying code are updated to the **latest secure versions**.</li>
+                <li class="checklist-item">**Credential Security:** All passwords, tokens, and keys must be stored using **salted hash encryption**, never in plain text.</li>
+                <li class="checklist-item">**Error Handling:** Display **custom error pages** for exceptions; never expose source code, database errors, or server details.</li>
+                <li class="checklist-item">**Input Validation:** **Sanitise user input** at both the client and server end (syntactical and semantic).</li>
+                <li class="checklist-item">**Session/Cookie Management:** Cookies must be **Secure** and **HTTP Only**.</li>
+                <li class="checklist-item">**Account Privilege:** Web Server processes must run under a dedicated user with **limited privileges**, not Administrator/Root.</li>
+                <li class="checklist-item">**Access Control:** Implement **Role-Based Access Control (RBAC)** and the principle of **minimal privilege** for all system users.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Developer Action: Securing Databases</h2>
+        
+        <div class="security-guideline">
+            <h3 style="color: #DC143C;">Key Database Security Checklist</h3>
+
+            <ul style="list-style-type: disc;">
+                <li class="checklist-item">**Encryption:** Implement **strong encryption** and key management for data **at rest** and **in transit** (using TLS/SSL).</li>
+                <li class="checklist-item">**Credentials:** Use strong, unique credentials for application access. **Remove/change all default administrative passwords**.</li>
+                <li class="checklist-item">**Network Access:** Database should only be accessible from the **Web Server** on a **whitelisted port**. **Never assign a publicly accessible IP**.</li>
+                <li class="checklist-item">**Privilege:** The application must use the **lowest possible level of privilege** when accessing the database.</li>
+                <li class="checklist-item">**Surface Reduction:** Turn off all unnecessary database functionality, services, and utility packages.</li>
+                <li class="checklist-item">**Auditing & Logging:** Enable and periodically monitor audit trail logs and database logs for suspicious activity.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Example for Compliance Criteria ✅ (Audit Clearance)</h2>
+
+        <section class="success">
+            <h3>Success Scenario: Deployment Clearance</h3>
+            <p><strong>Action:</strong> The development team completes the web application and runs automated security scans. They submit the application to a CERT-In empanelled lab for a full VAPT (Vulnerability Assessment and Penetration Testing).</p>
+            
+            <p>The lab issues a report confirming that all critical and high-severity findings related to the OWASP Top 10 have been mitigated, and a **"Security Audit Clearance Certificate"** is issued. The application is then moved to the production environment.</p>
+
+            <p class="note">**Compliance Justification:** Compliance is achieved by the **mandatory successful security audit by an authorized body** before public hosting, ensuring the necessary security standards are met.</p>
+        </section>
+
+        <h2>Example for Failure Criteria ❌ (No Audit)</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario: Deployment Without Clearance</h3>
+            <p><strong>Action:</strong> The government organization pressures the development team to launch the portal quickly due to a deadline. The application is deployed to the production environment based only on internal testing and a self-certified checklist.</p>
+
+            <p class="note">**Compliance Justification:** Deploying the website, application, or portal without an official **Audit Clearance certificate** from a designated authority (NIC/STQC/CERT-In empanelled lab) is a direct violation of GIGW Statement 5.3.1, regardless of how robust the internal security practices are.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.3.1 Security Audit and Clearance</td>
+                    <td>**Obtain a formal Security Audit Clearance Certificate** from an approved agency (NIC/STQC/CERT-In empanelled lab) **BEFORE** hosting any new or substantially modified website/application in the public production environment.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

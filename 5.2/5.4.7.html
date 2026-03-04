@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.7: Broken Link Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #696969; /* Unique color for 5.4.7 (Dim Gray/Quality) */
+            border-bottom: 3px solid #696969;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .mandatory-check {
+            font-weight: bold;
+            color: #696969;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.4.6.html"><strong><< Previous</strong> (5.4.6)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.4.8.html"><strong>Next >></strong> (5.4.8)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.7: Broken Link Management</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Elimination of 'broken links' and 'Page not found' errors.</td></tr>
+            <tr><td>**Scope**</td><td>Mandatory check for **Internal and External** links.</td></tr>
+            <tr><td>**Government Action**</td><td>Ensure the WIM-approved **Hyperlinking Policy** defines procedures for link maintenance.</td></tr>
+            <tr><td>**Developer Action**</td><td><ul style="margin-top: 0; padding-left: 20px;"><li>Use **appropriate technology tools** for regular discovery.</li><li><span class="mandatory-check">Rectify or remove immediately</span> upon discovery.</li></ul></td></tr>
+            <tr><td>**Key Benefit**</td><td>Maintains visitor trust and prevents user frustration.</td></tr>
+        </table>
+        
+        <hr>
+
+        
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario 1: Automated Link Checking</h3>
+            <p><strong>Action:</strong> The Webmaster implements a scheduled task using a recognized link checker tool that performs a full crawl of the website **weekly**.</p>
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li>The tool emails a report of 404 errors (internal and external) to the designated Developer.</li>
+                <li>The Developer uses a standing operating procedure (SOP) defined in the Hyperlinking Policy to immediately redirect internal broken links or remove obsolete external links.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** A concrete **mechanism** (automated tool, scheduled checks) is in place, and a procedure is defined to **immediately rectify or remove** the broken links. This pro-active approach ensures compliance with GIGW 5.4.7.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario 1: Reliance on Manual Reporting</h3>
+            <p><strong>Action:</strong> The organization relies solely on user feedback via the 'Contact Us' page to identify broken links. The WIM has not assigned any staff member the responsibility of running link checking tools or performing regular link audits.</p>
+
+            <p class="note">**Compliance Justification:** The absence of a **proactive, regular, and dedicated mechanism** to check links means the organization is not **ensuring** the absence of broken links, but merely reacting to them. This failure in defined process and technology use fails GIGW 5.4.7.</p>
+        </section>
+        
+        <section class="failure">
+            <h3>Failure Scenario 2: Persistent 404 Errors</h3>
+            <p><strong>Action:</strong> An internal link to a circular was found broken during an audit. The developer was notified but decided to fix it "next month" when the maintenance window opened. The broken link persists for 30 days.</p>
+
+            <p class="note">**Compliance Justification:** The developer action requires links to be **rectified or removed... immediately upon discovery**. Allowing a known broken link to persist for an extended period, regardless of future maintenance plans, violates the mandate to maintain site quality and user trust. This fails GIGW 5.4.7.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.7 Broken Link Management</td>
+                    <td>The government organization must implement a **regular, proactive mechanism** (preferably automated tools) to check **all internal and external links** for errors. Any discovered broken link or 'Page Not Found' error must be **immediately rectified or removed** to ensure high website quality.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.9: Accessible Document Formats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #007000; /* Unique color for 5.4.9 (Dark Green/Accessibility) */
+            border-bottom: 3px solid #007000;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .accessible-format {
+            font-weight: bold;
+            color: #007000;
+        }
+        .format-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.4.8.html"><strong><< Previous</strong> (5.4.8)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.5.1.html"><strong>Next >></strong> (5.5.1)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.9: Accessible Document Formats</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Provision of documents in accessible formats.</td></tr>
+            <tr><td>**Mandatory Formats**</td><td><span class="accessible-format">HTML</span> or **other accessible formats** (e.g., properly tagged PDF).</td></tr>
+            <tr><td>**Government Action**</td><td>Ensure the <span class="accessible-format">accessible version of **all scanned documents**</span> is available.</td></tr>
+            <tr><td>**Developer Action**</td><td>Ensure all uploaded documents are in accessible formats.</td></tr>
+            <tr><td>**Key Benefit**</td><td>Enables visually challenged users to use assistive technologies (Screen Readers) to read and navigate content.</td></tr>
+        </table>
+        
+        <hr>
+        
+        
+
+        <h2>Examples of Accessible Documents</h2>
+        <ul class="format-list">
+            <li>**HTML:** Best option for maximum accessibility and responsiveness.</li>
+            <li>**Tagged PDF (Mandatory):** PDFs must be created with a proper structure (tags, headings, alt text) recognized by screen readers.</li>
+            <li>**Accessible DOCX/ODT:** Documents created in word processors with correct heading structures, tables, and alt text.</li>
+        </ul>
+        
+        <hr>
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario 1: Providing Accessible Versions</h3>
+            <p><strong>Action:</strong> A new budget circular is prepared. The source document is a PDF.</p>
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li>The Developer uploads the **Tagged PDF** which was checked for accessibility tags (alt text for images, proper heading hierarchy).</li>
+                <li>**OR** A dedicated **HTML page** containing the exact text of the circular is created and linked directly below the PDF link.</li>
+                <li>For an old **scanned document**, the government organization ensures the text is transcribed into a new, accessible Word document or HTML page and linked alongside the scanned image.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** The content is available in a format that assistive technologies can interpret (Tagged PDF or HTML), and the requirement to ensure scanned documents have an accessible version is met. This is fully compliant with GIGW 5.4.9.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario 1: Reliance on Scanned PDFs</h3>
+            <p><strong>Action:</strong> The "Archive of Policy Orders" section contains only documents that were scanned directly from old printed copies and saved as PDFs. They have no embedded text layer or accessibility tags.</p>
+
+            <p class="note">**Compliance Justification:** The scanned PDFs are essentially **images of text**, which screen readers cannot interpret. This violates the government action to ensure the **accessible version of all scanned documents** is available, failing GIGW 5.4.9.</p>
+        </section>
+        
+        <section class="failure">
+            <h3>Failure Scenario 2: Untagged Documents</h3>
+            <p><strong>Action:</strong> A new document is uploaded as a PDF. While not scanned, the PDF was exported from a design program without adding any logical structure or accessibility tags (e.g., the title is not marked as a H1, and tables are unstructured).</p>
+
+            <p class="note">**Compliance Justification:** Although it is a digital file, an **untagged PDF** is not considered an "accessible format" because assistive technologies cannot logically parse the content structure. This omission violates the developer action to ensure uploading in accessible formats, failing GIGW 5.4.9.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.9 Accessible Document Formats</td>
+                    <td>Documents must be provided in **HTML** or a format that assistive technologies can read (e.g., **properly Tagged PDF**). For **scanned documents**, a separate, accessible text version must always be provided to ensure compliance.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

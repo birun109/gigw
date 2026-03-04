@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.1: Web Information Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #6A5ACD; /* Unique color for 5.4.1 (Slate Blue/WIM) */
+            border-bottom: 3px solid #6A5ACD;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .mandatory-role {
+            font-weight: bold;
+            color: #DC143C;
+        }
+        .contact-details {
+            border: 1px dashed #6A5ACD;
+            padding: 10px;
+            margin-top: 10px;
+            background: #fcfcfc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.3.3.html"><strong><< Previous</strong> (5.3.3)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.4.2.html"><strong>Next >></strong> (5.4.2)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.1: Web Information Manager (WIM)</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Mandatory Appointment of a WIM.</td></tr>
+            <tr><td>**Mandate**</td><td>The government organisation <span class="mandatory-role">must appoint a WIM</span>.</td></tr>
+            <tr><td>**Minimum Rank**</td><td>Senior official, **not below the rank of a Joint Secretary (JS)**.</td></tr>
+            <tr><td>**WIM Core Role**</td><td>Ensuring proper flow of content, quality assurance, and **guidelines conformity** throughout the website lifecycle.</td></tr>
+            <tr><td>**Developer Action**</td><td><span class="mandatory-role">Display complete contact details of the WIM</span> on the website.</td></tr>
+        </table>
+        
+        <hr>
+        
+        
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario 1: Appointment and Seniority</h3>
+            <p><strong>Action:</strong> The Ministry issues an office order designating Ms. Priya Sharma, Joint Secretary (Administration), as the Web Information Manager (WIM) for the official website.</p>
+            
+            <p><strong>Success Scenario 2: Public Disclosure</strong></p>
+            <p>The website includes an "About Us" or "Contact Us" section with the following published details:</p>
+            <div class="contact-details">
+                **Web Information Manager (WIM)**<br>
+                **Name:** Ms. Priya Sharma, JS (Admin)<br>
+                **Designation:** Joint Secretary, Ministry of XYZ<br>
+                **Email:** wim.admin@gov.in<br>
+                **Office Phone:** +91-11-XXXX-YYYY
+            </div>
+
+            <p class="note">**Compliance Justification:** The organization has appointed an official meeting the minimum seniority requirement (JS). The website clearly displays the complete contact information, ensuring accessibility for user queries. This is fully compliant with GIGW 5.4.1.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario 1: Insufficient Seniority</h3>
+            <p><strong>Action:</strong> The web team designates the technical analyst (a Section Officer equivalent) as the WIM to handle daily content updates.</p>
+
+            <p class="note">**Compliance Justification:** While a WIM has been named, the officer is **below the mandatory rank of a Joint Secretary (JS)**. This lack of appropriate seniority compromises the WIM's ability to coordinate with various departments and enforce policy decisions, thus failing GIGW 5.4.1.</p>
+        </section>
+        
+        <section class="failure">
+            <h3>Failure Scenario 2: Missing Contact Details</h3>
+            <p><strong>Action:</strong> The website provides only a generic "Contact Us" form and lists the "Website Administrator" by title only, without a name, email, or phone number.</p>
+
+            <p class="note">**Compliance Justification:** The requirement specifies displaying **complete contact details of the WIM** so visitors can contact him/her. A generic form or an anonymous title is insufficient, as it prevents users from escalating queries to the designated official. This fails GIGW 5.4.1.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.1 Web Information Manager (WIM)</td>
+                    <td>The government organization must officially appoint a WIM who holds a rank **not below Joint Secretary**. The website must **publish the complete, non-generic contact details** of this nominated official.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

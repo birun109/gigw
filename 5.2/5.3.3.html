@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.3.3: Website Policies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #696969; /* Unique color for 5.3.3 (Dim Gray/Policy) */
+            border-bottom: 3px solid #696969;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .security-guideline {
+            border: 1px solid #696969;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .mandatory-policy {
+            font-weight: bold;
+            color: #DC143C;
+        }
+        .policy-list li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.3.2.html"><strong><< Previous</strong> (5.3.2)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.3.4.html"><strong>Next >></strong> (5.3.4)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.3.3: Website Policies (Security and Privacy)</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Clear Definition and Approval of Mandatory Policies.</td></tr>
+            <tr><td>**Mandatory Policies**</td><td><span class="mandatory-policy">Security Policy</span> & <span class="mandatory-policy">Privacy Policy</span>.</td></tr>
+            <tr><td>**Governance Action**</td><td>Policies must be <span class="mandatory-policy">defined, approved</span> by the government organization, and their implementation tracked by the WIM.</td></tr>
+            <tr><td>**Privacy Policy Content**</td><td>Must clearly state:
+                <ul class="policy-list">
+                    <li>Purpose of data collection.</li>
+                    <li>Whether the information shall be disclosed.</li>
+                    <li>To whom the information shall be disclosed.</li>
+                </ul>
+            </td></tr>
+            <tr><td>**Developer Action**</td><td>Publish citizen-facing policies (Privacy, Copyright, Terms) on the website.</td></tr>
+        </table>
+        
+        <hr>
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario: Published and Approved Policies</h3>
+            <p><strong>Action:</strong> The Department's Web Information Manager (WIM) ensures the following:</p>
+            <ul class="policy-list">
+                <li>A comprehensive **Security Policy** detailing audit cycles, patching requirements, and incident response is formally signed by the Head of Department.</li>
+                <li>The **Privacy Policy** document states: "Personal details are collected solely for issuing digital certificates and will not be shared with any third party, except as required by Indian law."</li>
+                <li>Links for "Security Policy," "Privacy Policy," and "Terms of Use" are placed prominently in the **website footer**.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** Both mandatory policies (Security and Privacy) are defined and approved by the organization, and the Privacy Policy clearly addresses the purpose of data collection and disclosure. They are also published for public access, fully compliant with GIGW 5.3.3.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario: Missing or Ambiguous Policies</h3>
+            <p><strong>Action:</strong> A new web portal is launched, collecting Aadhaar and mobile numbers for registration.</p>
+            <ul class="policy-list">
+                <li>The website footer has a link labeled "Terms," which redirects to a generic, third-party template.</li>
+                <li>There is no document explicitly called "Security Policy."</li>
+                <li>The "Privacy Policy" is present but states: "Information may be used to improve services and may be shared with government partners." It does not specify *which* partners or the *specific* purpose for sharing.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** The **Security Policy** is entirely missing or undocumented. The **Privacy Policy** is ambiguous as it fails to clearly state the *purpose of disclosure* and *to whom* the sensitive personal data (Aadhaar/mobile number) will be shared, violating a core requirement of the statement. This fails GIGW 5.3.3.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.3.3 Website Policies (Security and Privacy)</td>
+                    <td>The **Security Policy** and **Privacy Policy** must be formally defined, officially approved by the government entity, and published on the website. The Privacy Policy must be clear about the purpose of data collection and any disclosure practices.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

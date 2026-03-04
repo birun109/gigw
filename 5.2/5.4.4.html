@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.4: Hyperlinking Accuracy and Indication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #008080; /* Unique color for 5.4.4 (Teal/Hyperlink) */
+            border-bottom: 3px solid #008080;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .link-indicator {
+            font-weight: bold;
+            color: #008080;
+        }
+        .code-example {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background: #eee;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px dashed #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.4.3.html"><strong><< Previous</strong> (5.4.3)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.4.5.html"><strong>Next >></strong> (5.4.5)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.4: Hyperlinking Accuracy and Indication</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Accuracy check and clear indication for external links.</td></tr>
+            <tr><td>**Government Action**</td><td><span class="link-indicator">Regularly check accuracy</span> of linked content, and define the Hyperlinking Policy.</td></tr>
+            <tr><td>**Developer Action**</td><td>Implement an <span class="link-indicator">alert mechanism</span> when a link leads to a non-government website.</td></tr>
+            <tr><td>**Key Benefit**</td><td>Mitigate visitor ambiguity about content ownership and ensure linked information is reliable.</td></tr>
+        </table>
+        
+        <hr>
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario 1: External Link Indication</h3>
+            <p><strong>Action:</strong> The developer implements an icon and a screen reader-friendly attribute for all external links.</p>
+            
+            <p><strong>Visual and Programmatic Indication:</strong></p>
+            <div class="code-example" style="border-color: #28a745; background: #e6ffe6;">
+&lt;a href="http://external-partner.com" target="_blank" title="Opens external website in new window"&gt;
+    Partner Portal 
+    &lt;img src="external-icon.png" alt="(External link)"&gt;
+&lt;/a&gt;
+            </div>
+
+            <p>Upon clicking, a small pop-up message appears: "You are about to leave the government domain and will be directed to an external website. Do you wish to proceed?"</p>
+
+            <p class="note">**Compliance Justification:** The presence of the icon, the title attribute, the screen reader text (`alt="(External link)"`), and the confirmation pop-up all fulfill the requirement to provide a **clear indication** that the link leads out of the government website.</p>
+        </section>
+        
+        <section class="success">
+            <h3>Success Scenario 2: Regular Accuracy Check (Govt. Action)</h3>
+            <p><strong>Action:</strong> The Hyperlinking Policy (as per 5.4.3) states that all external links must be verified every **90 days** by a Content Contributor to ensure the linked page is still relevant and accurate. The WIM monitors the execution of this schedule.</p>
+
+            <p class="note">**Compliance Justification:** A mechanism (scheduled review) is actively defined and implemented to **check the accuracy of hyperlinked content regularly**, meeting the government organization's responsibility.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario 1: Missing External Link Alert</h3>
+            <p><strong>Action:</strong> The website contains links to three different state government schemes and one university website. All links are standard blue text, opening in the same window, with no visual icons, pop-ups, or text to indicate they are leaving the current domain.</p>
+            
+            <div class="code-example" style="border-color: #dc3545; background: #f8d7da;">
+&lt;a href="http://university-research.edu"&gt;Research Findings&lt;/a&gt;
+            </div>
+
+            <p class="note">**Compliance Justification:** Failing to provide a clear indication (visual, auditory, or interactive) when a link leads to a non-government website creates ambiguity and violates the developer action. This fails GIGW 5.4.4.</p>
+        </section>
+        
+        <section class="failure">
+            <h3>Failure Scenario 2: Broken or Inaccurate Links</h3>
+            <p><strong>Action:</strong> An external link to an older policy document on a partner website leads to a "404 Page Not Found" error. The link has been broken for six months, as the WIM has no mechanism or schedule in place for link auditing.</p>
+
+            <p class="note">**Compliance Justification:** The government organization is mandated to have a mechanism in place to **check the accuracy of hyperlinked content regularly**. A long-standing broken link demonstrates the absence or failure of this mechanism, failing GIGW 5.4.4.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.4 Hyperlinking Accuracy and Indication</td>
+                    <td>**Dual Requirement:** 1) The organization must **regularly verify the accuracy** of all linked content. 2) The developer must provide a **clear indication/alert** (e.g., icon, text, pop-up) to the user whenever a hyperlink leads away from the government domain to an external website.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

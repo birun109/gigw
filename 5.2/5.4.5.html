@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.5: Content Moderation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #8B008B; /* Unique color for 5.4.5 (Dark Magenta/Moderation) */
+            border-bottom: 3px solid #8B008B;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .mandatory-workflow {
+            font-weight: bold;
+            color: #8B008B;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.4.4.html"><strong><< Previous</strong> (5.4.4)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.4.6.html"><strong>Next >></strong> (5.4.6)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.5: Content Moderation</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Content free from offensive/discriminatory language.</td></tr>
+            <tr><td>**Mechanism**</td><td>Enforced through the **Content Contribution, Moderation & Approval Policy (CMAP)**.</td></tr>
+            <tr><td>**Key Prohibition**</td><td>Information (text, visual, media) that harms **National sentiments** or **security and integrity**.</td></tr>
+            <tr><td>**Government Action**</td><td><span class="mandatory-workflow">Designate specific officials</span> (Creator, Moderator, Approver) for content workflow implementation.</td></tr>
+            <tr><td>**Developer Action**</td><td>Ensure the **CMS provides an in-built moderation and approval workflow**.</td></tr>
+        </table>
+        
+        <hr>
+        
+        
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario 1: Functional CMAP Workflow</h3>
+            <p><strong>Action:</strong> The Ministry implements a CMS where:</p>
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li>**Roles** are clearly assigned: Content Creator (data entry), Content Moderator (scrutiny for accuracy, language, and policy adherence), and WIM/Approver (final sign-off).</li>
+                <li>The CMS workflow ensures that a content change **cannot be published** without digital sign-off from both the designated Moderator and the WIM/Approver.</li>
+                <li>The Moderator uses the CMAP policy guidelines to check for any language that could be interpreted as offensive or discriminatory before forwarding to the WIM.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** The government organization has designated the officials, and the developer has provided a mandatory, functional CMS workflow, ensuring content passes through multiple checks focused on policy compliance (including non-offensive language). This is fully compliant with GIGW 5.4.5.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario 1: Lack of Workflow Enforcement</h3>
+            <p><strong>Action:</strong> The CMS system allows Content Creators to bypass the moderation stage and publish content directly by logging in as the "Admin" account (which is shared by the entire web team).</p>
+
+            <p class="note">**Compliance Justification:** Although a CMAP policy might exist, the developer has failed to **ensure the CMS has an in-built workflow** that strictly enforces the policy. The ability for content to bypass moderation means there is no mechanism to guarantee the content is free from offensive or discriminatory language before going live. This fails GIGW 5.4.5.</p>
+        </section>
+        
+        <section class="failure">
+            <h3>Failure Scenario 2: Policy Breach</h3>
+            <p><strong>Action:</strong> A historical document posted on the website contains outdated terminology deemed offensive by current standards. Although the document is historical, it is published without a contextual disclaimer and is not flagged during the review cycle.</p>
+
+            <p class="note">**Compliance Justification:** Content, regardless of its source, must be moderated to ensure it is **free from offensive/discriminatory language** (or, in the case of historical documents, properly contextualized). Its presence indicates a failure in the organization's implementation of the CMAP to catch and remediate policy-violating content. This fails GIGW 5.4.5.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.5 Content Moderation</td>
+                    <td>The government organization must **designate CMAP roles** and ensure **all content** (text, visual, media) is rigorously **checked against the policy** to be free from offensive/discriminatory language and materials that harm national security/sentiments. The CMS must **mandatorily enforce this workflow**.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

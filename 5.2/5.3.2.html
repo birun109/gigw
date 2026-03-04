@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.3.2: Secure Hosting Environment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #006400; /* Unique color for 5.3.2 (Dark Green/Hosting) */
+            border-bottom: 3px solid #006400;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #DC143C;
+            margin-top: 15px;
+        }
+        .security-guideline {
+            border: 1px solid #006400;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #e6ffec;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .key-point {
+            font-weight: bold;
+            color: #006400;
+        }
+        .mandatory {
+            color: #DC143C;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.3.1.html"><strong><< Previous</strong> (5.3.1)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.3.3.html"><strong>Next >></strong> (5.3.3)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.3.2: Secure Hosting Environment</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Confidentiality, Integrity, and Availability (CIA) of the Hosting Environment.</td></tr>
+            <tr><td>**Geographical Mandate**</td><td>Hosting of web infrastructure must be within the <span class="mandatory">geographical boundaries of India</span>.</td></tr>
+            <tr><td>**Availability Requirement**</td><td><span class="mandatory">DC, BCP, and DR environments</span> configured for High Availability (HA) in geographically separate seismic zones.</td></tr>
+            <tr><td>**Security Tools Mandate**</td><td>Hosting Service Provider (HSP) must deploy and configure a **Web Application Firewall (WAF)**.</td></tr>
+            <tr><td>**Policy Mandate**</td><td>WIM (Website Information Manager) must define a clear policy on accessibility outside India.</td></tr>
+        </table>
+        
+        <hr>
+
+        <h2>Mandatory Government Organisation Actions</h2>
+        
+        <div class="security-guideline">
+            <h3 style="color: #006400;">Contingency and Infrastructure Requirements</h3>
+            <ul style="list-style-type: disc;">
+                <li>**Resilience:** Ensure HSP provides DC and DR environments that are geographically located far from each other in **different seismic zones**.</li>
+                <li>**Drills:** Conduct **periodic drills of the Disaster Recovery environment** (at least once a year).</li>
+                <li>**Hardening:** Servers and network devices must be <span class="key-point">hardened with latest security patches</span>.</li>
+                <li>**Assessment:** Periodic **Vulnerability Assessment (VA) and Penetration Testing (PT)** must be performed.</li>
+                <li>**Logging:** Maintain logs of the ICT infrastructure for a rolling period of **180 days** as per CERT-In directions.</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <h2>Developer/System Admin Actions (Hardening & Configuration)</h2>
+        
+        <div class="security-guideline">
+            <h3 style="color: #006400;">Server and Protocol Security Checklist</h3>
+
+            <ul style="list-style-type: disc;">
+                <li>**Access Control:** Restrict admin access, implement the <span class="key-point">principle of least privilege</span>, and remove default/guest accounts.</li>
+                <li>**Network:** **Disable all unnecessary ports** (deny all access by default) and ensure network segmentation.</li>
+                <li>**Secure Protocols:** <span class="mandatory">Mandatorily enforce HTTPS & HSTS</span> and disable HTTP. Use **SFTP** for file transfer.</li>
+                <li>**SSL:** Use a **valid SSL Certificate** (at least **2048-bit SHA 256** encryption) and monitor expiry. Disable weak ciphers (SSLv2, TLS v1.0/1.1).</li>
+                <li>**Information Disclosure:** Configure the HTTP Service banner to **not disclose Web Server and OS type/version**.</li>
+                <li>**Code Isolation:** Isolate development environments from the production network.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario: Secure and Resilient Hosting</h3>
+            <p><strong>Scenario:</strong> The Department hosts its new application on NIC Cloud (or a certified HSP).</p>
+            
+            <p>The hosting is confirmed to be located in Delhi (DC) and Hyderabad (DRC) - two different seismic zones. The HSP confirms a WAF is active and hardened. The System Admin enforces HTTPS/HSTS, disables all ports except 443, and the annual DR drill was successfully completed last quarter.</p>
+
+            <p class="note">**Compliance Justification:** All critical elements of the mandate are met: **Geographical location in India, HA setup (DC/DRC), WAF deployment, annual DR drill, and server hardening** (HTTPS/port closure). This is fully compliant with GIGW 5.3.2.</p>
+        </section>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario: Lack of Resiliency and Hardening</h3>
+            <p><strong>Scenario:</strong> The application is hosted on a single server, and the backup server is located in the same data center room.</p>
+            
+            <p>The system admin has kept port 80 (HTTP) open for debugging purposes, and the default "Administrator" account on the web server has not been renamed. No WAF is deployed.</p>
+
+            <p class="note">**Compliance Justification:** The failure to provide geographically separate DC/DR environments violates the **Availability** mandate. Keeping port 80 open and retaining default admin accounts violates the **Hardening** and **Integrity** mandates. This fails GIGW 5.3.2.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.3.2 Secure Hosting Environment</td>
+                    <td>Ensure the hosting environment is resilient (geographically separate DC/DR), hardened (no unnecessary ports, HTTPS/HSTS, WAF), and operated under strict security policies (least privilege, 180-day logging).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

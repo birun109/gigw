@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.2: Website URL Promotion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #FF4500; /* Unique color for 5.4.2 (Orange Red/Promotion) */
+            border-bottom: 3px solid #FF4500;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .mandatory-display {
+            font-weight: bold;
+            color: #FF4500;
+        }
+        .promotion-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.4.1.html"><strong><< Previous</strong> (5.4.1)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.4.3.html"><strong>Next >></strong> (5.4.3)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.2: Website URL Promotion</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Cross-Media Promotion of Website URL.</td></tr>
+            <tr><td>**Mandate**</td><td>URL must be <span class="mandatory-display">prominently displayed</span> on all official communication channels.</td></tr>
+            <tr><td>**Required Media**</td><td><ul class="promotion-list" style="margin-top: 0; padding-left: 20px;"><li>Stationery (Letterheads, Visiting Cards)</li><li>Publicity Material (Brochures, Annual Reports)</li><li>Advertisements & Notices (Press Releases, Tenders)</li></ul></td></tr>
+            <tr><td>**Developer Action**</td><td><ul class="promotion-list" style="margin-top: 0; padding-left: 20px;"><li>Link to other Govt./International websites.</li><li>Provide **electronic newsletter** for updates.</li></ul></td></tr>
+        </table>
+        
+        <hr>
+
+        <h2>Example for Success Criteria ✅</h2>
+        
+
+        <section class="success">
+            <h3>Success Scenario 1: Print Material Compliance</h3>
+            <p><strong>Action:</strong> The Department updates its official stationery template:</p>
+            <ul class="promotion-list">
+                <li>The website URL (`www.moxyz.gov.in`) is printed in **bold, 10pt font** at the base of every **letterhead**.</li>
+                <li>The URL is included as a footer on all **tender notifications** published in newspapers, right next to the contact information.</li>
+                <li>The organization's **visiting cards** feature the URL prominently beneath the phone number and address.</li>
+            </ul>
+
+            <p>The Developer ensures that a "Subscribe to Newsletter" feature is implemented on the homepage and that the website is listed in the link directories of relevant government portals.</p>
+
+            <p class="note">**Compliance Justification:** The URL is displayed prominently across all required official communication materials. The developer has fulfilled the requirement to provide updates via an electronic newsletter mechanism. This is fully compliant with GIGW 5.4.2.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+        
+
+        <section class="failure">
+            <h3>Failure Scenario 1: Missing URL on Official Output</h3>
+            <p><strong>Action:</strong> The Ministry publishes its annual report.</p>
+            <ul class="promotion-list">
+                <li>The printed **Annual Report** only includes the physical address and phone number on the back cover.</li>
+                <li>The **visiting cards** were printed several years ago and only list the email address, with no website URL.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** Failing to prominently display the URL on mandated stationery (visiting cards) and publicity materials (annual report) violates the core requirement of using all channels for promotion. This fails GIGW 5.4.2.</p>
+        </section>
+        
+        <section class="failure">
+            <h3>Failure Scenario 2: Lack of Digital Outreach</h3>
+            <p><strong>Action:</strong> The website is functional, but there are no external links to other government portals. The website also lacks any feature for visitors to subscribe to updates; content updates are done manually and only visible on the "What's New" page.</p>
+
+            <p class="note">**Compliance Justification:** The developer action requiring **linking with other government websites** and providing a mechanism for an **electronic newsletter** is not met. These omissions hinder outreach and engagement, causing a failure of GIGW 5.4.2.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.2 Website URL Promotion</td>
+                    <td>The government must ensure the **website URL is prominently printed** on all official stationery, brochures, and advertisements. Developers must implement features for **linking with other sites** and providing **electronic updates** (e.g., a newsletter).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

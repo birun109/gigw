@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.6: Simultaneous Multilingual Updates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #1E90FF; /* Unique color for 5.4.6 (Dodger Blue/Multilingual) */
+            border-bottom: 3px solid #1E90FF;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .simultaneous-action {
+            font-weight: bold;
+            color: #1E90FF;
+        }
+        .status-flag {
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.4.5.html"><strong><< Previous</strong> (5.4.5)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.4.7.html"><strong>Next >></strong> (5.4.7)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.6: Simultaneous Multilingual Updates</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Content consistency across multiple language versions.</td></tr>
+            <tr><td>**Mandate**</td><td>Documents/pages must be <span class="simultaneous-action">updated simultaneously</span>.</td></tr>
+            <tr><td>**Government Action**</td><td>Establish process to <span class="simultaneous-action">translate all content simultaneously</span> with the original content creation.</td></tr>
+            <tr><td>**Developer Action**</td><td><ul style="margin-top: 0; padding-left: 20px;"><li>CMS supports **multiple language publishing**.</li><li>CMS displays **status of non-translated content**.</li></ul></td></tr>
+            <tr><td>**Key Benefit**</td><td>Avoids inconsistencies and ensures all visitors receive the same, accurate information.</td></tr>
+        </table>
+        
+        <hr>
+
+        
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario 1: Enforced Simultaneous Workflow</h3>
+            <p><strong>Action:</strong> The CMS implements a "Translation Queue" and "Publish Lock" feature.</p>
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li>When the **English** version of a new circular is approved by the WIM, the content is automatically flagged as **Pending Translation** for Hindi and Telugu.</li>
+                <li>The CMS's master publishing button remains **disabled** until the Hindi and Telugu fields are marked as **Translated** and approved by the respective language editors.</li>
+                <li>Once all versions are approved, the content is published to all language sites *at the exact same time*.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** The technical mechanism (Publish Lock) actively prevents non-simultaneous publishing, and the content status (Translated/Pending) is clearly tracked, meeting both the government and developer actions. This is fully compliant with GIGW 5.4.6.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario 1: Non-Simultaneous Update</h3>
+            <p><strong>Action:</strong> A major policy update is published on the **English** website at 10:00 AM. Due to reliance on manual translation and upload, the **Hindi** version is published four hours later at 2:00 PM.</p>
+
+            <p class="note">**Compliance Justification:** The content versions were **not updated simultaneously**. For four hours, citizens accessing the Hindi version received outdated policy information, creating a clear inconsistency. This time gap, even if small, constitutes a failure of the mandatory simultaneous update requirement of GIGW 5.4.6.</p>
+        </section>
+        
+        <section class="failure">
+            <h3>Failure Scenario 2: Missing Status Display</h3>
+            <p><strong>Action:</strong> The CMS allows users to save content in different language fields, but there is no mechanism to visually display or track which languages are complete and which are pending translation. A moderator accidentally publishes the English version, unaware that the Hindi and Tamil fields are empty or contain only draft text.</p>
+
+            <p class="note">**Compliance Justification:** The developer failed to provide a mechanism to **display the status of non-translated content**. This lack of status tracking directly leads to the failure of the simultaneous publishing mandate, failing GIGW 5.4.6.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.6 Simultaneous Multilingual Updates</td>
+                    <td>The organization must ensure that **all language versions of a document/page are updated and published at the same time**. The CMS must support multilingual content and provide a mechanism to track and display the **status of translation** to prevent publication of incomplete or inconsistent content.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

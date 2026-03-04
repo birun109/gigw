@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.4.3: Website Governance Policies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0 0 0, 0.1);
+        }
+        h1 {
+            color: #483D8B; /* Unique color for 5.4.3 (Dark Slate Blue/Governance) */
+            border-bottom: 3px solid #483D8B;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #DC143C; /* Used for emphasis on policy list */
+            margin-top: 15px;
+        }
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .analysis-table, .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .analysis-table td, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .analysis-table th, .summary-table th {
+            background-color: #f2f2f2;
+        }
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .policy-item {
+            font-weight: bold;
+            color: #483D8B;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="5.4.2.html"><strong><< Previous</strong> (5.4.2)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.4.4.html"><strong>Next >></strong> (5.4.4)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.4.3: Website Governance Policies</h1>
+        
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+            <tr><td>**Requirement Focus**</td><td>Mandatory definition and approval of <span class="policy-item">ten key policies/plans</span>.</td></tr>
+            <tr><td>**Approval Authority**</td><td><span class="policy-item">Web Information Manager (WIM)</span>.</td></tr>
+            <tr><td>**Content Lifecycle Policies**</td><td><ul style="margin-top: 0; padding-left: 20px;"><li class="policy-item">CMAP (Contribution, Moderation, Approval) Policy</li><li class="policy-item">CAP (Content Archival) Policy</li><li class="policy-item">CRP (Content Review) Policy</li></ul></td></tr>
+            <tr><td>**Legal/Usage Policies**</td><td><ul style="margin-top: 0; padding-left: 20px;"><li class="policy-item">Copyright Policy</li><li class="policy-item">Privacy Policy</li><li class="policy-item">Terms & Conditions</li><li class="policy-item">Hyperlinking Policy</li></ul></td></tr>
+            <tr><td>**Infrastructure/Continuity Plans**</td><td><ul style="margin-top: 0; padding-left: 20px;"><li class="policy-item">Security Policy</li><li class="policy-item">Contingency Management Plan</li><li class="policy-item">Website Monitoring Plan</li></ul></td></tr>
+        </table>
+        
+        <hr>
+        
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Scenario: Complete Policy Framework</h3>
+            <p><strong>Action:</strong> The WIM confirms that all ten required policies/plans are documented, officially approved, and their links are available:</p>
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li>**CMAP Policy:** Defines a workflow where content is drafted, reviewed by the Section Officer, approved by the Joint Secretary (WIM), and published by the Web Master.</li>
+                <li>**CAP Policy:** States that all content older than 3 years will be automatically moved to a designated archive server.</li>
+                <li>**Contingency Management Plan:** Details step-by-step procedures for handling server defacement and natural calamities, including contact lists and data restoration procedures.</li>
+            </ul>
+            <p>The citizen-facing policies (Copyright, Privacy, T&C) are linked in the website footer.</p>
+
+            <p class="note">**Compliance Justification:** All ten specific documents mandated by GIGW 5.4.3 are in place, approved by the WIM, and documented for lifecycle implementation. This is fully compliant.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Scenario: Missing Key Plans</h3>
+            <p><strong>Action:</strong> The website governance documents are reviewed:</p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li>**Present:** Privacy Policy, Copyright Policy, and Security Policy.</li>
+                <li>**Missing:** The **Content Review (CRP) Policy**, **Content Archival (CAP) Policy**, and the **Website Monitoring Plan** do not exist as standalone, approved documents.</li>
+            </ul>
+
+            <p class="note">**Compliance Justification:** The statement requires **all** ten specific policies/plans to be clearly defined and approved. The absence of just one, such as the **CAP policy** (which defines how old content is handled), results in a failure to maintain the content lifecycle management structure. This fails GIGW 5.4.3.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>GIGW Requirement</th>
+                    <th>Key Mandate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.4.3 Website Governance Policies</td>
+                    <td>Mandate that the WIM defines and approves the **full suite of ten policies/plans** (covering Content Lifecycle, Legal Usage, and Infrastructure Continuity). Absence of any one of these specified documents constitutes a failure.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.2.7: Info and Relationships (WCAG 1.3.1)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #4CAF50;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: #28a745;
+            margin-top: 15px;
+        }
+
+        .failure h3 {
+            color: #dc3545;
+        }
+
+        .success,
+        .failure {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+        }
+
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+        }
+
+        .analysis-table,
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+
+        }
+
+        .analysis-table th,
+        .analysis-table td,
+        .summary-table th,
+        .summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #555;
+            /* dark border for visibility */
+        }
+
+        .analysis-table th,
+        .summary-table th {
+            background-color: #f2f2f2;
+        }
+
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+
+        .visual-hierarchy-fail {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .visual-hierarchy-fail-sub {
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        .note {
+            font-size: 0.95em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav-links" aria-label="Page Navigation">
+            <a href="5.2.6.html">&lt;&lt; Previous (5.2.6)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.2.8.html">Next &gt;&gt; (5.2.8)</a>
+        </nav>
+
+        <h1>GIGW 3.0 Statement 5.2.7: Info and Relationships (WCAG 1.3.1)</h1>
+
+        <h2>Analysis and Requirements</h2>
+        <table class="analysis-table">
+            <tbody>
+                <tr>
+                    <td>GIGW Statement</td>
+                    <td>5.2.7. Information, structure and relationships conveyed through presentation can be
+                        programmatically determined or are available in text.</td>
+                </tr>
+                <tr>
+                    <td>WCAG Reference</td>
+                    <td>Success Criterion 1.3.1 Info and Relationships</td>
+                </tr>
+                <tr>
+                    <td>WCAG Level</td>
+                    <td>Level A</td>
+                </tr>
+                <tr>
+                    <td>Clause in Short Form</td>
+                    <td>Text Alternatives for Structure and Relationships</td>
+                </tr>
+                <tr>
+                    <td>Goal</td>
+                    <td>Ensure the semantic structure of content is available to assistive technologies, independent of
+                        its visual appearance.</td>
+                </tr>
+                <tr>
+                    <td>Requirement</td>
+                    <td>Content structure, relationships, and status information must be conveyed programmatically using
+                        proper HTML semantics.</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        
+
+        <h2>Success Examples ✅</h2>
+
+        <section class="success" aria-label="Success Example 1">
+            <h3>Data Tables (Structure and Relationships)</h3>
+            <p><strong>Scenario:</strong> Presenting hierarchical data showing annual budget allocation by department.
+            </p>
+
+            <table>
+                <caption>Annual Budget Allocation (In Crores)</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Department</th>
+                        <th scope="col">2024 Allocation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Education</th>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Health &amp; Family Welfare</th>
+                        <td>850</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="note">Compliance Justification: The use of <code>&lt;th&gt;</code> with <code>scope</code>
+                attributes programmatically establishes relationships between headers and data. Screen readers announce
+                context for each cell correctly.</p>
+        </section>
+
+        <section class="success" aria-label="Success Example 2">
+            <h3>Form Field Groups (Relationships)</h3>
+            <p><strong>Scenario:</strong> Grouping related controls (radio buttons) with a common title.</p>
+
+            <fieldset>
+                <legend>Select Preferred Contact Method</legend>
+                <input type="radio" id="email" name="contact" value="email">
+                <label for="email">Email</label><br>
+                <input type="radio" id="phone" name="contact" value="phone">
+                <label for="phone">Phone SMS</label>
+            </fieldset>
+
+            <p class="note">Compliance Justification: The <code>&lt;fieldset&gt;</code> groups the controls, and the
+                <code>&lt;legend&gt;</code> provides programmatic group context for screen readers.
+            </p>
+        </section>
+
+        <hr>
+
+        <h2>Failure Examples ❌</h2>
+
+        <section class="failure" aria-label="Failure Example 1">
+            <h3>Visual Hierarchy (Structure)</h3>
+            <p><strong>Scenario:</strong> Creating a visual hierarchy using only styling (font size and bolding).</p>
+
+            <div class="visual-hierarchy-fail">Project Status Report</div>
+            <div class="visual-hierarchy-fail-sub">Financial Overview</div>
+            <p>Data here...</p>
+            <div class="visual-hierarchy-fail-sub">Technical Progress</div>
+            <p>More data here...</p>
+
+            <p class="note">Compliance Justification: Using <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> loses
+                hierarchical structure for assistive technologies. Headings
+                (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>) must be used instead.</p>
+        </section>
+
+        <section class="failure" aria-label="Failure Example 2">
+            <h3>Reliance on Visual Position (Relationship)</h3>
+            <p><strong>Scenario:</strong> Associating a form field with its label only by visual proximity.</p>
+
+            <form>
+                <label>Date of Filing:</label>
+                <input type="date" name="date_field">
+            </form>
+
+            <p class="note">Compliance Justification: Screen readers may announce "edit text" without context. Use
+                <code>&lt;label for="id"&gt;</code> to programmatically associate labels with input fields.
+            </p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <caption>WCAG Conformity Summary</caption>
+            <thead>
+                <tr>
+                    <th>WCAG Reference</th>
+                    <th>WCAG Level</th>
+                    <th>Key Action for Compliance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SC 1.3.1 Info and Relationships</td>
+                    <td>A</td>
+                    <td>Use semantic HTML (<code>&lt;h1&gt;-&lt;h6&gt;</code>, <code>&lt;table&gt;</code>,
+                        <code>&lt;label&gt;</code>, <code>&lt;fieldset&gt;</code>, etc.) to ensure content structure and
+                        relationships are available to assistive technology. Do not rely on visual presentation alone.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

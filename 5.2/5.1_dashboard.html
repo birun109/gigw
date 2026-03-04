@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Section 5.1 Audit: Website Quality (Thumbnail)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4; /* Adjusted for compactness */
+            margin: 0;
+            padding: 10px; /* Reduced padding */
+            background-color: #f8f9fa;
+            color: #333;
+            font-size: 0.9em; /* Smaller base font */
+        }
+        .container {
+            max-width: 1000px; /* Max width adjusted */
+            margin: auto;
+            background: #fff;
+            padding: 20px; /* Reduced padding */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns */
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .chart-area {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+        .score-box {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.0em;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            table-layout: fixed; /* Ensures columns maintain width */
+        }
+        th, td {
+            padding: 8px 10px; /* Reduced padding */
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .checkbox-cell {
+            text-align: center;
+            padding: 5px;
+        }
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            accent-color: #28a745;
+        }
+        .conformity-text {
+            font-size: 1.4em;
+            color: #28a745;
+        }
+        .status-cell {
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+        .status-cell.pass { color: #28a745; }
+        .status-cell.fail { color: #dc3545; }
+        .status-cell.pending { color: #ffc107; }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>GIGW 3.0 Audit Checklist: Section 5.1 Website Quality</h1>
+        
+
+        <div class="dashboard-grid">
+            <div class="chart-area">
+                <h2>Overall Compliance Score</h2>
+                <div class="score-box">
+                    Overall Conformity: <span id="conformity-score" class="conformity-text">0%</span>
+                </div>
+                <div style="height: 180px;"><canvas id="conformityChart"></canvas></div>
+            </div>
+            
+            <div class="chart-area">
+                <h2>Compliance by Component</h2>
+                <div style="height: 180px;"><canvas id="componentChart"></canvas></div>
+            </div>
+        </div>
+
+        <h2>Section 5.1: Website Quality Clauses (25 Mandatory)</h2>
+        
+        <table id="auditTable">
+            <thead>
+                <tr>
+                    <th style="width: 5%;">Clause</th>
+                    <th style="width: 45%;">Mandate (Short Form)</th>
+                    <th style="width: 15%;">Component</th>
+                    <th style="width: 15%;">Status</th>
+                    <th style="width: 10%;" class="checkbox-cell">Check</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-component="Integrity"><td><a href="5.1.1.html">5.1.1</a></td><td>Consistency of Design</td><td>Integrity</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.1"></td></tr>
+                <tr data-component="Integrity"><td><a href="5.1.2.html">5.1.2</a></td><td>Consistency of Content</td><td>Integrity</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.2"></td></tr>
+                <tr data-component="Integrity"><td><a href="5.1.3.html">5.1.3</a></td><td>Content Accuracy</td><td>Integrity</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.3"></td></tr>
+                <tr data-component="Integrity"><td><a href="5.1.4.html">5.1.4</a></td><td>Completeness of Content</td><td>Integrity</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.4"></td></tr>
+                
+                <tr data-component="Technical"><td><a href="5.1.5.html">5.1.5</a></td><td>Use of Current Technology</td><td>Technical</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.5"></td></tr>
+                <tr data-component="Technical"><td><a href="5.1.6.html">5.1.6</a></td><td>Site Performance (Speed)</td><td>Technical</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.6"></td></tr>
+                <tr data-component="Technical"><td><a href="5.1.7.html">5.1.7</a></td><td>Availability of Metadata</td><td>Technical</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.7"></td></tr>
+                <tr data-component="Technical"><td><a href="5.1.8.html">5.1.8</a></td><td>Site Indexing (SEO)</td><td>Technical</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.8"></td></tr>
+                <tr data-component="Technical"><td><a href="5.1.9.html">5.1.9</a></td><td>Cross-Browser Compatibility</td><td>Technical</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.9"></td></tr>
+                <tr data-component="Technical"><td><a href="5.1.10.html">5.1.10</a></td><td>Device Compatibility (Responsive)</td><td>Technical</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.10"></td></tr>
+                <tr data-component="Technical"><td><a href="5.1.11.html">5.1.11</a></td><td>Resolution Compatibility</td><td>Technical</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.11"></td></tr>
+                
+                <tr data-component="Usability"><td><a href="5.1.12.html">5.1.12</a></td><td>Information Structure</td><td>Usability</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.12"></td></tr>
+                <tr data-component="Usability"><td><a href="5.1.13.html">5.1.13</a></td><td>Prominent Search Facility</td><td>Usability</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.13"></td></tr>
+                <tr data-component="Usability"><td><a href="5.1.14.html">5.1.14</a></td><td>Information Grouping</td><td>Usability</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.14"></td></tr>
+                <tr data-component="Usability"><td><a href="5.1.15.html">5.1.15</a></td><td>Prominent Contact Details</td><td>Usability</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.15"></td></tr>
+                <tr data-component="Usability"><td><a href="5.1.16.html">5.1.16</a></td><td>Prominent Feedback Mechanism</td><td>Usability</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.16"></td></tr>
+                <tr data-component="Usability"><td><a href="5.1.17.html">5.1.17</a></td><td>Clearly Defined Target Audience</td><td>Usability</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.17"></td></tr>
+
+                <tr data-component="Presentation"><td><a href="5.1.18.html">5.1.18</a></td><td>Relevant Links to Other Sites</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.18"></td></tr>
+                <tr data-component="Presentation"><td><a href="5.1.19.html">5.1.19</a></td><td>Effective Use of Media</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.19"></td></tr>
+                <tr data-component="Presentation"><td><a href="5.1.20.html">5.1.20</a></td><td>No Flashing Content</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.20"></td></tr>
+                <tr data-component="Presentation"><td><a href="5.1.21.html">5.1.21</a></td><td>Prominent Copyright Notice</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.21"></td></tr>
+                <tr data-component="Presentation"><td><a href="5.1.22.html">5.1.22</a></td><td>Clear Display of Last Updated Date</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.22"></td></tr>
+                <tr data-component="Presentation"><td><a href="5.1.23.html">5.1.23</a></td><td>Clear Site Identity</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.23"></td></tr>
+                <tr data-component="Presentation"><td><a href="5.1.24.html">5.1.24</a></td><td>Simple & Intuitive Navigation</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.24"></td></tr>
+                <tr data-component="Presentation"><td><a href="5.1.25.html">5.1.25</a></td><td>Clear Links and Labels</td><td>Presentation</td><td></td><td class="checkbox-cell"><input type="checkbox" data-clause="5.1.25"></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const totalClauses = 25;
+        const checkboxes = document.querySelectorAll('#auditTable input[type="checkbox"]');
+        const scoreElement = document.getElementById('conformity-score');
+        const tableBody = document.querySelector('#auditTable tbody');
+        
+        let conformityChart;
+        let componentChart;
+
+        const componentLabels = ['Integrity (4)', 'Technical (7)', 'Usability (6)', 'Presentation (8)'];
+        const componentKeys = ['Integrity', 'Technical', 'Usability', 'Presentation'];
+        const componentColors = ['#007bff', '#28a745', '#ffc107', '#dc3545'];
+        
+        updateDashboard();
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateDashboard);
+        });
+
+        function calculateComponentScores() {
+            const scores = { 'Integrity': { total: 0, passed: 0 }, 'Technical': { total: 0, passed: 0 }, 'Usability': { total: 0, passed: 0 }, 'Presentation': { total: 0, passed: 0 } };
+            
+            tableBody.querySelectorAll('tr').forEach(row => {
+                const component = row.getAttribute('data-component');
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                
+                if (component) { // Ensure row has a component key
+                    scores[component].total++;
+                    if (checkbox && checkbox.checked) {
+                        scores[component].passed++;
+                    }
+                }
+            });
+            
+            // Convert to percentage array for Chart.js
+            return componentKeys.map(key => {
+                const total = scores[key].total;
+                const passed = scores[key].passed;
+                return total > 0 ? (passed / total) * 100 : 0;
+            });
+        }
+
+        function updateDashboard() {
+            let passedCount = 0;
+            
+            tableBody.querySelectorAll('tr').forEach(row => {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                const statusCell = row.querySelector('td:nth-child(4)');
+
+                if (checkbox.checked) {
+                    passedCount++;
+                    statusCell.textContent = 'Pass';
+                    statusCell.className = 'status-cell pass';
+                } else {
+                    statusCell.textContent = 'Pending';
+                    statusCell.className = 'status-cell pending';
+                }
+            });
+
+            const conformityPercentage = ((passedCount / totalClauses) * 100).toFixed(1);
+            scoreElement.textContent = `${conformityPercentage}%`;
+
+            const componentScores = calculateComponentScores();
+            
+            updateConformityChart(passedCount, totalClauses - passedCount);
+            updateComponentChart(componentScores);
+        }
+
+        function updateConformityChart(passed, failed) {
+            const ctx = document.getElementById('conformityChart').getContext('2d');
+            
+            if (conformityChart) {
+                conformityChart.data.datasets[0].data = [passed, failed];
+                conformityChart.update();
+                return;
+            }
+
+            conformityChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Compliant', 'Pending'],
+                    datasets: [{
+                        data: [passed, failed],
+                        backgroundColor: ['#28a745', '#dc3545'],
+                        hoverBackgroundColor: ['#218838', '#c82333']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 10 } },
+                        title: { display: false }
+                    }
+                }
+            });
+        }
+
+        function updateComponentChart(scores) {
+            const ctx = document.getElementById('componentChart').getContext('2d');
+            
+            if (componentChart) {
+                componentChart.data.datasets[0].data = scores;
+                componentChart.update();
+                return;
+            }
+
+            componentChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: componentLabels,
+                    datasets: [{
+                        label: 'Compliance (%)',
+                        data: scores,
+                        backgroundColor: componentColors,
+                        borderColor: componentColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: false
+                            },
+                            ticks: {
+                                callback: function(value) { return value + "%" }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: { size: 10 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: false }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessible Drawing Canvas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #f4f4f9;
+        color: #333;
+    }
+    h1 {
+        color: #007bff;
+        border-bottom: 3px solid #007bff;
+        padding-bottom: 10px;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: #fff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    canvas {
+        border: 1px solid #333;
+        touch-action: none; /* for touch drawing */
+    }
+    .controls {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .controls button {
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+    .note {
+        margin-top: 20px;
+        border-left: 4px solid #007bff;
+        padding-left: 10px;
+        background-color: #d1ecf1;
+        color: #0c5460;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Accessible Drawing Canvas</h1>
+    <p><strong>Instructions:</strong> You can draw on the canvas using mouse or touch, or use the buttons below to draw using the keyboard.</p>
+    
+    <canvas id="drawCanvas" width="600" height="400"></canvas>
+
+    <div class="controls">
+        <button id="pencil">Pencil</button>
+        <button id="eraser">Eraser</button>
+        <button id="up">Up</button>
+        <button id="down">Down</button>
+        <button id="left">Left</button>
+        <button id="right">Right</button>
+        <button id="clear">Clear Canvas</button>
+    </div>
+
+    <p class="note">
+        <strong>Accessibility Justification:</strong> Users who cannot use a mouse or touch can draw on the canvas using keyboard controls. Arrow buttons or arrow keys move a virtual cursor, while the selected tool (Pencil or Eraser) determines the action. This provides a fully keyboard-accessible alternative to traditional mouse/touch drawing.
+    </p>
+</div>
+
+<script>
+const canvas = document.getElementById('drawCanvas');
+const ctx = canvas.getContext('2d');
+let drawing = false;
+let tool = 'pencil';
+
+// For mouse/touch drawing
+canvas.addEventListener('mousedown', e => { drawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY); });
+canvas.addEventListener('mouseup', e => { drawing = false; });
+canvas.addEventListener('mousemove', e => {
+    if(drawing){
+        if(tool === 'pencil'){
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+        } else if(tool === 'eraser'){
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 10;
+        }
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+    }
+});
+canvas.addEventListener('touchstart', e => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    drawing = true;
+    const touch = e.touches[0];
+    ctx.beginPath();
+    ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
+});
+canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if(drawing){
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
+        ctx.strokeStyle = tool === 'pencil' ? 'black' : 'white';
+        ctx.lineWidth = tool === 'pencil' ? 2 : 10;
+        ctx.stroke();
+    }
+});
+canvas.addEventListener('touchend', e => { drawing = false; });
+
+// Keyboard-accessible drawing
+let cursor = { x: 50, y: 50 };
+const step = 5;
+
+function drawCursor() {
+    ctx.fillStyle = tool === 'pencil' ? 'black' : 'white';
+    ctx.fillRect(cursor.x, cursor.y, tool === 'pencil' ? 2 : 10, tool === 'pencil' ? 2 : 10);
+}
+
+document.getElementById('up').addEventListener('click', () => { cursor.y = Math.max(0, cursor.y-step); drawCursor(); });
+document.getElementById('down').addEventListener('click', () => { cursor.y = Math.min(canvas.height, cursor.y+step); drawCursor(); });
+document.getElementById('left').addEventListener('click', () => { cursor.x = Math.max(0, cursor.x-step); drawCursor(); });
+document.getElementById('right').addEventListener('click', () => { cursor.x = Math.min(canvas.width, cursor.x+step); drawCursor(); });
+
+document.getElementById('pencil').addEventListener('click', () => { tool = 'pencil'; });
+document.getElementById('eraser').addEventListener('click', () => { tool = 'eraser'; });
+document.getElementById('clear').addEventListener('click', () => { ctx.clearRect(0,0,canvas.width,canvas.height); cursor={x:50,y:50}; });
+
+document.addEventListener('keydown', e => {
+    switch(e.key){
+        case 'ArrowUp': cursor.y = Math.max(0, cursor.y-step); drawCursor(); break;
+        case 'ArrowDown': cursor.y = Math.min(canvas.height, cursor.y+step); drawCursor(); break;
+        case 'ArrowLeft': cursor.x = Math.max(0, cursor.x-step); drawCursor(); break;
+        case 'ArrowRight': cursor.x = Math.min(canvas.width, cursor.x+step); drawCursor(); break;
+        case 'p': tool='pencil'; break;
+        case 'e': tool='eraser'; break;
+        case 'c': ctx.clearRect(0,0,canvas.width,canvas.height); cursor={x:50,y:50}; break;
+    }
+});
+</script>
+
+</body>
+</html>

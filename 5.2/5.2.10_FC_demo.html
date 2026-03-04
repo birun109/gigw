@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Intentionally restrict scaling (Accessibility Failure) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>GIGW 3.0 - Clause 5.2.10 Failure Demo</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f8d7da;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px; /* Fixed narrow layout (Failure) */
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h1 {
+    color: #dc3545;
+}
+
+.warning {
+    display: none;
+    background: #dc3545;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Block landscape usage */
+@media screen and (orientation: landscape) {
+    .container {
+        display: none;
+    }
+    .warning {
+        display: block;
+    }
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="warning">
+    This form works only in Portrait Mode. Please rotate your device back.
+</div>
+
+<div class="container">
+    <h1>Failure Example – Clause 5.2.10</h1>
+    <p><strong>Training Demonstration Only</strong></p>
+
+    <p>This form is intentionally restricted to portrait orientation.</p>
+
+    <form>
+        <label for="name">Full Name *</label>
+        <input type="text" id="name">
+
+        <label for="email">Email Address *</label>
+        <input type="email" id="email">
+
+        <label for="comments">Comments</label>
+        <textarea id="comments" rows="3"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p style="color:#dc3545; font-size:14px; margin-top:15px;">
+        Accessibility Failure: Landscape mode is blocked and zoom is disabled.
+    </p>
+</div>
+
+</body>
+</html>

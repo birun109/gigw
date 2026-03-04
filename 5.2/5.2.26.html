@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGW 3.0 Statement 5.2.26: Three Flashes or Below Threshold (WCAG 2.3.1)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #8B0000;
+            border-bottom: 3px solid #8B0000;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: #28a745;
+            margin-top: 15px;
+        }
+
+        .failure h3 {
+            color: #dc3545;
+        }
+
+        .success,
+        .failure {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .success {
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+        }
+
+        .failure {
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+        }
+
+        .analysis-table,
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .analysis-table td,
+        .summary-table td,
+        .analysis-table th,
+        .summary-table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .analysis-table th,
+        .summary-table th {
+            background-color: #f2f2f2;
+        }
+
+        .analysis-table td:nth-child(1) {
+            font-weight: bold;
+            width: 25%;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* --- Demo Styles --- */
+        .slow-flash-box,
+        .fast-flash-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            word-break: break-word;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* 1. Compliant Flash (Success) */
+        @keyframes slow-flash {
+
+            0%,
+            50% {
+                background-color: #ddd;
+            }
+
+            50.1%,
+            100% {
+                background-color: #ffc0cb;
+            }
+        }
+
+        .slow-flash-box {
+            width: 150px;
+            min-height: 60px;
+            border: 2px solid #28a745;
+            animation: slow-flash 0.66s step-end infinite alternate;
+            /* 3 flashes per second */
+        }
+
+        /* 2. Non-Compliant Flash (Failure) */
+        @keyframes fast-flash {
+
+            0%,
+            25% {
+                background-color: white;
+            }
+
+            25.1%,
+            50% {
+                background-color: yellow;
+            }
+
+            50.1%,
+            75% {
+                background-color: white;
+            }
+
+            75.1%,
+            100% {
+                background-color: red;
+            }
+        }
+
+        .fast-flash-box {
+            width: 250px;
+            min-height: 120px;
+            border: 2px solid #dc3545;
+            animation: fast-flash 0.5s step-end infinite;
+            font-weight: bold;
+        }
+
+        .note {
+            margin-top: 10px;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="nav-links">
+            <a href="5.2.25.html"><strong>
+                    << Previous</strong> (5.2.25)</a>
+            <a href="5.2_dashboard_all.html">Dashboard</a>
+            <a href="5.2.27.html"><strong>Next >></strong> (5.2.27)</a>
+        </div>
+
+        <h1>GIGW 3.0 Statement 5.2.26: Three Flashes or Below Threshold (WCAG 2.3.1)</h1>
+
+        <h2>Analysis and Requirements</h2>
+
+        <table class="analysis-table">
+
+            <tr>
+                <td>**GIGW Statement**</td>
+                <td>
+                    Web pages do not contain anything that flashes more than three times in any one second period, or
+                    the flash is below the general flash and red flash thresholds.
+                </td>
+            </tr>
+            <tr>
+                <td>**WCAG Reference**</td>
+                <td>**Success Criterion 2.3.1 Three Flashes or Below Threshold**</td>
+            </tr>
+            <tr>
+                <td>**WCAG Level**</td>
+                <td>**Level A**</td>
+            </tr>
+            <tr>
+                <td>**Clause in Short Form**</td>
+                <td><span style="color: #8B0000; font-weight: bold;">No More Than 3 Flashes Per Second</span></td>
+            </tr>
+            <tr>
+                <td>**Goal**</td>
+                <td>To protect users with photosensitive epilepsy from seizure-inducing visual content.</td>
+            </tr>
+            <tr>
+                <td>**Requirement**</td>
+                <td>Content must not flash more than **three times** in any one-second period. If it does, the flashing
+                    area must be small enough or the contrast/color change low enough to stay below the defined **flash
+                    thresholds**.</td>
+            </tr>
+        </table>
+        <!-- demo page include -->
+        <hr style="margin:25px 0;">
+        <div style="text-align:center; margin:20px 0;">
+            <a href="5.2.10_SC_demo.html" target="_blank" style="display:inline-block; padding:10px 20px; margin:5px;
+              background:#28a745; color:#fff; text-decoration:none;
+              border-radius:5px; font-weight:bold;">
+                ✅ Success Example (Demo)
+            </a>
+            <a href="5.2.10_FC_demo.html" target="_blank" style="display:inline-block; padding:10px 20px; margin:5px;
+              background:#dc3545; color:#fff; text-decoration:none;
+              border-radius:5px; font-weight:bold;">
+                ❌ Failure Example (Demo)
+            </a>
+        </div>
+        <hr>
+
+        <h2>Example for Success Criteria ✅</h2>
+
+        <section class="success">
+            <h3>Success Example 1: Compliant Flash Rate</h3>
+            <p><strong>Scenario:</strong> An alert box needs to draw attention to a critical message using a gentle
+                flash.</p>
+
+            <div class="slow-flash-box">
+                Flash (3x/sec)
+            </div>
+
+            <p class="note">**Compliance Justification:** The flashing effect is designed to flash at a rate of exactly
+                **three times per second** (or less). This meets the **Frequency Limit** rule of SC 2.3.1, ensuring the
+                content is safe for users with photosensitive epilepsy. (Note: The CSS animation simulates a step-end
+                change every 0.33 seconds, resulting in three full cycles per second.)</p>
+        </section>
+
+        <section class="success">
+            <h3>Success Example 2: Below Threshold Flash Area (Conceptual)</h3>
+            <p><strong>Scenario:</strong> A large data visualization requires a status indicator that blinks frequently
+                (e.g., 5 times per second).</p>
+
+            <p>The indicator is a single blinking pixel or a small square area that is less than $10\%$ of the screen
+                view or less than $21,800$ square pixels, when viewed at $1024 × 768$ resolution.</p>
+
+            <p class="note">**Compliance Justification:** The content exceeds the frequency limit (more than 3 flashes
+                per second), but it is compliant because the total area of the flashing content is **below the General
+                Flash Threshold**. This is often used for small, non-obtrusive status lights.</p>
+        </section>
+
+        <hr>
+
+        <h2>Example for Failure Criteria ❌</h2>
+
+        <section class="failure">
+            <h3>Failure Example 1: Excessive Flash Rate</h3>
+            <p><strong>Scenario:</strong> A developer creates a warning signal that rapidly blinks between different
+                colors to create urgency.</p>
+
+            <div class="fast-flash-box">
+                DANGER: FLASHING 4x/SECOND
+            </div>
+
+            <p class="note">**Compliance Justification:** The content is flashing **four times per second** or more.
+                This rate exceeds the WCAG limit of three flashes per second and would pose a significant seizure risk,
+                failing the **Frequency Limit** rule of SC 2.3.1. The flashing element is also large, potentially
+                exceeding the General Flash Threshold.</p>
+        </section>
+
+        <section class="failure">
+            <h3>Failure Example 2: Large Red Flash (Exceeds Red Flash Threshold)</h3>
+            <p><strong>Scenario:</strong> An emergency alert occupies more than $10\%$ of the screen and flashes between
+                bright white and primary red, three times per second.</p>
+
+            <p style="border: 2px solid #dc3545; padding: 10px; margin-top: 15px;">
+                **Large Red Alert:** Even though the frequency is compliant (3x/second), the large area of
+                high-intensity red flashing (white to pure red) can still trigger seizures because red is a particularly
+                sensitive color.
+            </p>
+
+            <p class="note">**Compliance Justification:** Flashing involving saturated red is especially hazardous and
+                has a stricter limit (the **Red Flash Threshold**). Even if the frequency is at the maximum allowed (3
+                times per second), if the flashing content is large and involves significant changes in the luminance of
+                saturated red, it can still be non-compliant due to the intensity and area.</p>
+        </section>
+
+        <hr>
+
+        <h2>Summary of Conformity</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>WCAG Reference</th>
+                    <th>WCAG Level</th>
+                    <th>Key Action for Compliance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SC 2.3.1 Three Flashes or Below Threshold</td>
+                    <td>A</td>
+                    <td>**Developer Rule:** **NEVER** exceed a rate of **three full flashes per one-second period** for
+                        any non-trivial element on the screen. If flashing is unavoidable, either keep the rate low or
+                        ensure the flashing element is very small (below the General Flash and Red Flash thresholds).
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>

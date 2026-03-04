@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Failure vs Corrected: Portrait Mode</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #dc3545;
+        border-bottom: 3px solid #dc3545;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        color: #007bff;
+        border-left: 5px solid #007bff;
+        padding-left: 10px;
+        margin-top: 25px;
+    }
+
+    .examples {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .example-box {
+        flex: 1;
+        min-width: 300px;
+        border-radius: 8px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .failure-box {
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+    }
+
+    .success-box {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+    }
+
+    h3 {
+        margin-top: 0;
+    }
+
+    form {
+        margin-top: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .failure-box button {
+        background: #dc3545;
+        color: white;
+    }
+
+    .failure-box button:hover {
+        background: #c82333;
+    }
+
+    .success-box button {
+        background: #28a745;
+        color: white;
+    }
+
+    .success-box button:hover {
+        background: #218838;
+    }
+
+    .note {
+        font-size: 0.95em;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background: #fff3cd;
+        border: 1px solid #ffeeba;
+    }
+
+    pre {
+        background: #eee;
+        padding: 8px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Failure vs Corrected Example: Portrait Mode Restriction</h1>
+    <p>This demonstration shows why forcing a single orientation on mobile forms is a failure and how to correct it.</p>
+
+    <div class="examples">
+        <!-- FAILURE EXAMPLE -->
+        <div class="example-box failure-box">
+            <h3>Failure: Portrait Locked</h3>
+            <p><strong>Scenario:</strong> Form locked to portrait using meta tag:</p>
+            <pre>&lt;meta name="screen-orientation" content="portrait"&gt;</pre>
+
+            <form>
+                <label for="name1">Full Name *</label>
+                <input type="text" id="name1" name="name1">
+
+                <label for="email1">Email Address *</label>
+                <input type="email" id="email1" name="email1">
+
+                <label for="comments1">Comments</label>
+                <textarea id="comments1" name="comments1" rows="3"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <div class="note">
+                <strong>Compliance Issue:</strong> Users cannot rotate to landscape or zoom easily. This prevents accessibility for users with fixed mounts or low vision. Orientation lock is unnecessary.
+            </div>
+        </div>
+
+        <!-- CORRECTED EXAMPLE -->
+        <div class="example-box success-box">
+            <h3>Corrected: Responsive Form</h3>
+            <p><strong>Scenario:</strong> Same form, fully responsive and accessible in any orientation. No orientation meta tag used.</p>
+
+            <form>
+                <label for="name2">Full Name *</label>
+                <input type="text" id="name2" name="name2" aria-required="true">
+
+                <label for="email2">Email Address *</label>
+                <input type="email" id="email2" name="email2" aria-required="true">
+
+                <label for="comments2">Comments</label>
+                <textarea id="comments2" name="comments2" rows="3"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <div class="note">
+                <strong>Compliance:</strong> Users can rotate device freely, zoom, or use screen magnifiers. Form fields are programmatically labeled and fully accessible.
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

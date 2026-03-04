@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Citizen Services Portal - Failure Example</title>
+
+<style>
+
+/* =========================
+FAILURE DESIGN (LOW CONTRAST)
+========================= */
+
+body{
+font-family: "Segoe UI", Arial, sans-serif;
+margin:0;
+background:#ffffff;
+color:#bfbfbf; /* ❌ Light grey text on white */
+}
+
+header{
+background:#9c7979; /* ❌ Very light background */
+color:#d0d0d0;      /* ❌ Low contrast text */
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:#cfcfcf; /* ❌ Low contrast links */
+text-decoration:none;
+margin:0 10px;
+}
+
+.hero{
+background:#4832ee;
+padding:40px;
+text-align:center;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#f9f9f9; /* ❌ Very similar to body */
+padding:25px;
+border-radius:6px;
+margin-bottom:25px;
+}
+
+.status-red{
+background:#ffeeee;
+color:#ffb3b3; /* ❌ Low contrast warning */
+padding:15px;
+border-radius:6px;
+font-weight:bold;
+}
+
+button{
+padding:10px 15px;
+border:none;
+background:#cccccc; /* ❌ Poor contrast */
+color:#eeeeee;      /* ❌ Light text on light button */
+border-radius:4px;
+}
+
+footer{
+background:#eeeeee;
+color:#cfcfcf; /* ❌ Low contrast */
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div>
+<strong>Ministry of Electronics & IT</strong><br>
+National Citizen Services Portal
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Digital Citizen Services</h1>
+<p>Access government information and online services easily.</p>
+
+<button>Apply for Service</button>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+✗ NON-COMPLIANT – Text contrast ratio below WCAG 2.1 minimum (4.5:1)
+</div>
+
+<div class="card">
+
+<h2>Online Public Services</h2>
+
+<!--
+FAILURE JUSTIFICATION:
+
+1. Text color (#bfbfbf) on white background (#ffffff)
+   Contrast ratio ≈ 1.6:1 ❌ (Fails required 4.5:1)
+
+2. Navigation links use very light grey (#cfcfcf)
+   Poor readability for visually impaired users.
+
+3. Button text (#eeeeee) on light grey background (#cccccc)
+   Contrast below 3:1 ❌
+
+4. No high-contrast mode available ❌
+
+5. Footer text insufficient contrast ❌
+-->
+
+<p>
+Citizens can access digital services including certificates, 
+public grievance systems, and welfare scheme registration 
+through this national portal.
+</p>
+
+<p>
+However, the text contrast is insufficient, making the content 
+difficult to read for users with low vision or colour deficiencies.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Failure Summary</h3>
+
+<ul>
+<li>✗ Text contrast ratio below 4.5:1</li>
+<li>✗ Large text contrast below 3:1</li>
+<li>✗ No high contrast mode available</li>
+<li>✗ Buttons lack sufficient foreground/background contrast</li>
+<li>✗ Links not clearly distinguishable</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist (Expected Failure)</h3>
+
+<ul>
+<li>✗ Verify contrast ratio using WCAG contrast checker tool</li>
+<li>✗ Confirm body text fails 4.5:1 requirement</li>
+<li>✗ Confirm button text fails 3:1 requirement</li>
+<li>✗ Validate non-compliance with WCAG 1.4.3</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Ministry of Electronics & Information Technology<br>
+Government of India<br>
+GIGW 3.0 – Clause 5.2.14 – Failure Example (Contrast Not Compliant)
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIGW 3.0 – Clause 5.2.7 Success Examples</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+header{
+    background: #0b5ed7;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main{
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+h2{
+    color: #0b5ed7;
+    margin-top: 40px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+caption{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th{
+    background-color: #e9f2ff;
+}
+
+fieldset{
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #0b5ed7;
+    border-radius: 6px;
+}
+
+legend{
+    font-weight: bold;
+    color: #0b5ed7;
+    padding: 0 10px;
+}
+
+label{
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+footer{
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background: #e9f2ff;
+    font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>GIGW 3.0 – Clause 5.2.7</h1>
+    <p>Success Examples – Structure & Relationships</p>
+</header>
+
+<main>
+
+    <!-- Data Table Example -->
+    <section>
+        <h2>1. Data Tables (Structure and Relationships)</h2>
+
+        <p><strong>Scenario:</strong> Presenting hierarchical data showing annual budget allocation by department.</p>
+
+        <table>
+            <caption>Annual Budget Allocation (in Crores)</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Department</th>
+                    <th scope="col">2024 Allocation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Education</th>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <th scope="row">Health &amp; Family Welfare</th>
+                    <td>850</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Compliance Justification:</strong><br>
+        The use of <code>&lt;th&gt;</code> with <code>scope</code> attributes programmatically establishes relationships between headers and data cells. Screen readers correctly announce row and column context for each data value.
+        </p>
+    </section>
+
+    <!-- Form Group Example -->
+    <section>
+        <h2>2. Form Field Groups (Relationships)</h2>
+
+        <p><strong>Scenario:</strong> Grouping related radio buttons with a common title.</p>
+
+        <form>
+            <fieldset>
+                <legend>Select Preferred Contact Method</legend>
+
+                <label>
+                    <input type="radio" name="contact" value="email">
+                    Email
+                </label>
+
+                <label>
+                    <input type="radio" name="contact" value="phone">
+                    Phone
+                </label>
+
+                <label>
+                    <input type="radio" name="contact" value="sms">
+                    SMS
+                </label>
+
+            </fieldset>
+        </form>
+
+        <p><strong>Compliance Justification:</strong><br>
+        The <code>&lt;fieldset&gt;</code> element groups related controls programmatically, and the <code>&lt;legend&gt;</code> provides accessible context. Screen readers announce the legend before each radio option, ensuring meaningful relationships.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 GIGW 3.0 Accessibility Demonstration – Clause 5.2.7
+</footer>
+
+</body>
+</html>

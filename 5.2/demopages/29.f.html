@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--
+VIOLATION:
+Tabindex used incorrectly causing illogical focus order.
+-->
+
+<title>Government Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #ddd;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+button{
+padding:8px 14px;
+background:#b00020;
+color:white;
+border:none;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#" tabindex="3">Home</a>
+<a href="#" tabindex="4">About</a>
+<a href="#" tabindex="5">Services</a>
+<a href="#" tabindex="6">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search" tabindex="1">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Public Service Portal</h1>
+<p>Government information portal.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ Focus order does not follow logical sequence
+</div>
+
+<div class="card">
+
+<!--
+VIOLATION:
+Search field receives focus before navigation.
+Tabindex breaks logical reading order.
+-->
+
+<h2>Service Application</h2>
+
+<label for="name">Full Name</label><br>
+<input id="name" type="text" tabindex="7"><br><br>
+
+<label for="service">Service Required</label><br>
+<input id="service" type="text" tabindex="2"><br><br>
+
+<button tabindex="8">Submit</button>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+<li>❌ Incorrect tabindex order</li>
+<li>❌ Focus jumps unpredictably</li>
+<li>❌ Keyboard navigation confusing</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+<li>❌ Press Tab through page</li>
+<li>❌ Focus jumps between elements</li>
+<li>❌ Order does not match visual layout</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+</html>

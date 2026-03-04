@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Citizen Data Form – Ministry Portal</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#fafafa;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffdddd;
+color:#a40000;
+text-align:center;
+padding:12px;
+font-weight:bold;
+}
+
+.hero{
+padding:35px;
+text-align:center;
+background:#ffeaea;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+border:1px solid #ddd;
+margin-bottom:25px;
+}
+
+.status{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+label{
+display:block;
+margin-top:12px;
+}
+
+input{
+width:100%;
+padding:10px;
+border:1px solid #aaa;
+}
+
+button{
+margin-top:15px;
+padding:10px 18px;
+background:#b00020;
+color:white;
+border:none;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div>
+<strong>Ministry Portal</strong>
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+<h1>Citizen Information Submission</h1>
+<p>Submit information for government services.</p>
+</section>
+
+<div class="container">
+
+<div class="status">
+❌ Form input purposes cannot be programmatically determined
+</div>
+
+<div class="card">
+
+<h2>Citizen Data Form</h2>
+
+<form>
+
+<!--
+VIOLATION:
+No autocomplete attributes used.
+Assistive technologies cannot determine input purpose.
+-->
+
+<label>Field 1</label>
+<input type="text">
+
+<label>Field 2</label>
+<input type="text">
+
+<label>Field 3</label>
+<input type="text">
+
+<label>Field 4</label>
+<input type="text">
+
+<label>Field 5</label>
+<input type="text">
+
+<button>Submit</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+<li>❌ Missing autocomplete attributes</li>
+<li>❌ Input purposes cannot be programmatically determined</li>
+<li>❌ Assistive technologies cannot interpret field meaning</li>
+<li>❌ Browser autofill cannot assist users</li>
+<li>❌ Violates WCAG 2.1 – 1.3.5 Identify Input Purpose</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+<li>❌ Inspect form fields — no autocomplete attributes</li>
+<li>❌ Accessibility tools cannot identify input purpose</li>
+<li>❌ Browser autofill not triggered</li>
+<li>❌ Semantic meaning missing from inputs</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Ministry Portal – Government Website Demonstration<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #ddd;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+/* BAD TOOLTIP */
+
+.tooltip{
+position:relative;
+display:inline-block;
+}
+
+.tooltip-text{
+position:absolute;
+top:30px;
+left:0;
+background:#555;
+color:white;
+padding:8px;
+display:none;
+}
+
+/* disappears immediately */
+
+.tooltip:hover .tooltip-text{
+display:block;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Public Service Portal</h1>
+<p>Government information portal.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ Hover content disappears immediately and cannot be dismissed
+</div>
+
+<div class="card">
+
+<!--
+VIOLATION:
+Tooltip disappears when pointer moves.
+User cannot hover tooltip.
+No dismiss option available.
+-->
+
+<h2>Scholarship Information</h2>
+
+<div class="tooltip">
+
+<button>View Details</button>
+
+<div class="tooltip-text">
+
+Students can apply for scholarship programs online.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+
+<li>❌ Tooltip disappears instantly</li>
+<li>❌ Cannot hover tooltip content</li>
+<li>❌ No dismiss mechanism</li>
+<li>❌ Violates WCAG 1.4.13 Content on Hover</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+
+<li>❌ Hover tooltip disappears quickly</li>
+<li>❌ Pointer cannot move over tooltip</li>
+<li>❌ No close button</li>
+<li>❌ Accessibility tool flags violation</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+
+</html>

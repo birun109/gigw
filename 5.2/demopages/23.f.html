@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clause 5.2.23 - Failure Example</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
+}
+
+header{
+background:#800000;
+color:white;
+padding:15px 30px;
+}
+
+.banner{
+background:#ffe6e6;
+color:#990000;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #ddd;
+}
+
+.fail{
+background:#ffd6d6;
+color:#990000;
+padding:12px;
+font-weight:bold;
+}
+
+.menu{
+display:none;
+background:#fff3cd;
+padding:15px;
+margin-top:15px;
+border:1px solid #ffcc00;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<strong>Government Data Portal</strong>
+</header>
+
+<div class="banner">
+❌ GIGW 3.0 Clause 5.2.23 – Character Key Shortcut Failure
+</div>
+
+<div class="container">
+
+<div class="fail">
+❌ Global single-key shortcut active with no override
+</div>
+
+<div class="card">
+
+<h2>Global Shortcut</h2>
+
+<p><strong>Press "M"</strong> anywhere on the page to open Main Menu.</p>
+
+<input type="text" placeholder="Type your name here...">
+
+<p><em>Try typing the letter M inside the input field.</em></p>
+
+<div class="menu" id="menu">
+<strong>Main Menu Opened</strong><br>
+Home | Services | Contact | Dashboard
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Why This Fails Clause 5.2.23</h3>
+
+<ul>
+<li>❌ Single character shortcut (“M”)</li>
+<li>❌ Active globally (document-level listener)</li>
+<li>❌ No Turn Off option</li>
+<li>❌ No Remap option</li>
+<li>❌ Not restricted to focus</li>
+<li>❌ Disrupts speech input and typing</li>
+</ul>
+
+</div>
+
+</div>
+
+<script>
+/* FAILURE: Global document listener */
+document.addEventListener("keydown", function(e){
+if(e.key === "m" || e.key === "M"){
+document.getElementById("menu").style.display = "block";
+}
+});
+</script>
+
+</body>
+</html>

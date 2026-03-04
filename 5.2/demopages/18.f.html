@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Service Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+/* Header */
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #eee;
+}
+
+/* LOW CONTRAST UI COMPONENTS */
+
+button{
+background:#dcdcdc;
+color:#e5e5e5;
+border:none;
+padding:10px 18px;
+}
+
+/* nearly invisible input */
+
+input{
+border:1px solid #eeeeee;
+padding:8px;
+}
+
+/* low contrast icon */
+
+.icon{
+width:20px;
+height:20px;
+background:#f0f0f0;
+display:inline-block;
+margin-right:6px;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:10px;
+font-weight:bold;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Public Service Portal</h1>
+<p>Access government services online.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ UI components do not meet 3:1 contrast requirement
+</div>
+
+<div class="card">
+
+<!--
+VIOLATION:
+Buttons and graphical elements have very low contrast.
+Users with low vision cannot identify controls.
+-->
+
+<h2>Service Form</h2>
+
+<label>Citizen Name</label><br>
+<input type="text"><br><br>
+
+<button>
+
+<span class="icon"></span>
+Submit Request
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+
+<li>❌ Buttons lack visible contrast</li>
+<li>❌ Input borders barely visible</li>
+<li>❌ Graphical icons indistinguishable</li>
+<li>❌ Violates WCAG 2.1 – 1.4.11 Non-Text Contrast</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+
+<li>❌ UI controls difficult to identify</li>
+<li>❌ Contrast checker shows ratio below 3:1</li>
+<li>❌ Graphical icons blend into background</li>
+<li>❌ Accessibility tools flag violation</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+
+</html>

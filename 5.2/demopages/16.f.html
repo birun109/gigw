@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Information Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+border:1px solid #ccc;
+padding:20px;
+margin-bottom:20px;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+nav img{
+height:30px;
+margin:0 8px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<!--
+VIOLATION:
+Navigation implemented using images of text instead of real text.
+Screen readers cannot interpret link meaning.
+-->
+
+<nav>
+
+<img src="https://dummyimage.com/80x30/ffffff/000000&text=Home">
+<img src="https://dummyimage.com/80x30/ffffff/000000&text=About">
+<img src="https://dummyimage.com/80x30/ffffff/000000&text=Services">
+<img src="https://dummyimage.com/80x30/ffffff/000000&text=Contact">
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<!--
+VIOLATION:
+Heading implemented as image containing text.
+-->
+
+<img src="https://dummyimage.com/500x80/cccccc/000000&text=Government+Citizen+Services">
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+
+❌ Text information presented using images
+
+</div>
+
+<div class="card">
+
+<p>
+
+This portal displays textual information using images
+instead of actual HTML text. Users relying on screen
+readers or text-only browsers cannot access the
+information effectively.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+
+<li>❌ Navigation implemented as images of text</li>
+<li>❌ Page heading displayed as image</li>
+<li>❌ Screen readers cannot interpret image text</li>
+<li>❌ Violates WCAG 2.1 – 1.4.5 Images of Text</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+
+<li>❌ Inspect navigation – uses images instead of text</li>
+<li>❌ Heading implemented as image</li>
+<li>❌ Text cannot be selected or copied</li>
+<li>❌ Accessibility tools flag violation</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+
+</html>

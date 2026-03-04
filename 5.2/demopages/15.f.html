@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Information Portal</title>
+
+<style>
+
+/* FIXED LAYOUT (NON-COMPLIANT) */
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+font-size:14px; /* fixed size */
+}
+
+/* Fixed width container */
+
+.container{
+width:900px;
+margin:auto;
+padding:20px;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:30px;
+text-align:center;
+}
+
+.card{
+background:#fafafa;
+border:1px solid #ccc;
+padding:20px;
+margin-bottom:20px;
+height:120px; /* fixed height causing clipping */
+overflow:hidden;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:10px;
+font-weight:bold;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+
+⚠ NON-COMPLIANT WITH GIGW 3.0
+
+</div>
+
+<section class="hero">
+
+<h1>Public Service Information</h1>
+
+<p>Important government announcements and services.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+
+❌ Text resizing breaks layout
+
+</div>
+
+<div class="card">
+
+<!--
+VIOLATION:
+Fixed font size in px
+Fixed container width
+Fixed height container causes text clipping
+When zoomed to 200%, content becomes hidden.
+-->
+
+<h2>Government Information</h2>
+
+<p>
+
+This government portal provides citizens with public
+information regarding welfare programs and services.
+However the design prevents proper text scaling.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+
+<li>❌ Fixed pixel font sizes</li>
+<li>❌ Fixed container width</li>
+<li>❌ Content clipped when zoomed</li>
+<li>❌ Layout breaks at 200% zoom</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+
+<li>❌ Zoom browser to 200%</li>
+<li>❌ Content overlaps or disappears</li>
+<li>❌ Layout does not adapt</li>
+<li>❌ Violates WCAG 1.4.4 Resize Text</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+
+</html>

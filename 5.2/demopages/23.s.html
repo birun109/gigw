@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clause 5.2.23 - Remap Success Example</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #003366;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .banner {
+            background: #e6f2ff;
+            color: #003366;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .success {
+            background: #e6ffe6;
+            color: #006600;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .panel {
+            display: none;
+            background: #f0f8ff;
+            padding: 15px;
+            margin-top: 15px;
+            border: 1px solid #0077cc;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <strong>Government Dashboard</strong>
+        <div>User Settings Panel</div>
+    </header>
+
+    <div class="banner">
+        ✅ GIGW 3.0 Clause 5.2.23 – Character Key Shortcut (Remap Provided)
+    </div>
+
+    <div class="container">
+
+        <div class="success">
+            ✔ User can remap single-character shortcut to include modifier key
+        </div>
+
+        <div class="card">
+
+            <h2>Global Shortcut</h2>
+
+            <p><strong>Default Shortcut:</strong> Press <b>C</b> to open Client History</p>
+
+            <label for="shortcutSelect"><strong>Remap Shortcut:</strong></label>
+            <select id="shortcutSelect">
+                <option value="single">C (Single Key)</option>
+                <option value="ctrl">Ctrl + C</option>
+                <option value="alt">Alt + C</option>
+            </select>
+
+            <p><em>Changing this prevents accidental activation.</em></p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Client History Panel</h2>
+
+            <p>Try pressing the configured shortcut.</p>
+
+            <div class="panel" id="clientPanel">
+                <strong>Client History Opened</strong><br>
+                Previous service interactions are displayed here.
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>How This Meets Clause 5.2.23</h3>
+
+            <ul>
+                <li>✔ Provides a Remap option</li>
+                <li>✔ Allows addition of Ctrl or Alt modifier</li>
+                <li>✔ Prevents accidental speech-triggered activation</li>
+                <li>✔ User-controlled setting</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script>
+        let shortcutMode = "single";
+
+        document.getElementById("shortcutSelect").addEventListener("change", function () {
+            shortcutMode = this.value;
+        });
+
+        document.addEventListener("keydown", function (e) {
+
+            if (shortcutMode === "single") {
+                if (e.key === "c" || e.key === "C") {
+                    openPanel();
+                }
+            }
+
+            if (shortcutMode === "ctrl") {
+                if ((e.key === "c" || e.key === "C") && e.ctrlKey) {
+                    openPanel();
+                }
+            }
+
+            if (shortcutMode === "alt") {
+                if ((e.key === "c" || e.key === "C") && e.altKey) {
+                    openPanel();
+                }
+            }
+
+        });
+
+        function openPanel() {
+            document.getElementById("clientPanel").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>

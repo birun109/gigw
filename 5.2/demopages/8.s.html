@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIGW 3.0 – Clause 5.2.8 Success Examples</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+header{
+    background: #198754;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main{
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+h2{
+    color: #198754;
+    margin-top: 40px;
+}
+
+ol{
+    margin-top: 15px;
+}
+
+.faq{
+    margin-top: 20px;
+}
+
+.question{
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.answer{
+    margin-left: 15px;
+}
+
+footer{
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background: #e6f4ea;
+    font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>GIGW 3.0 – Clause 5.2.8</h1>
+    <p>Success Examples – Meaningful Sequence (Logical Reading Order) ✅</p>
+</header>
+
+<main>
+
+    <!-- Success Example 1 -->
+    <section>
+        <h2>Success Example 1: Procedural Steps (Logical Order in Source)</h2>
+
+        <p><strong>Scenario:</strong> Instructions for a multi-step registration process.</p>
+
+        <ol>
+            <li>Fill out the personal details form.</li>
+            <li>Verify your email address via the link sent.</li>
+            <li>Submit payment to complete registration.</li>
+        </ol>
+
+        <p><strong>Compliance Justification:</strong><br>
+        The use of the <code>&lt;ol&gt;</code> (Ordered List) element and the correct source code order ensures that assistive technologies read the steps in the required logical sequence (1, 2, 3). Since the order affects meaning, maintaining the correct structure preserves procedural clarity.
+        </p>
+    </section>
+
+    <!-- Success Example 2 -->
+    <section>
+        <h2>Success Example 2: Conversation / Dialogue (FAQ)</h2>
+
+        <p><strong>Scenario:</strong> A short FAQ section where a question is immediately followed by its answer.</p>
+
+        <div class="faq">
+            <div class="question">Question: How do I track my application status?</div>
+            <div class="answer">Answer: Use your tracking ID on the 'Track Status' page.</div>
+
+            <div class="question">Question: What documents are required?</div>
+            <div class="answer">Answer: Aadhar card and PAN card are required.</div>
+        </div>
+
+        <p><strong>Compliance Justification:</strong><br>
+        The natural order of the content in the HTML source places each answer directly after its corresponding question. This ensures that screen reader users hear the context before the information, preserving meaning and logical flow.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 GIGW 3.0 Accessibility Demonstration – Clause 5.2.8 Success Examples
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Citizen Complaint Form</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#fafafa;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+border:1px solid #ddd;
+margin-bottom:25px;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:15px;
+font-weight:bold;
+}
+
+label{
+display:block;
+margin-top:15px;
+}
+
+/* VIOLATION: required fields only indicated with red color */
+
+.required{
+color:red;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+border:1px solid #aaa;
+}
+
+button{
+margin-top:20px;
+padding:10px 18px;
+background:#b00020;
+color:white;
+border:none;
+}
+
+.error{
+color:red;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+<script>
+
+function submitForm(){
+
+document.getElementById("error").innerHTML="Error";
+
+return false;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Ministry Portal</strong>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Complaint Submission</h1>
+<p>Submit your complaint to the department.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ Information conveyed using colour only
+</div>
+
+<div class="card">
+
+<h2>Complaint Form</h2>
+
+<form onsubmit="return submitForm()">
+
+<!--
+VIOLATION:
+Required fields only shown in red colour.
+No text explanation or symbols.
+Users with colour blindness cannot identify required fields.
+-->
+
+<label class="required">Full Name</label>
+<input type="text">
+
+<label>Email Address</label>
+<input type="email">
+
+<label class="required">Complaint Details</label>
+<textarea></textarea>
+
+<div id="error" class="error"></div>
+
+<button>Submit</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+<li>❌ Required fields indicated only with red colour</li>
+<li>❌ No text or symbol indicating requirement</li>
+<li>❌ Error message only coloured red</li>
+<li>❌ Users with colour blindness cannot distinguish information</li>
+<li>❌ Violates WCAG 2.1 – 1.4.1 Use of Colour</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+<li>❌ Required fields not identifiable without colour</li>
+<li>❌ No redundant visual indicators</li>
+<li>❌ Error messages rely on colour only</li>
+<li>❌ Accessibility tools flag WCAG 1.4.1 violation</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Ministry Portal – Accessibility Demonstration<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+</html>

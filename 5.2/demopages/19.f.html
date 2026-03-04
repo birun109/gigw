@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Service Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+/* Header */
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+padding:20px;
+margin-bottom:20px;
+
+/* VIOLATION */
+height:120px;
+overflow:hidden;
+
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+.article-text{
+line-height:1.2;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+<script>
+
+/* Increase spacing causing break */
+
+function increaseSpacing(){
+
+document.querySelector(".article-text").style.lineHeight="1.8";
+document.querySelector(".article-text").style.letterSpacing="0.12em";
+document.querySelector(".article-text").style.wordSpacing="0.16em";
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Public Service Information</h1>
+<p>Government services portal.</p>
+
+<button onclick="increaseSpacing()">Increase Text Spacing</button>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ Text spacing causes loss of content
+</div>
+
+<div class="card">
+
+<!--
+VIOLATION:
+Fixed container height clips text
+when spacing increases.
+-->
+
+<h2>Government Services</h2>
+
+<p class="article-text">
+
+Citizens can access multiple government services
+including certificates, welfare schemes and
+online grievance registration through the portal. Citizens can access multiple government services
+including certificates, welfare schemes and
+online grievance registration through the portal.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+
+<li>❌ Fixed height containers</li>
+<li>❌ Overflow hidden clips content</li>
+<li>❌ Increased spacing hides text</li>
+<li>❌ Violates WCAG 1.4.12 Text Spacing</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+
+<li>❌ Increase line spacing to 1.5</li>
+<li>❌ Increase letter spacing</li>
+<li>❌ Content becomes hidden</li>
+<li>❌ Layout breaks</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Services Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+/* Fixed layout */
+
+.container{
+width:1200px;
+margin:auto;
+padding:20px;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+table{
+width:1000px;
+border-collapse:collapse;
+}
+
+td{
+border:1px solid #ccc;
+padding:20px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Government Services</h1>
+
+<p>Access important government services.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ Layout requires horizontal scrolling on small screens
+</div>
+
+<!--
+VIOLATION:
+Fixed width container and table layout
+forces horizontal scrolling at 320px.
+-->
+
+<table>
+
+<tr>
+
+<td>
+
+<h3>Birth Certificate</h3>
+
+<p>Apply for official birth registration.</p>
+
+</td>
+
+<td>
+
+<h3>Public Grievances</h3>
+
+<p>Submit service complaints online.</p>
+
+</td>
+
+<td>
+
+<h3>Scholarship Portal</h3>
+
+<p>Access national scholarship schemes.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<div style="margin-top:30px;">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+
+<li>❌ Fixed layout width</li>
+<li>❌ Table-based design prevents reflow</li>
+<li>❌ Horizontal scrolling required at 320px</li>
+<li>❌ Violates WCAG 2.1 – 1.4.10 Reflow</li>
+
+</ul>
+
+</div>
+
+<div style="margin-top:30px;">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+
+<li>❌ Resize browser to 320px width</li>
+<li>❌ Horizontal scroll bar appears</li>
+<li>❌ Content does not reflow vertically</li>
+<li>❌ Mobile usability fails</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+
+</html>

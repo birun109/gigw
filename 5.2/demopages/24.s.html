@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Citizen Service Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #0b5cab;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero {
+            background: #e9f1fb;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .status-green {
+            background: #e6f7ea;
+            color: #1b7f3a;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .timer {
+            font-weight: bold;
+            color: #0b5cab;
+            font-size: 18px;
+        }
+
+        .warning {
+            background: #fff4e5;
+            border-left: 4px solid orange;
+            padding: 10px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        button {
+            padding: 8px 14px;
+            margin-top: 10px;
+            background: #0b5cab;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #0b5cab;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+
+    <script>
+
+        let time = 30;  // ✅ Correct initial time
+        let interval;
+
+        function updateTimer() {
+            document.getElementById("timer").innerText = time;
+        }
+
+        function startTimer() {
+
+            updateTimer();
+
+            interval = setInterval(function () {
+
+                time--;
+                updateTimer();
+
+                /* Show warning at 20 seconds */
+                if (time === 15) {
+                    document.getElementById("warning").style.display = "block";
+                }
+
+                /* Expire session */
+                if (time <= 0) {
+                    clearInterval(interval);
+                    alert("Session expired.");
+                }
+
+            }, 1000);
+
+        }
+
+        function extendTime() {
+
+            time += 30;  // ✅ Add 60 seconds
+            updateTimer();
+            document.getElementById("warning").style.display = "none";
+
+        }
+
+        window.onload = startTimer;
+
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <strong>Ministry of Electronics & IT</strong>
+    </header>
+
+    <section class="hero">
+        <h1>Online Service Form</h1>
+        <p>Fill the form to request government services.</p>
+    </section>
+
+    <div class="container">
+
+        <div class="status-green">
+            ✓ COMPLIANT – User warned before expiry and allowed to extend time
+        </div>
+
+        <div class="card">
+
+            <h2>Citizen Service Request</h2>
+
+            <p>Time remaining: <span id="timer" class="timer">60</span> seconds</p>
+
+            <div id="warning" class="warning">
+
+                Your session will expire soon.<br>
+                Press the button below to extend the time.
+
+                <br>
+
+                <button onclick="extendTime()">Extend Time</button>
+
+            </div>
+
+            <label>Name</label><br>
+            <input type="text"><br><br>
+
+            <label>Service Required</label><br>
+            <input type="text">
+
+        </div>
+
+    </div>
+
+    <footer>
+        GIGW 3.0 – Clause 5.2.24 (Extend Mechanism Demonstration)
+    </footer>
+
+</body>
+
+</html>

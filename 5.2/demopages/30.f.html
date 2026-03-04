@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--
+VIOLATION:
+Links use vague text like "Click here".
+Purpose of link cannot be determined.
+-->
+
+<title>Government Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #ddd;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+.card a{
+display:block;
+margin:8px 0;
+color:#b00020;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Public Service Portal</h1>
+<p>Government information portal.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ Link purpose cannot be determined from link text
+</div>
+
+<div class="card">
+
+<!--
+VIOLATION:
+Link text does not describe destination.
+-->
+
+<h2>Government Documents</h2>
+
+<a href="#">Click here</a>
+
+<a href="#">More</a>
+
+<a href="#">Read</a>
+
+<a href="#">Details</a>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+<li>❌ Vague link text</li>
+<li>❌ Users cannot determine destination</li>
+<li>❌ Screen reader link lists become unusable</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+<li>❌ Inspect link text</li>
+<li>❌ Link destination unclear</li>
+<li>❌ Purpose cannot be determined</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+</html>

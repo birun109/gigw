@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Service Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#fafafa;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+padding:12px;
+text-align:center;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+border:1px solid #ddd;
+margin-bottom:25px;
+}
+
+.status{
+background:#ffe0e0;
+color:#a40000;
+padding:15px;
+font-weight:bold;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Service Portal</strong>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h1>Government Announcements</h1>
+<p>Important public announcements are played automatically.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status">
+❌ Audio plays automatically without control
+</div>
+
+<div class="card">
+
+<h2>Announcement Audio</h2>
+
+<!--
+VIOLATION:
+Audio autoplay for more than 3 seconds.
+No pause, stop or volume control provided.
+Users cannot disable background sound.
+-->
+
+<audio autoplay loop>
+<source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+</audio>
+
+<p>Audio announcement automatically plays when page loads.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+<li>❌ Audio autoplay without pause control</li>
+<li>❌ No stop mechanism available</li>
+<li>❌ No independent volume control</li>
+<li>❌ Screen reader users cannot hear speech clearly</li>
+<li>❌ Violates WCAG 2.1 – 1.4.2 Audio Control</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+<li>❌ Audio begins automatically on page load</li>
+<li>❌ No visible audio control interface</li>
+<li>❌ Audio continues indefinitely</li>
+<li>❌ Accessibility testing flags violation</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Portal Accessibility Demonstration<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+</html>

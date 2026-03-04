@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--
+VIOLATION:
+Headings do not describe content.
+Labels unclear.
+-->
+
+<title>Government Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.hero{
+background:#ffecec;
+padding:35px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #ddd;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+input{
+padding:6px;
+margin-top:5px;
+width:100%;
+}
+
+button{
+margin-top:10px;
+padding:8px 14px;
+background:#b00020;
+color:white;
+border:none;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<input type="text" placeholder="Search">
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT WITH GIGW 3.0
+</div>
+
+<section class="hero">
+
+<h2>Section</h2>
+
+<p>Information about services.</p>
+
+</section>
+
+<div class="container">
+
+<div class="status-red">
+❌ Headings and labels do not describe purpose
+</div>
+
+<div class="card">
+
+<!--
+VIOLATION:
+Headings vague.
+Labels unclear.
+-->
+
+<h3>Details</h3>
+
+<label>Field</label>
+<input type="text">
+
+<label>Info</label>
+<input type="text">
+
+<label>Data</label>
+<input type="text">
+
+<button>Submit</button>
+
+</div>
+
+<div class="card">
+
+<h3>Accessibility Violations</h3>
+
+<ul>
+<li>❌ Generic headings like “Section”</li>
+<li>❌ Labels do not describe inputs</li>
+<li>❌ No meaningful hierarchy</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Evaluator Checklist – Expected Failures</h3>
+
+<ul>
+<li>❌ Inspect headings</li>
+<li>❌ Headings do not describe topic</li>
+<li>❌ Labels unclear</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Government Accessibility Demonstration Portal<br>
+For training and demonstration purposes only
+
+</footer>
+
+</body>
+</html>

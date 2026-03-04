@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clause 5.2.21 - Failure Example</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f5f5f5;
+}
+
+header{
+background:#800000;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffe6e6;
+color:#990000;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #ddd;
+}
+
+.fail{
+background:#ffd6d6;
+color:#990000;
+padding:12px;
+font-weight:bold;
+}
+
+/* Custom Fake Button */
+.fake-btn{
+background:#004080;
+color:white;
+padding:10px 18px;
+display:inline-block;
+cursor:pointer;
+margin-top:10px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+</style>
+
+<script>
+function customAction(){
+alert("Action triggered!");
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<strong>Government Accessibility Portal</strong>
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<div class="banner">
+❌ GIGW 3.0 Clause 5.2.21 – Keyboard Accessibility Failure
+</div>
+
+<div class="container">
+
+<div class="fail">
+❌ Custom control is NOT keyboard accessible
+</div>
+
+<div class="card">
+
+<h2>Custom Div Button (FAIL)</h2>
+
+<!-- FAILURE: Not focusable, no keyboard support -->
+<div class="fake-btn" onclick="customAction()">
+Custom Div Button (FAIL)
+</div>
+
+<p><strong>Test Instructions:</strong></p>
+<ul>
+<li>Press <b>Tab</b> → Focus will skip this element.</li>
+<li>Try <b>Enter</b> → Nothing happens.</li>
+<li>Try <b>Spacebar</b> → Nothing happens.</li>
+<li>Mouse click works → Keyboard does NOT.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Why This Fails Clause 5.2.21</h3>
+
+<ul>
+<li>❌ Not reachable via keyboard</li>
+<li>❌ No tabindex="0"</li>
+<li>❌ No keydown handler for Enter/Space</li>
+<li>❌ Uses non-semantic element instead of &lt;button&gt;</li>
+<li>❌ Violates keyboard operability requirement</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>How to Fix (Concept Only)</h3>
+
+<ul>
+<li>Add <code>tabindex="0"</code></li>
+<li>Add <code>role="button"</code></li>
+<li>Add keydown handler for Enter and Space</li>
+<li>OR simply use a native &lt;button&gt; element (recommended)</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+Accessibility Demonstration Portal – Failure Case Example
+</footer>
+
+</body>
+</html>

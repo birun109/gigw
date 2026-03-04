@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Portal - Keyboard Trap Failure</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:white;
+}
+
+header{
+background:#b00020;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.banner{
+background:#ffd6d6;
+color:#a40000;
+padding:10px;
+text-align:center;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#fafafa;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #ddd;
+}
+
+.status-red{
+background:#ffe0e0;
+color:#a40000;
+padding:12px;
+font-weight:bold;
+}
+
+/* Trap Modal */
+
+.modal{
+display:none;
+position:fixed;
+top:30%;
+left:50%;
+transform:translate(-50%, -30%);
+background:white;
+padding:20px;
+border:3px solid #b00020;
+width:300px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+<script>
+
+function openModal(){
+let modal = document.getElementById("modal");
+modal.style.display="block";
+
+/* Force focus into modal */
+document.getElementById("firstInput").focus();
+
+/* Trap keyboard inside modal */
+modal.addEventListener("keydown", function(e){
+
+if(e.key === "Tab"){
+e.preventDefault();   // ❌ Prevent leaving modal
+}
+
+if(e.key === "Escape"){
+e.preventDefault();   // ❌ ESC disabled
+}
+
+});
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<strong>Government Portal</strong>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<div class="banner">
+⚠ NON-COMPLIANT – KEYBOARD TRAP PRESENT
+</div>
+
+<div class="container">
+
+<div class="status-red">
+❌ Violates WCAG 2.1.2 – No Keyboard Trap
+</div>
+
+<div class="card">
+
+<h2>Service Modal (Keyboard Trap)</h2>
+
+<button onclick="openModal()">Open Service Info</button>
+
+<div class="modal" id="modal">
+
+<h3>Scholarship Services</h3>
+
+<p>Students can apply for scholarship schemes online.</p>
+
+<input type="text" id="firstInput" placeholder="Enter Name">
+
+<button>Submit</button>
+<button>Close</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Failure Explanation</h3>
+
+<ul>
+<li>❌ Focus automatically forced inside modal</li>
+<li>❌ Tab key disabled – cannot move focus outside</li>
+<li>❌ Escape key disabled</li>
+<li>❌ No keyboard method to exit modal</li>
+<li>❌ Mouse required to close</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+Accessibility Demonstration Portal – Keyboard Trap Failure Example
+
+</footer>
+
+</body>
+</html>
